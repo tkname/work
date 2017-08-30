@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="haorooms"> <em></em></div>
+<style>
+.haorooms{
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  -webkit-animation: clockwise 1.5s linear infinite;
+   animation: clockwise 1.5s linear  infinite ;
+  transform-origin: 80px 80px;
+}
+
+.haorooms em {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: red;
+    color:fff;
+    -webkit-animation: counter-clockwise 1.5s linear infinite;
+     animation: counter-clockwise 1.5s linear  infinite ;
+}
+
+@-webkit-keyframes clockwise{
+  0%  { -webkit-transform: rotate(30deg) ;  }
+  100%{ -webkit-transform: rotate(0deg); }
+}
+
+@keyframes clockwise {
+  0%  { transform: rotate(30deg) ; }
+  100%{ transform: rotate(0deg); }
+}
+
+@-webkit-keyframes counter-clockwise {
+  0%  { -webkit-transform: rotate(0deg) ;  }
+  100%{ -webkit-transform: rotate(30deg); }
+}
+
+@keyframes counter-clockwise {
+  0%  { transform: rotate(0deg) ;  }
+  100%{ transform: rotate(30deg); }
+}
+</style>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<div class="haorooms-dot "></div>
+<style>
+    .haorooms-dot {
+        width:20px;
+        height:20px;
+      -webkit-animation: xAxis 2.5s infinite ease-in;;
+      animation: xAxis 2.5s infinite ease-in;
+        position:relative;
+        top: 200px;
+        left: 100px;
+
+    }
+
+    .haorooms-dot::after {
+      content: 'haorooms';
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      background-color: #fff;
+      -webkit-animation: yAxis 2.5s infinite ease-out;
+      animation: yAxis 2.5s infinite ease-out;
+        position:absolute;
+    }
+
+    @-webkit-keyframes yAxis {
+      50% {
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+        -webkit-transform: translateY(-150px);
+        transform: translateY(-150px);
+      }
+    }
+
+    @keyframes yAxis {
+      50% {
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function:ease-out;
+        -webkit-transform: translateY(-150px);
+        transform: translateY(-150px);
+      }
+    }
+
+    @-webkit-keyframes xAxis {
+      50% {
+        -webkit-animation-timing-function:ease-in;
+        animation-timing-function: ease-in;
+        -webkit-transform: translateX(150px);
+        transform: translateX(150px);
+      }
+    }
+
+    @keyframes xAxis {
+      50% {
+        -webkit-animation-timing-function:ease-in;
+        animation-timing-function: ease-in;
+        -webkit-transform: translateX(150px);
+        transform: translateX(150px);
+      }
+    }
+</style>
+</body>
+</html>
