@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AlloyFinger</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <style>
+        .ribbon {
+            top: 3.2em;
+            right: -4.7em;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            color:#fff;
+            display: block;
+            padding: .6em 3.5em;
+            position: fixed;
+            text-align: center;
+            text-decoration: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: green;
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body id="body">
+    <a href="https://github.com/AlloyTeam/AlloyFinger" class="ribbon">Fork me on Github</a>
+    <script src="js/transform.js"></script>
+    <script src="js/alloy_finger.js"></script>
+    <script src="js/image_loaded.js"></script>
+    <script src="js/to.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+
+
+        <div id="imgBox" style="position:fixed;width: 100%;height: 100%;left:0;top:0;
+         background:black;display: block;">
+            
+            <!-- <img src="picture/cover.jpg" id="testImg"  alt="" style="width: 100%;position: absolute; " /> -->
+        <div style="font-size:20px; color:#fff;position: absolute;top:10px;left:100px" id="testImg" class="test">A</div>
+        <div style="font-size:20px; color:#fff;position: absolute;top:30px;left:100px" id="testImg1" class="test">B</div>
+        <div style="font-size:20px; color:#fff;position: absolute;top:50px;left:100px" id="testImg2" class="test">C</div>
+        <div style="font-size:20px; color:#fff;position: absolute;top:70px;left:100px" id="testImg3" class="test">D</div>
+
+        <!-- 4545456 -->
+
+        <div class="btn" style="position: absolute;width:100px;height100px;bottom:0;left:20%; background:#fff;text-align: center;">提交</div>
+
+    </div>
+
+    <script>
+        // var topPx;
+        // imageLoaded("#testImg",function(w,h){
+        //     document.querySelector("#imgBox").style.display="block";
+        //     topPx=window.innerHeight/2-(h*window.innerWidth/w)/2;
+        //     this.style.top=topPx+"px";
+        // });
+
+
+        function ease(x) {
+            return Math.sqrt(1 - Math.pow(x - 1, 2));
+        }
+
+        var el = document.getElementById("testImg");
+        var body = document.getElementById("body");
+
+        $(".test").click(function(){
+           var e=$(this).attr("id");
+           console.log(e);
+           el=document.getElementById(e);
+           Transform(el);
+
+        });
+
+
+        Transform(el);
+        var initScale = 1;
+        new AlloyFinger(body, {
+            multipointStart: function () {
+                To.stopAll();
+                initScale = el.scaleX;
+                console.log(el);
+
+            },
+            // rotate: function (evt) {
+            //     el.rotateZ += evt.angle;
+            // },
+            pinch: function (evt) {
+                el.scaleX = el.scaleY = initScale * evt.scale;
+                console.log(el);
+                // alert(evt.scale);
+            },
+            multipointEnd: function () {
+                console.log(el);
+
+                To.stopAll();
+                // if (el.scaleX < 1) {
+
+                //     new To(el, "scaleX", 1, 500, ease);
+                //     new To(el, "scaleY", 1, 500, ease);
+                // }
+                // if (el.scaleX > 2) {
+
+                //     new To(el, "scaleX", 2, 500, ease);
+                //     new To(el, "scaleY", 2, 500, ease);
+                // }
+                // var rotation = el.rotateZ % 360;
+
+                // if (rotation < 0)rotation = 360 + rotation;
+                // el.rotateZ=rotation;
+
+                // if (rotation > 0 && rotation < 45) {
+                //     new To(el, "rotateZ", 0, 500, ease);
+                // } else if (rotation >= 315) {
+                //     new To(el, "rotateZ", 360, 500, ease);
+                // } else if (rotation >= 45 && rotation < 135) {
+                //     new To(el, "rotateZ", 90, 500, ease);
+                // } else if (rotation >= 135 && rotation < 225) {
+                //     new To(el, "rotateZ", 180, 500, ease);
+                // } else if (rotation >= 225 && rotation < 315) {
+                //     new To(el, "rotateZ", 270, 500, ease);
+                // }
+            },
+            pressMove: function (evt) {
+                el.translateX += evt.deltaX;
+                el.translateY += evt.deltaY;
+                evt.preventDefault();
+            },
+            tap: function (evt) {
+                //console.log(el.scaleX + "_" + el.scaleY + "_" + el.rotateZ + "_" + el.translateX + "_" + el.translateY);
+                //console.log("tap");
+            },
+            doubleTap: function (evt) {
+                To.stopAll();
+                if (el.scaleX > 1.5) {
+
+                    new To(el, "scaleX", 1, 500, ease);
+                    new To(el, "scaleY", 1, 500, ease);
+                    new To(el, "translateX", 0, 500, ease);
+                    new To(el, "translateY", 0, 500, ease);
+                } else {
+                    var box = el.getBoundingClientRect();
+                    var y = box.height - (( evt.changedTouches[0].pageY - topPx) * 2) - (box.height / 2 - ( evt.changedTouches[0].pageY - topPx));
+
+                    var x = box.width - (( evt.changedTouches[0].pageX) * 2) - (box.width / 2 - ( evt.changedTouches[0].pageX));
+                    new To(el, "scaleX", 2, 500, ease);
+                    new To(el, "scaleY", 2, 500, ease);
+                    new To(el, "translateX", x, 500, ease);
+                    new To(el, "translateY", y, 500, ease);
+                }
+                //console.log("doubleTap");
+            },
+            longTap: function (evt) {
+                //console.log("longTap");
+            },
+            swipe: function (evt) {
+                //console.log("swipe" + evt.direction);
+            }
+
+        });
+
+        $(".btn").on("click", function(event) {  
+                event.preventDefault();  
+                html2canvas(document.body, {  
+                allowTaint: true,  
+                taintTest: false,  
+                onrendered: function(canvas) {  
+                    canvas.id = "mycanvas";  
+                    //document.body.appendChild(canvas);  
+                    //生成base64图片数据  
+                    var dataUrl = canvas.toDataURL();  
+                    var newImg = document.createElement("img");  
+                    newImg.src =  dataUrl;  
+                    document.body.appendChild(newImg);
+                    console.log(dataUrl);  
+                }  
+            });  
+        });    
+    </script>
+</body>
+</html>
