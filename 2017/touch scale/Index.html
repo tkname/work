@@ -41,11 +41,11 @@
          background:black;display: block;">
             
             <!-- <img src="picture/cover.jpg" id="testImg"  alt="" style="width: 100%;position: absolute; " /> -->
-        <div style="font-size:20px; color:#fff;position: absolute;top:10px;left:100px" id="testImg" class="test">A</div>
-        <div style="font-size:20px; color:#fff;position: absolute;top:30px;left:100px" id="testImg1" class="test">B</div>
-        <div style="font-size:20px; color:#fff;position: absolute;top:50px;left:100px" id="testImg2" class="test">C</div>
-        <div style="font-size:20px; color:#fff;position: absolute;top:70px;left:100px" id="testImg3" class="test">D</div>
-
+        <div style="font-size:100px; color:#fff;position: absolute;top:10px;left:100px" id="testImg" class="test">A</div>
+<!--         <div style="font-size:50px; color:#fff;position: absolute;top:30px;left:100px" id="testImg1" class="test">B</div>
+        <div style="font-size:50px; color:#fff;position: absolute;top:50px;left:100px" id="testImg2" class="test">C</div>
+        <div style="font-size:60px; color:#fff;position: absolute;top:70px;left:100px" id="testImg3" class="test">D</div>
+ -->
         <!-- 4545456 -->
 
         <div class="btn" style="position: absolute;width:100px;height100px;bottom:0;left:20%; background:#fff;text-align: center;">提交</div>
@@ -79,7 +79,7 @@
 
         Transform(el);
         var initScale = 1;
-        new AlloyFinger(body, {
+        new AlloyFinger(el, {
             multipointStart: function () {
                 To.stopAll();
                 initScale = el.scaleX;

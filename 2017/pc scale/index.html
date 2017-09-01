@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+		
+		<img src="image/bg.png" id="bg1" style="display:none;">
+		<img src="image/bg1.png" id="bg2" style="display:none;">
+
+	  <canvas id="c1" width="375px" height="667px;"></canvas>
+
+	  <div class="bj-btn">
+			<button class="bj1">背景1</button>
+			<button class="bj2">背景2</button>
+			<button class="bj3">背景3</button>
+	  </div>
+
+	  <div class="font-btn">
+	  		<button class="btA">A</button>
+	  		<button class="btB">B</button>
+	  		<button class="btC">C</button>
+	  		<button class="btD">D</button>
+	  </div>
+		<button class="remove">删除</button>
+		<button class="save">保存为图片</button>
+
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/fabric.min.js"></script>
+	<script type="text/javascript">
+		var selectedControl,
+			canvas = new fabric.Canvas('c1');
+		canvas.setBack = function(url){
+			this.setBackgroundImage(
+	    		url, 
+	    		this.renderAll.bind(this),
+		    	{
+				  left: 0,
+				  top: 0,
+				  width:this.width,
+				  height:this.height
+				}
+			);		
+		}
+    	canvas.setBack('image/bg.png');
+
+		canvas.selectionColor = 'rgba(0,0,0,0.3)';
+		canvas.selectionBorderColor = 'white';
+		canvas.selectionLineWidth = 1;
+
+		$('.bj-btn button').click(function(){
+			var img = $(this).attr('class').replace('bj','bg'),
+				img = $('#'+img).attr('src');
+	    	canvas.setBack(img);
+		})
+
+		
+		$('.font-btn button').click(function(){
+			var text = $(this).text();
+			var font = new fabric.Text(text, { left: 100, top: 100,hasRotatingPoint:false, });
+			font.on('selected',function(){
+				selectedControl = font;
+				$('.remove').show();
+			})
+			canvas.add(font);
+		})
+		
+		//内容删除
+		$('.remove').click(function(){
+			selectedControl&&selectedControl.remove();
+			$('.remove').hide();
+		})
+
+		//图片保存
+        function saveImageInfo ()   
+        {  
+            var mycanvas = document.getElementById("c1");  
+            var image    = mycanvas.toDataURL("image/png");  
+            console.log(image);
+        }  
+
+		$(".save").click(function(){
+			console.log(111);
+			saveImageInfo();
+		})
+		
+
+	</script>
+</body>
+</html>

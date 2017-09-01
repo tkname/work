@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		body{margin: 0}
+		.ab{position: absolute;bottom: 0;}
+		#bg1{position: absolute;left: 0;left: 0;display:none;width:100%;height:100%;}
+	</style>
+</head>
+<body>
+		
+		<img src="image/bg.png" id="bg1" style="">
+		<img src="image/bg1.png" id="bg2" style="display:none;">
+
+	  <canvas id="c1" width="375px" height="667px;"></canvas>
+	  <!-- <canvas id="c1" width="750px" height="1334px;"></canvas> -->
+
+	
+		<div class="ab">
+		  <div class="bj-btn">
+				<button class="bj1">背景1</button>
+				<button class="bj2">背景2</button>
+				<button class="bj3">背景3</button>
+		  </div>
+
+		  <div class="font-btn">
+		  		<button class="btA">A</button>
+		  		<button class="btB">B</button>
+		  		<button class="btC">C</button>
+		  		<button class="btD">D</button>
+		  </div>
+			<button class="remove">删除</button>
+			<button class="save">保存为图片</button>
+			
+		</div>
+
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/fabric.min.js"></script>
+	<script type="text/javascript">
+
+		var selectedControl,
+			canvas = new fabric.Canvas('c1');
+
+
+		canvas.setBack = function(url){
+			console.log(this);
+			// this.setBackgroundImage(
+	  //   		url, 
+	  //   		this.renderAll.bind(this),
+		 //    	{
+			// 	  left: 0,
+			// 	  top: 0,
+			// 	  width:this.width,
+			// 	  height:this.height,
+			// );		
+			// 	}
+
+			var that=this;
+			fabric.Image.fromURL(url, function(img) {
+			   img.scale(0.5).set({width: that.width, height: that.height, originX: 'left', originY: 'top'});
+			   that.setBackgroundImage(img,that.renderAll.bind(that));
+			});
+
+		}
+
+
+		// $("#c1").css({"width":"375px","height":"667px"});
+    canvas.setBack('image/bg.png');
+
+		canvas.selectionColor = 'rgba(0,0,0,0.3)';
+		canvas.selectionBorderColor = 'white';
+		canvas.selectionLineWidth = 1;
+
+		$('.bj-btn button').click(function(){
+			var img = $(this).attr('class').replace('bj','bg'),
+				img = $('#'+img).attr('src');
+	    	canvas.setBack(img);
+		})
+
+		
+		$('.font-btn button').click(function(){
+			var text = $(this).text();
+			var font = new fabric.Text(text, { left: 100, top: 100,hasRotatingPoint:false, });
+			font.on('selected',function(){
+				selectedControl = font;
+				$('.remove').show();
+			})
+			canvas.add(font);
+		})
+		
+		//内容删除
+		$('.remove').click(function(){
+			selectedControl&&selectedControl.remove();
+			$('.remove').hide();
+		})
+
+		//图片保存
+        function saveImageInfo ()   
+        {  
+            var mycanvas = document.getElementById("c1");  
+            var image    = mycanvas.toDataURL("image/png");  
+            console.log(image);
+        }  
+
+		$(".save").click(function(){
+			console.log(111);
+			saveImageInfo();
+		})
+		
+
+	</script>
+</body>
+</html>
