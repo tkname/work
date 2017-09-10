@@ -1,0 +1,15 @@
+/* Testing autoprefixer */ 
+.autoprefixer { display: flex; } 
+
+/* Testing cssnext */ 
+.cssnext { background: color(red alpha(-10%)); transform: scale(0.1);} 
+
+:fullscreen a {
+    display: flex
+}
+
+@use postcss-discard-comments(removeAll: true);
+/*! test */
+h1 {
+    color: red
+}

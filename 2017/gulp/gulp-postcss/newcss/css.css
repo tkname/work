@@ -1,13 +1,18 @@
 /* Testing autoprefixer */ 
-.autoprefixer { display: -webkit-box; display: -ms-flexbox; display: flex; } 
+.autoprefixer { display: flex; } 
+
 /* Testing cssnext */ 
-.cssnext { background: rgba(255, 0, 0, 0.9); } 
+.cssnext { background: color(red alpha(-10%)); } 
+
 /* Testing precss */ 
-.precss { background: green 
-		} 
+
+.precss { @if 3 < 5 { background: green; } 
+		  @else { background: blue; } 
+		}
+
 .main{
 	width: 100%;
-} 
-.main .text{
+	.text{
 		width: 100px;
 	}
+}
