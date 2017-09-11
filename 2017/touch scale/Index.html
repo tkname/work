@@ -79,18 +79,30 @@
 
         Transform(el);
         var initScale = 1;
-        new AlloyFinger(el, {
+        new AlloyFinger(body, {
             multipointStart: function () {
                 To.stopAll();
                 initScale = el.scaleX;
                 console.log(el);
-
             },
             // rotate: function (evt) {
             //     el.rotateZ += evt.angle;
             // },
             pinch: function (evt) {
+                function outputObj(obj) {  
+                    var description = "";  
+                    for (var i in obj) {  
+                        description += i + " = " + obj[i] + "\n";  
+                    }  
+                    alert(description);  
+                }  
+
+                // outputObj(evt);
+                var size=$("#testImg").css("font-size");
+                // $("#testImg").css("font-size":parseInt(size)*evt.scale);
+
                 el.scaleX = el.scaleY = initScale * evt.scale;
+
                 console.log(el);
                 // alert(evt.scale);
             },
