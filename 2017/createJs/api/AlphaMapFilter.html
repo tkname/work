@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta http-equiv="refresh" content="2" /> -->
+	<title>AlphaMapFilter</title>
+</head>
+<body onload="init()">
+
+	<canvas id="mycanvas" style="background: #000"></canvas>
+
+	<script src="js/createjs.min.js"></script>
+	<script type="text/javascript">
+
+		function init(){
+			var mycanvas=document.getElementById("mycanvas");
+			var stage=new createjs.Stage(mycanvas);
+			// var box=new createjs.Shape();
+			// box.graphics.beginLinearGradientFill(["#ff0000","#0000ff"],[0,1],0,0,0,100);
+			// box.graphics.drawRect(0,0,100,100);
+			// box.cache(0,0,100,100);
+			var bmp=new createjs.Bitmap("dog.jpg");
+			var text=new createjs.Text("11111","20px","#fff");
+			console.log(bmp);
+
+			bmp.filters=[new createjs.AlphaMaskFilter(box.cacheCanvas)];
+			bmp.cache(0,0,100,100);
+			stage.addChild(bmp);
+			stage.update();
+		}
+
+
+	</script>
+</body>
+</html>
