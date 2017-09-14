@@ -13,9 +13,15 @@ submit下载地址：http://www.sublimetext.com/
 3. 使用Package Control安装插件 Ctrl + Shift + P，打开命令面板 
 
 4.安装包 install Package 进入插件安装包 4.1 Emment （css选择器生成html 提示/快捷键） emment的前身是zen coding 具体使用：http://www.w3cplus.com/tools/emmet-cheat-sheet.html meta:vp：生成移动端meta标签
-	4.2 BracketHighlighter (匹配括号，高亮显示)
-	4.3 Chinese?Localization（汉化插件）
-	4.4 DocBlockr（自动生成注释块）
-	4.5 SublimeLinter（代码校验）
-	4.6 AutoFileName（补全src、href文件路径）
-	20个插件：https://www.oschina.net/translate/20-powerful-sublimetext-plugins
+
+4.2 BracketHighlighter (匹配括号，高亮显示)
+
+4.3 Chinese?Localization（汉化插件）
+
+4.4 DocBlockr（自动生成注释块）
+
+4.5 SublimeLinter（代码校验）
+
+4.6 AutoFileName（补全src、href文件路径）
+
+20个插件：https://www.oschina.net/translate/20-powerful-sublimetext-plugins
