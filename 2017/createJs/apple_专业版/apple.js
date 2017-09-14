@@ -39,7 +39,7 @@
 
  
 	function handleComplete(){
-		apples_qty=RandomNumBoth(10,15); //总的水果数量  		
+		apples_qty=RandomNumBoth(5,10); //总的水果数量  		
 		
 		var ss = new createjs.SpriteSheet({
 					"images" : ["images/panda.png","images/role_e0.png","images/role_e1.png"],//3个独立图片，大小一样(131x131)，可以构建一组动作
@@ -92,7 +92,7 @@
 		fruit.x=rad(canvas.width-fruit.getBounds().width);//水果x位置随机
 		
 		fruit.y=-rad(700)//水果y位置随机
-	    stage.addChild(fruit);	//添加到舞台上	
+	  stage.addChild(fruit);	//添加到舞台上	
 		apples.push(fruit)//也加入到数组里去
 		stage.addChild(texts);// 再次执行这句可以确保texts会被放置在最上一个层级，能遮住水果而不是被水果遮盖！！！ 当然也可以用stage.setChildIndex(texts, stage.getNumChildren()-1)这种语句
 	 }
@@ -111,7 +111,7 @@
 			
 			if(fruit.y>stage.canvas.height+66/2){// 如果该水果下落到屏幕之外，要将从舞台和数组中移除
 				stage.removeChild(fruit);					 
-			    apples.splice(i,1); 				
+			  apples.splice(i,1); 				
 				stage.update();
 				return
 			}

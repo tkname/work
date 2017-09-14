@@ -1,28 +1,21 @@
-¹¤ÓûÉÆÆäÊÂ£¬±ØÏÈÀûÆäÆ÷
+å·¥æ¬²å–„å…¶äº‹ï¼Œå¿…å…ˆåˆ©å…¶å™¨
 
-submitÏÂÔØµØÖ·£ºhttp://www.sublimetext.com/
+submitä¸‹è½½åœ°å€ï¼šhttp://www.sublimetext.com/
 
-¿ì½İ¼ü£º
-	Ctrl+P£ºÊÕË÷
-	Ctrl+Shift+P£º¿ØÖÆÃæ°å
-	Ctrl + D£ºÑ¡Ôñ¶à¸ö
-	
-²å¼ş°²×°£º
-	1.´ò¿ªSublimeµÄ¿ØÖÆÌ¨
-		Ctrl + `  ´ò¿ª¿ØÖÆÌ¨   view->Hide Console
-	2. ÊäÈëÒÔÏÂÃüÁî
-		import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
-	3 Ê¹ÓÃPackage Control°²×°²å¼ş
-		Ctrl + Shift + P£¬´ò¿ªÃüÁîÃæ°å	
-	4.°²×°°ü
-		install Package  ½øÈë²å¼ş°²×°°ü
-	4.1 Emment £¨cssÑ¡ÔñÆ÷Éú³Éhtml  ÌáÊ¾/¿ì½İ¼ü£©
-		emmentµÄÇ°ÉíÊÇzen coding ¾ßÌåÊ¹ÓÃ£ºhttp://www.w3cplus.com/tools/emmet-cheat-sheet.html
-		meta:vp£ºÉú³ÉÒÆ¶¯¶Ëmeta±êÇ©
-		
-	4.2 BracketHighlighter (Æ¥ÅäÀ¨ºÅ£¬¸ßÁÁÏÔÊ¾)
-	4.3 Chinese?Localization£¨ºº»¯²å¼ş£©
-	4.4 DocBlockr£¨×Ô¶¯Éú³É×¢ÊÍ¿é£©
-	4.5 SublimeLinter£¨´úÂëĞ£Ñé£©
-	4.6 AutoFileName£¨²¹È«src¡¢hrefÎÄ¼şÂ·¾¶£©
-	20¸ö²å¼ş£ºhttps://www.oschina.net/translate/20-powerful-sublimetext-plugins
+å¿«æ·é”®ï¼š Ctrl+Pï¼šæ”¶ç´¢ Ctrl+Shift+Pï¼šæ§åˆ¶é¢æ¿ Ctrl + Dï¼šé€‰æ‹©å¤šä¸ª
+
+æ’ä»¶å®‰è£…ï¼š 
+
+1.æ‰“å¼€Sublimeçš„æ§åˆ¶å° Ctrl + ` æ‰“å¼€æ§åˆ¶å° view->Hide Console 
+
+2. è¾“å…¥ä»¥ä¸‹å‘½ä»¤ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+
+3. ä½¿ç”¨Package Controlå®‰è£…æ’ä»¶ Ctrl + Shift + Pï¼Œæ‰“å¼€å‘½ä»¤é¢æ¿ 
+
+4.å®‰è£…åŒ… install Package è¿›å…¥æ’ä»¶å®‰è£…åŒ… 4.1 Emment ï¼ˆcssé€‰æ‹©å™¨ç”Ÿæˆhtml æç¤º/å¿«æ·é”®ï¼‰ emmentçš„å‰èº«æ˜¯zen coding å…·ä½“ä½¿ç”¨ï¼šhttp://www.w3cplus.com/tools/emmet-cheat-sheet.html meta:vpï¼šç”Ÿæˆç§»åŠ¨ç«¯metaæ ‡ç­¾
+	4.2 BracketHighlighter (åŒ¹é…æ‹¬å·ï¼Œé«˜äº®æ˜¾ç¤º)
+	4.3 Chinese?Localizationï¼ˆæ±‰åŒ–æ’ä»¶ï¼‰
+	4.4 DocBlockrï¼ˆè‡ªåŠ¨ç”Ÿæˆæ³¨é‡Šå—ï¼‰
+	4.5 SublimeLinterï¼ˆä»£ç æ ¡éªŒï¼‰
+	4.6 AutoFileNameï¼ˆè¡¥å…¨srcã€hrefæ–‡ä»¶è·¯å¾„ï¼‰
+	20ä¸ªæ’ä»¶ï¼šhttps://www.oschina.net/translate/20-powerful-sublimetext-plugins
