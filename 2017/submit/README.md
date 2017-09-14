@@ -25,3 +25,5 @@ submit下载地址：http://www.sublimetext.com/
 4.6 AutoFileName（补全src、href文件路径）
 
 20个插件：https://www.oschina.net/translate/20-powerful-sublimetext-plugins
+
+快捷键使用/新建文件夹:https://www.douban.com/note/276794943/
