@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="js/createjs.min.js"></script>
+	<script type="text/javascript">
+		// (function(){
+		// 	var a=1111;
+		// }())
+
+		function Map(){
+		    this.name = "地图"
+		}
+		var map = new Map();
+		console.log(map.name);
+		 
+		var cls = {};
+		 
+		(function() {
+		    function ChinaMap(){
+		        this.Map_constructor();
+		        this.from = "中国";
+		    }
+		    var p = createjs.extend(ChinaMap,Map);
+		    p.traceFrom = function traceFrom()
+		    {
+		        console.log(this.from);
+		    }
+		    cls = 1244;
+		}());
+		
+		// var chinaMap = new cls.ChinaMap();
+
+		// console.log(chinaMap.name,chinaMap.from);
+		console.log(cls);		
+		// chinaMap.traceFrom();
+	</script>
+</body>
+</html>
