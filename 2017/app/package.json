@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "minimist": "^1.2.0",
+    "postcss-import": "^11.0.0",
+    "postcss-mixins": "^6.1.0",
+    "postcss-nested": "^2.1.2"
+  }
+}
