@@ -17,36 +17,52 @@ input, textarea { margin: 0; padding: 0; border: medium none; }
 .none{display: none;}
 .app{position: absolute;height: 100%;width: 100%;background: url("../images/bg.jpg") no-repeat;background-size: cover;}
 .logo img{position: absolute;width: 90%;left: 5%;top:2%;}
-.gold1{-webkit-animation: move 2s  infinite 1s;animation: move 2s  infinite 1s;position: absolute;width: 9%;left: 77%;top:7%; }
-.gold1 img{-webkit-animation: movetop 2s  infinite 1s;animation: movetop 2s  infinite 1s;width: 100%;position: absolute;}
-.gold2{-webkit-animation: move 2s  infinite 2s;animation: move 2s  infinite 2s;position: absolute;position: absolute;width: 18%;left: 63%;top:28%;}
-.gold2 img{-webkit-animation: movetop 2s  infinite 2s;animation: movetop 2s  infinite 2s;width: 100%;position: absolute;}
-.x1 img{position: absolute;left: 5%;top: 10%;-webkit-animation: show 4s  infinite 0s;animation: show 4s  infinite 0s;}
-.x2 img{position: absolute;left: 52%;top: 20%;-webkit-animation: show 4s infinite 1.5s;animation: show 4s infinite 1.5s;}
-.x3 img{position: absolute;left: 52%;top: 6%;-webkit-animation: show 4s  infinite 2.5s;animation: show 4s  infinite 2.5s;}
-@-webkit-keyframes movetop{
-	0%{-webkit-transform: translate3d(0,-1000px,0) ;transform: translate3d(0,-1000px,0) ;}
-	100%{-webkit-transform: translate3d(0,1000px,0);transform: translate3d(0,1000px,0);}
+.x1 img{position: absolute;left: 5%;top: 7%;-webkit-animation: show 3s  infinite 0s;animation: show 3s  infinite 0s; width: 40%;}
+.x2 img{position: absolute;left: 53%;top: 14%;-webkit-animation: show 3s infinite 0s;animation: show 3s infinite 0s;  width: 46.4%;}
+.x3 img{position: absolute;left: 52%;top: 7%;-webkit-animation: show 3s  infinite 0s;animation: show 3s  infinite 0s; width: 46.4%;}
+.gold3{-webkit-animation: move 10s  infinite 0s ease-in;animation: move 10s  infinite 0s ease-in;position: absolute;position: absolute;width: 29.8%;left: 1%;top:30%;}
+.gold3 img{-webkit-animation: movetop 10s  infinite 0s ease-in;animation: movetop 10s  infinite 0s ease-in;width: 100%;position: absolute;}
+.gold2{-webkit-animation: move 10s  infinite 0s ease-in;animation: move 10s  infinite 0s ease-in;position: absolute;position: absolute;width: 33%;left: 3%;top:12%;}
+.gold2 img{-webkit-animation: movetop 10s  infinite 0s ease-in;animation: movetop 10s  infinite 0s ease-in;width: 100%;position: absolute;}
+.gold1{-webkit-animation: move 10s  infinite 0s ease-in;animation: move 10s  infinite 0s ease-in;position: absolute;width: 60%;left: 29%;top:9%; }
+.gold1 img{-webkit-animation: movetop 10s  infinite 0s ease-in;animation: movetop 10s  infinite 0s ease-in;width: 100%;position: absolute;}
+.gold4{-webkit-animation: move 10s  infinite 0s ease-in;animation: move 10s  infinite 0s ease-in;position: absolute;position: absolute;width: 22.8%;left: 55%;top:30%;}
+.gold4 img{-webkit-animation: movetop 10s  infinite 0s ease-in;animation: movetop 10s  infinite 0s ease-in;width: 100%;position: absolute;}
+.gold5{-webkit-animation: move 10s  infinite 0s ease-in;animation: move 10s  infinite 0s ease-in;position: absolute;position: absolute;width: 21.4%;left: 75%;top:28%;}
+.gold5 img{width: 100%;position: absolute;-webkit-animation: movetop 10s  infinite 0s ease-in;animation: movetop 10s  infinite 0s ease-in;}
+.gold6{-webkit-animation: move 10s  infinite 0s ease-in;animation: move 10s  infinite 0s ease-in;position: absolute;position: absolute;width: 11.2%;left: 74%;top:7%;}
+.gold6 img{width: 100%;position: absolute;-webkit-animation: movetop 10s  infinite 0s ease-in;animation: movetop 10s  infinite 0s ease-in;}
+.lx1{-webkit-animation: move 2s  infinite 0s ;animation: move 2s  infinite 0s ;position: absolute;position: absolute;width: 14%;left: 72%;top:22%;}
+.lx1 img{-webkit-animation: movetop 2s  infinite 0s;animation: movetop 2s  infinite 0s;width: 100%;position: absolute;}
+.lx2{-webkit-animation: move 2s  infinite .4s;animation: move 2s  infinite .4s;position: absolute;position: absolute;width: 10.9%;left: 29%;top:21%;}
+.lx2 img{-webkit-animation: movetop 2s  infinite .4s;animation: movetop 2s  infinite .4s;width: 100%;position: absolute;}
+.lx3{-webkit-animation: move 2s  infinite .8s;animation: move 2s  infinite .8s;position: absolute;position: absolute;width: 10.26%;left: 45%;top:43%;}
+.lx3 img{-webkit-animation: movetop 2s  infinite .8s;animation: movetop 2s  infinite .8s;width: 100%;position: absolute;}
+.lx4{-webkit-animation: move 2s  infinite 1.2s;animation: move 2s  infinite 1.2s;position: absolute;position: absolute;width: 12.9%;left: 75%;top:65%;}
+.lx4 img{-webkit-animation: movetop 2s  infinite 1.2s;animation: movetop 2s  infinite 1.2s;width: 100%;position: absolute;}
+.lx5{-webkit-animation: move 2s  infinite 1.6s;animation: move 2s  infinite 1.6s;position: absolute;position: absolute;width: 9.6%;left: 4%;top:0%;}
+.lx5 img{-webkit-animation: movetop 2s  infinite 1.6s;animation: movetop 2s  infinite 1.6s;width: 100%;position: absolute;}
+.ka{position: absolute;width: 35.8%;top: 49%;left: 20%;}
+.ka img{width: 100%}
+.hand{position: absolute;width: 55.6%;bottom: -1%;left: 42%;}
+.hand img{width: 100%}
+/*@keyframes movetop{
+	0%{transform: translate3d(0,-1000px,0) ;}
+	100%{transform: translate3d(0,1000px,0);}
 }
-@keyframes movetop{
-	0%{-webkit-transform: translate3d(0,-1000px,0) ;transform: translate3d(0,-1000px,0) ;}
-	100%{-webkit-transform: translate3d(0,1000px,0);transform: translate3d(0,1000px,0);}
-}
-@-webkit-keyframes move{
-	0%{-webkit-transform: translate3d(1000px,0,0);transform: translate3d(1000px,0,0);}
-	100%{-webkit-transform: translate3d(-1000px,0,0);transform: translate3d(-1000px,0,0);}
-}
-@keyframes move{
-	0%{-webkit-transform: translate3d(1000px,0,0);transform: translate3d(1000px,0,0);}
-	100%{-webkit-transform: translate3d(-1000px,0,0);transform: translate3d(-1000px,0,0);}
-}
-@-webkit-keyframes show{
-	0%{opacity: 1}
-	100%{opacity: 0}
 
+@keyframes move{
+	0%{transform: translate3d(1000px,0,0);}
+	100%{transform: translate3d(-1000px,0,0);}
+}
+*/
+@-webkit-keyframes show{
+	0%{opacity: 0}
+	50%{opacity: 1}
+	100%{opacity: 0}
 }
 @keyframes show{
-	0%{opacity: 1}
+	0%{opacity: 0}
+	50%{opacity: 1}
 	100%{opacity: 0}
-
 }
