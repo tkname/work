@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, abbr, address, cite, code, del, dfn, em, img, sub, sup, var, i, dl, dd, dt, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video { padding: 0; margin: 0; border: 0; outline: 0; background: transparent; }
+article, aside, figure, footer, header, hgroup, nav, menu, section { display: block; }
+ol, ul, li { list-style: none; }
+html { font-family: 'Arial', '微软雅黑'; }
+a { text-decoration: none; padding: 0; margin: 0; color: #202030; }
+a:active, a:visited {	/*color: #0066ab;*/ }
+input, select { vertical-align: bottom; }
+input:focus, select:focus { border: 0; outline-offset: 0; outline: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+body { line-height: 1.5em; font-size: 12px; /*background: #5c5c5c;*/ }
+a { outline: none;/* for Forefox */ cursor: pointer; }
+a { star: expression(this.onFocus=this.blur());/* for Ie*/ }
+* { box-sizing: border-box }
+input, textarea { margin: 0; padding: 0; border: medium none; }
+.none{display: none;}
+.app{position: absolute;height: 100%;width: 100%;background: url("../images/bg.jpg") no-repeat;background-size: cover;}
+.logo img{position: absolute;width: 90%;left: 5%;top:2%;}
+.gold1{animation: move 2s  infinite 1s;position: absolute;width: 9%;left: 77%;top:7%; }
+.gold1 img{animation: movetop 2s  infinite 1s;width: 100%;position: absolute;}
+.gold2{animation: move 2s  infinite 2s;position: absolute;position: absolute;width: 18%;left: 63%;top:28%;}
+.gold2 img{animation: movetop 2s  infinite 2s;width: 100%;position: absolute;} 
+.x1 img{position: absolute;left: 5%;top: 10%;animation: show 4s  infinite 0s;}
+.x2 img{position: absolute;left: 52%;top: 20%;animation: show 4s infinite 1.5s;}
+.x3 img{position: absolute;left: 52%;top: 6%;animation: show 4s  infinite 2.5s;}
+
+
+
+@keyframes movetop{
+	0%{transform: translate3d(0,-1000px,0) ;}
+	100%{transform: translate3d(0,1000px,0);}
+}
+
+@keyframes move{
+	0%{transform: translate3d(1000px,0,0);}
+	100%{transform: translate3d(-1000px,0,0);}
+}
+
+@keyframes show{
+	0%{opacity: 1}
+	100%{opacity: 0}
+
+}

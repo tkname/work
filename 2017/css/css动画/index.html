@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,scrollenabled=false">
+	<title>css动画</title>
+	<style type="text/css">
+		body{
+			background: #000;
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		.rect{
+/*			width: 100px;
+			height: 100px;
+			background: red;*/
+			animation-name: move;
+			animation-duration:1s;
+			/*animation-direction:alternate;*/
+			animation-iteration-count:infinite;
+			animation-fill-mode:both;
+			/*animation-timing-function:cubic-bezier(0.42,0,0.58,1);*/
+		}
+		.top{
+			animation-name: movetop;
+			animation-duration: 1s;
+			animation-fill-mode: both;
+			animation-timing-function: ease;
+			/*animation-direction:alternate;*/
+			animation-iteration-count: infinite;
+		}
+		.top1{
+			position: absolute;
+			top: 50px;
+		}	
+		.top2{
+			position: absolute;
+			top: 100px;
+			animation-delay: 0.3s;
+		}	
+/*		.top2 .rect{
+			animation-delay: 0.3s;
+		}
+		.top3{
+			position: absolute;
+			top: 150px;
+			animation-delay: 0.6s;
+
+		}	
+		.top3 .rect{
+			animation-delay: 0.6s;
+		}
+
+		.top4{
+			position: absolute;
+			top: 200px;
+			animation-delay: 0.9s;
+		
+		}	
+		.top4 .rect{
+			animation-delay: 0.9s;
+		}
+
+		.top5{
+			position: absolute;
+			top: 250px;
+			animation-delay: 1.2s;
+		}	
+		.top5 .rect{
+			animation-delay: 1.2s;
+		}
+*/
+
+		img{
+			transform: rotate(-90deg);
+		}
+
+		@keyframes movetop{
+			0%{transform: translate3d(0,0,0) ;}
+			100%{transform: translate3d(0,500px,0);}
+		}
+
+		@keyframes move{
+			0%{transform: translate3d(0px,0,0);}
+			100%{transform: translate3d(500px,0,0);}
+		}
+	</style>
+</head>
+<body>
+	<div class="top">
+		<div class="rect"><img  src="image.png" width="60px" height="60px"></div>
+	</div>
+
+	<div class="top1 top">
+		<div class="rect"><img  src="image.png" width="60px" height="60px"></div>
+	</div>
+
+	<div class="top2 top">
+		<div class="rect"><img  src="image.png" width="60px" height="60px"></div>
+	</div>
+
+	<div class="top3 top">
+		<div class="rect"><img  src="image.png" width="60px" height="60px"></div>
+	</div>
+
+	<div class="top4 top">
+		<div class="rect"><img  src="image.png" width="60px" height="60px"></div>
+	</div>
+
+	<div class="top5 top">
+		<div class="rect"><img  src="image.png" width="60px" height="60px"></div>
+	</div>
+
+
+
+</body>
+</html>
