@@ -27,37 +27,84 @@
 		<div class="x1"><img src="images/x1.png"></div>
 		<div class="x2"><img src="images/x2.png"></div>
 		<div class="x3"><img src="images/x3.png"></div>
+		
+		<div class="ha">
+				<div class="ww"><img src="images/w.png"></div>
 
-		<div class="ka"><img src="images/ka.png"></div>
-		<div class="hand"><img src="images/hand.png"></div>
+			<div class="had">
+				<div class="hand"><img src="images/hand.png"></div>
+				<div class="ka"><img src="images/ka.png"></div>
+			</div>
+		</div>
 
 	</div>
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/preloadjs-0.6.2.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/TweenMax.min.js"></script>	
 	<script type="text/javascript">
 		// var array=["images/lx1.png"},{src:"images/lx2.png"}]
 		var load = new createjs.LoadQueue();
   		
-  		var imgArray= ["./images/gold3.png","./images/lx1.png","./images/lx2.png"];
+  		var imgArray= ["./images/bg.jpg","./images/gold1.png","./images/gold2.png","./images/gold3.png",
+  		"./images/gold4.png","./images/gold5.png","./images/gold6.png","./images/lx1.png","./images/lx2.png","./images/lx3.png"
+  		,"./images/lx4.png","./images/lx5.png","./images/x1.png","./images/x2.png","./images/x3.png","./images/hand.png","./images/ka.png","./images/w.png"];
 		
 		var loader = new createjs.LoadQueue(false);
 		loader.loadManifest(imgArray);
 		loader.addEventListener("complete", init);
 
 		function init(){
-			$(".lx1").addClass("dx1");
-			$(".lx1 img").addClass("dx1s");
+			var lx1=new TimelineMax({repeat:-1});
+			$(".lx1 img,.lx2 img,.lx3 img,.lx4 img,.lx5 img").css("opacity","1");
+			lx1.fromTo(".lx1 img", 2,{y:-1000}, { y: 1000});
 
-			$(".lx2").addClass("dx2");
-			$(".lx2 img").addClass("dx2s");
+			var lx2=new TimelineMax({repeat:-1});
+			lx2.fromTo(".lx2 img", 2,{y:-1000}, { y: 1000 },0.6);
 
-			$(".lx3").addClass("dx3");
-			$(".lx3 img").addClass("dx3s");
+			var lx3=new TimelineMax({repeat:-1});
+			lx3.fromTo(".lx3 img", 2,{y:-1000}, { y: 1000 },1.2);
 
-			$(".lx4").addClass("dx4");
-			$(".lx4 img").addClass("dx4s");
+			var lx4=new TimelineMax({repeat:-1});
+			lx4.fromTo(".lx4 img", 2,{y:-1000}, { y: 1000 },1.8);
+
+			var lx5=new TimelineMax({repeat:-1});
+			lx5.fromTo(".lx5 img", 2,{y:-1000}, { y: 1000 },1.0);
+
+			// $(".lx1 img").addClass('lx1s');
+			// $(".lx2 img").addClass('lx2s');
+			// $(".lx3 img").addClass('lx3s');
+			// $(".lx4 img").addClass('lx4s');
+			// $(".lx5 img").addClass('lx5s');
+
+			setTimeout(function(){
+				$(".gold1 img").addClass('gl1');
+				$(".gold2 img").addClass('gl2');
+				$(".gold3 img").addClass('gl3');
+				$(".gold4 img").addClass('gl4');
+				$(".gold5 img").addClass('gl5');
+				$(".gold6 img").addClass('gl6');
+			},200)
+
+			// var gold1=new TimelineMax();
+			// gold1.from(".gold1 img",2,{y:-1000},0);
+
+			// var gold2=new TimelineMax();
+			// gold2.from(".gold2 img",2.5,{y:-1000},.2);
+
+			// var gold3=new TimelineMax();
+			// gold3.from(".gold3 img",2.1,{y:-1000},.6);
+ 
+			// var gold4=new TimelineMax();
+			// gold4.from(".gold4 img",2.3,{y:-1000},.3);
+
+			// var gold5=new TimelineMax();
+			// gold5.from(".gold5 img",2.4,{y:-1000},.5);
+
+			// var gold6=new TimelineMax();
+			// gold6.from(".gold6 img",2.8,{y:-1000},.4);
 
 		}
 	</script>

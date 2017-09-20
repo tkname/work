@@ -1,4 +1,7 @@
-.rect{width: 100px;height: 100px;background: red;animation: ceshi 2s; position: absolute;top: 300px;}
+body,html{width: 100%;height: 100%;overflow: hidden;position: absolute;}
+
+.rect{width: 50px;height: 50px;background: red;animation: ceshi 2s; position: absolute;top: 300px;}
+.rect1{width: 50px;height: 50px;background: red;animation: ceshi 2s; position: absolute;top: 400px;}
 
 .gold3{animation: ceshi2 10s ease-in;position: absolute;position: absolute;width: 29.8%;left: 1%;top:30%;display: inline-block;}
 .gold3 img{animation: ceshi3 10s ease-in;width: 100%;position: absolute;display: inline-block;} 
