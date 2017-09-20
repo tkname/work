@@ -57,54 +57,68 @@
 		loader.addEventListener("complete", init);
 
 		function init(){
-			var lx1=new TimelineMax({repeat:-1});
-			$(".lx1 img,.lx2 img,.lx3 img,.lx4 img,.lx5 img").css("opacity","1");
-			lx1.fromTo(".lx1 img", 2,{y:-1000}, { y: 1000});
-
-			var lx2=new TimelineMax({repeat:-1});
-			lx2.fromTo(".lx2 img", 2,{y:-1000}, { y: 1000 },0.6);
-
-			var lx3=new TimelineMax({repeat:-1});
-			lx3.fromTo(".lx3 img", 2,{y:-1000}, { y: 1000 },1.2);
-
-			var lx4=new TimelineMax({repeat:-1});
-			lx4.fromTo(".lx4 img", 2,{y:-1000}, { y: 1000 },1.8);
-
-			var lx5=new TimelineMax({repeat:-1});
-			lx5.fromTo(".lx5 img", 2,{y:-1000}, { y: 1000 },1.0);
-
-			// $(".lx1 img").addClass('lx1s');
-			// $(".lx2 img").addClass('lx2s');
-			// $(".lx3 img").addClass('lx3s');
-			// $(".lx4 img").addClass('lx4s');
-			// $(".lx5 img").addClass('lx5s');
 
 			setTimeout(function(){
-				$(".gold1 img").addClass('gl1');
-				$(".gold2 img").addClass('gl2');
-				$(".gold3 img").addClass('gl3');
-				$(".gold4 img").addClass('gl4');
-				$(".gold5 img").addClass('gl5');
-				$(".gold6 img").addClass('gl6');
-			},200)
+				var lx1=new TimelineMax({repeat:-1});
+				$(".lx1 img,.lx2 img,.lx3 img,.lx4 img,.lx5 img").css("opacity","1");
+				lx1.fromTo(".lx1 img", 2,{y:-1000}, { y: 1000});
 
-			// var gold1=new TimelineMax();
-			// gold1.from(".gold1 img",2,{y:-1000},0);
+				var lx2=new TimelineMax({repeat:-1});
+				lx2.fromTo(".lx2 img", 2,{y:-1000}, { y: 1000 },0.6);
 
-			// var gold2=new TimelineMax();
-			// gold2.from(".gold2 img",2.5,{y:-1000},.2);
+				var lx3=new TimelineMax({repeat:-1});
+				lx3.fromTo(".lx3 img", 2,{y:-1000}, { y: 1000 },1.2);
 
-			// var gold3=new TimelineMax();
-			// gold3.from(".gold3 img",2.1,{y:-1000},.6);
- 
-			// var gold4=new TimelineMax();
-			// gold4.from(".gold4 img",2.3,{y:-1000},.3);
+				var lx4=new TimelineMax({repeat:-1});
+				lx4.fromTo(".lx4 img", 2,{y:-1000}, { y: 1000 },1.8);
 
-			// var gold5=new TimelineMax();
-			// gold5.from(".gold5 img",2.4,{y:-1000},.5);
+				var lx5=new TimelineMax({repeat:-1});
+				lx5.fromTo(".lx5 img", 2,{y:-1000}, { y: 1000 },1.0);
 
-			// var gold6=new TimelineMax();
-			// gold6.from(".gold6 img",2.8,{y:-1000},.4);
+				// $(".lx1 img").addClass('lx1s');
+				// $(".lx2 img").addClass('lx2s');
+				// $(".lx3 img").addClass('lx3s');
+				// $(".lx4 img").addClass('lx4s');
+				// $(".lx5 img").addClass('lx5s');
+
+				setTimeout(function(){
+					$(".gold1 img").addClass('gl1');
+					$(".gold2 img").addClass('gl2');
+					$(".gold3 img").addClass('gl3');
+					$(".gold4 img").addClass('gl4');
+					$(".gold5 img").addClass('gl5');
+					$(".gold6 img").addClass('gl6');
+				},200)
+
+				$(".had").addClass('haddx');
+				$(".ww").addClass('wwdh');
+
+
+				// var gold1=new TimelineMax();
+				// gold1.from(".gold1 img",2,{y:-1000},0);
+
+				// var gold2=new TimelineMax();
+				// gold2.from(".gold2 img",2.5,{y:-1000},.2);
+
+				// var gold3=new TimelineMax();
+				// gold3.from(".gold3 img",2.1,{y:-1000},.6);
+	 
+				// var gold4=new TimelineMax();
+				// gold4.from(".gold4 img",2.3,{y:-1000},.3);
+
+				// var gold5=new TimelineMax();
+				// gold5.from(".gold5 img",2.4,{y:-1000},.5);
+
+				// var gold6=new TimelineMax();
+				// gold6.from(".gold6 img",2.8,{y:-1000},.4);
+				
+
+				setTimeout(function(){
+					$(".had").removeClass('haddx');
+					$(".ww").removeClass('wwdh');
+				},2000)
+
+			},1000)
 
 		}
 	</script>

@@ -55,12 +55,14 @@ img{width: 100%;}
 .dx4{-webkit-animation: move 2s  infinite 0s;animation: move 2s  infinite 0s;}
 .dx4s{-webkit-animation: movetop 2s  infinite 0s;animation: movetop 2s  infinite 0s;}
 .ha{width: 80%;position: absolute;bottom: 0%;padding-top: 111%;right: 1%;}
-.had{position: absolute;width: 100%;height: 100%;top:0;-webkit-transform-origin:bottom right;transform-origin:bottom right;-webkit-animation: handrt 2s  forwards  alternate;animation: handrt 2s  forwards  alternate;z-index: 3;opacity: 0;}
+.had{position: absolute;width: 100%;height: 100%;top:0;-webkit-transform-origin:bottom right;transform-origin:bottom right;z-index: 3;opacity: 0;}
 .ka{position: absolute;width: 44.6%;top: 20%;z-index: 6}
 .ka img{width: 100%;}
-.hand{position: absolute;width: 70%;bottom: -2%;right: 1%;z-index: 6}
+.haddx{-webkit-animation: handrt 2s  forwards  alternate;animation: handrt 2s  forwards  alternate;}
+.hand{position: absolute;width: 70%;bottom: -2%;right: 1%;z-index: 10}
 .hand img{width: 100%;}
-.ww{position: absolute;width: 78.4%;top:21%;left: 22%;z-index: 5;-webkit-animation: handrt2 2s forwards  alternate;animation: handrt2 2s forwards  alternate;-webkit-transform-origin:50% 500%;transform-origin:50% 500%;z-index: 2;opacity: 0;}
+.ww{position: absolute;width: 78.4%;top:21%;left: 22%;z-index: 5;-webkit-transform-origin:50% 500%;transform-origin:50% 500%;z-index: 2;opacity: 0;}
+.wwdh{-webkit-animation: handrt2 2s forwards  alternate;animation: handrt2 2s forwards  alternate;}
 .gl1{-webkit-animation: movetop 2s ease forwards;animation: movetop 2s ease forwards;}
 .gl2{-webkit-animation: movetop 2.5s ease 0.3s forwards;animation: movetop 2.5s ease 0.3s forwards;}
 .gl3{-webkit-animation: movetop 2.8s ease 0.6s forwards;animation: movetop 2.8s ease 0.6s forwards;}
