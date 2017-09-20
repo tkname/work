@@ -59,7 +59,8 @@ gulp.task('css', function () {
 //定义livereload任务
 gulp.task('connect', function () {
    return connect.server({
-        livereload: true
+        livereload: true,
+        port:8888
     });
 });
 
