@@ -3,12 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="css/main.min.css">
+	<link rel="stylesheet" href="css/main.min.css?1.0">
 	<title>Document</title>
 
 </head>
 <body >
 	<div class="app">
+		<div class="bg-top"></div>
+		<div class="bg-bottom"></div>
+
 		<div class="logo"><img src="images/logo.png"></div>
 		<div class="gold1"><img src="images/gold1.png"></div>
 		<div class="gold2"><img src="images/gold2.png"></div>
@@ -41,11 +44,10 @@
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/preloadjs-0.6.2.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/main.js?1.0"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/TweenMax.min.js"></script>	
 	<script type="text/javascript">
-		// var array=["images/lx1.png"},{src:"images/lx2.png"}]
 		var load = new createjs.LoadQueue();
   		
   		var imgArray= ["./images/bg.jpg","./images/gold1.png","./images/gold2.png","./images/gold3.png",
@@ -75,51 +77,54 @@
 				var lx5=new TimelineMax({repeat:-1});
 				lx5.fromTo(".lx5 img", 2,{y:-1000}, { y: 1000 },1.0);
 
-				// $(".lx1 img").addClass('lx1s');
-				// $(".lx2 img").addClass('lx2s');
-				// $(".lx3 img").addClass('lx3s');
-				// $(".lx4 img").addClass('lx4s');
-				// $(".lx5 img").addClass('lx5s');
-
-				setTimeout(function(){
+				function run(){
+					$(".gold1 img,.gold2 img,.gold3 img,.gold4 img,.gold5 img,.gold6 img").removeClass("showh");
+					dh();
+					remove();
+					setTimeout(function(){
+						run();
+					},2000)
+				}
+				run();		
+				function dh(){
 					$(".gold1 img").addClass('gl1');
 					$(".gold2 img").addClass('gl2');
 					$(".gold3 img").addClass('gl3');
 					$(".gold4 img").addClass('gl4');
 					$(".gold5 img").addClass('gl5');
 					$(".gold6 img").addClass('gl6');
-				},200)
 
-				$(".had").addClass('haddx');
-				$(".ww").addClass('wwdh');
+					$(".had").addClass('haddx');
+					$(".ww").addClass('wwdh');
+				}
+				function remove(){
+					setTimeout(function(){
+						$(".gold1 img").removeClass('gl1').addClass("showh");
+						$(".had").removeClass('haddx');
+						$(".ww").removeClass('wwdh');
+					},800)
+					setTimeout(function(){
+						$(".gold2 img").removeClass('gl2').addClass("showh");
+					},900)
 
+					setTimeout(function(){
+						$(".gold3 img").removeClass('gl3').addClass("showh");
+					},1000)
 
-				// var gold1=new TimelineMax();
-				// gold1.from(".gold1 img",2,{y:-1000},0);
+					setTimeout(function(){
+						$(".gold4 img").removeClass('gl4').addClass("showh");
+					},1100)
 
-				// var gold2=new TimelineMax();
-				// gold2.from(".gold2 img",2.5,{y:-1000},.2);
+					setTimeout(function(){
+						$(".gold5 img").removeClass('gl5').addClass("showh");
+					},1200)
 
-				// var gold3=new TimelineMax();
-				// gold3.from(".gold3 img",2.1,{y:-1000},.6);
-	 
-				// var gold4=new TimelineMax();
-				// gold4.from(".gold4 img",2.3,{y:-1000},.3);
+					setTimeout(function(){
+						$(".gold6 img").removeClass('gl6').addClass("showh");
+					},1300)
+				}
 
-				// var gold5=new TimelineMax();
-				// gold5.from(".gold5 img",2.4,{y:-1000},.5);
-
-				// var gold6=new TimelineMax();
-				// gold6.from(".gold6 img",2.8,{y:-1000},.4);
-				
-
-				setTimeout(function(){
-					$(".had").removeClass('haddx');
-					$(".ww").removeClass('wwdh');
-				},2000)
-
-			},1000)
-
+			},200)
 		}
 	</script>
 </body>

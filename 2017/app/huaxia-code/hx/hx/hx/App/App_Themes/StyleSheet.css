@@ -1,0 +1,32 @@
+﻿.wxtishi {
+   margin:15px;
+   padding:8px;
+   text-align:left;
+   text-indent:20px;
+    background-color:antiquewhite;
+    font-size:12px;
+}
+
+
+.tab-c {
+    background-color:#f75d75;
+}
+
+
+.iconka {
+ position:absolute;
+    right:10px;
+ line-height:90px;
+    color: rgba(243, 193, 4, 0.78);
+    font-size: 36px;
+}
+
+.x-ka {
+position:relative;
+}
+
+
+.x-wz {
+    
+    width: 43vw;
+}
