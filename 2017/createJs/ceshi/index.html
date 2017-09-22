@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<canvas id="canvas" width="375px" height="667px"></canvas>
+
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="createjs-2015.11.26.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			var stage = new createjs.Stage("canvas");
+
+			var imgarray=["item4.png"]
+			var loader=new createjs.LoadQueue(false);
+			loader.loadManifest(imgarray);
+			loader.addEventListener("complete",init);
+			
+
+			function init(){
+				var ct2=new createjs.Container();
+				ct2.set({alpha:0.5})
+				// ct2.index=1;
+				console.log(ct2);
+				var ct1=new createjs.Container();
+				// ct1.index=2;
+
+				stage.addChild(ct1,ct2);
+
+				var img =new createjs.Bitmap("item4.png");
+
+				var img2 =new createjs.Bitmap("item4.png");
+				img2.x=100;
+
+				var img3 =new createjs.Bitmap("item4.png");
+				img3.x=110;
+
+				ct2.addChild(img2);
+				ct1.addChild(img,img3);
+
+				stage.update(); //调用updata更新
+
+
+			}
+		})
+
+	</script>
+</body>
+</html>

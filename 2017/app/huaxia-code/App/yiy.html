@@ -25,7 +25,24 @@
 			.foot-ico-c{z-index: 99}
 			.app img{vertical-align: baseline;}
 		</style>
-	
+		<script type="text/javascript">
+		;(function(doc, win) {
+    var timer, docEle = doc.documentElement,
+    evt = "onorientationchange" in window ? "orientationchange": "resize",
+    setFontSize = function() {
+        var width = docEle.clientWidth;
+        var aaa = 750 / 10;
+        width && (docEle.style.fontSize = ((width / 750) * aaa) + "px");
+        win.aaa = ((width / 750) * aaa);
+    };
+    win.addEventListener(evt,
+    function() {
+        clearTimeout(timer);
+            timer = setTimeout(setFontSize, 200);
+        },false);
+        doc.addEventListener("DOMContentLoaded", setFontSize, false);
+    } (document, window));
+	</script>
 	</head>
 
 	<body>
