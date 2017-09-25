@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	
+	<canvas id="mycanvas" width="900px" height="900px"></canvas>	
+	<img src="images/1.png" id="img1">
+	<div class="bt">button</div>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/fabric.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			var canvas = new fabric.Canvas('mycanvas');
+
+			var zt=false;
+			var o,oscale=1,oleft=0,otop=0;
+			hh(1); //初始化加载
+
+			
+			function hh(sc){
+				if(zt){
+					canvas.remove(o);
+				}
+
+				var img=documnet.getElementById("img1");
+					var oImg = new fabric.Image(img, {
+					  left: oleft,
+					  top: otop,
+					  // scale:oscale
+					});
+					console.log(1);
+					canvas.add(oImg);
+				// var img=new Image();
+				// img.src="images/1.png";
+				// img.onload=function(){
+
+				// }
+
+				// o=oImg;
+				
+				// zt=true;
+				// var scale=sc;
+				// oImg.scale(scale)
+				// oImg.top=oImg.top+(oImg.height/2)*(1-scale)
+				// oImg.left=oImg.left+(oImg.width/2)*(1-scale)
+
+				// 	canvas.on({
+				//     'mouse:down': function(e) {
+				//       if (e.target) {
+				//         e.target.opacity = 0.5;
+				//         canvas.renderAll();
+				//       }
+				//     },
+				//     'mouse:up': function(e) {
+				//       if (e.target) {
+				//         e.target.opacity = 1;
+				//         canvas.renderAll();
+				//         console.log(oImg.left);
+				//         oImg.left=oImg.left;
+				//         oImg.top=oImg.top;
+				//       }
+				//     },
+				//     'object:moved': function(e) {
+				//       e.target.opacity = 0.5;
+				//     },
+				//     'object:modified': function(e) {
+				//       e.target.opacity = 1;
+				//     }
+				//   });
+
+
+			}
+
+			var i=0.1;
+			$(".bt").click(function(){
+				i+=0.1;
+				hh(i);
+			})
+
+		})
+	</script>
+</body>
+</html>
