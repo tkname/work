@@ -10,13 +10,13 @@ var cssimport    = require('postcss-import');
 var autoprefixer = require('autoprefixer');           // 浏览器前缀
 
    
-var jsSrc = 'huaxia/js/*.js';
+var jsSrc = 'jianhang/Fight alone/js/*.js';
 var jsDist = 'dist/js';
 
-var htmlSrc = 'huaxia/*.html';
+var htmlSrc = 'jianhang/Fight alone/*.html';
 var htmlDist = 'dist';
 
-var cssSrc = 'huaxia/css/*.css';
+var cssSrc = 'jianhang/Fight alone/css/*.css';
 var cssDist = 'dist/css';
 
 //定义名为js的任务
@@ -44,14 +44,14 @@ gulp.task('css', function () {
 
       var processors = [
         cssimport,
-        autoprefixer,
+        autoprefixer
     ];
 
-    gulp.src('huaxia/css/main.css')
+    gulp.src('jianhang/Fight alone/css/main.css')
         .pipe(gulp_postcss(processors))
         .on('error', errorHandler)
         .pipe(rename('main.min.css'))
-        .pipe(gulp.dest('huaxia/css'))
+        .pipe(gulp.dest('jianhang/Fight alone/css'))
         .pipe(connect.reload());
 
 });
@@ -68,11 +68,11 @@ gulp.task('connect', function () {
 //定义看守任务
 gulp.task('watch', function () {
 
-    gulp.watch('huaxia/*.html', ['html']);
+    gulp.watch('jianhang/Fight alone/*.html', ['html']);
 
-    gulp.watch('huaxia/js/*.js', ['js']);
+    gulp.watch('jianhang/Fight alone/js/*.js', ['js']);
 
-    gulp.watch('huaxia/css/*.css', ['css']);
+    // gulp.watch('jianhang/Fight alone/css/*.css', ['css']);
 
 });
 

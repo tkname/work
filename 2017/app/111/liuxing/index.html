@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		#img1{position: absolute;left: 0px;top:667px;animation: bounceInRight 2s ease 0.7s infinite normal both}
+		.bb{}
+/*@-webkit-keyframes bounceInRight {
+	0%,60%,75%,90%,to {
+		transition-timing-function: cubic-bezier(.215,.61,.355,1)
+	}
+
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(3000px,0,0);
+		transform: translate3d(3000px,0,0)
+	}
+
+	60% {
+		opacity: 1;
+		-webkit-transform: translate3d(-25px,0,0);
+		transform: translate3d(-25px,0,0)
+	}
+
+	75% {
+		-webkit-transform: translate3d(10px,0,0);
+		transform: translate3d(10px,0,0)
+	}
+
+	90% {
+		-webkit-transform: translate3d(-5px,0,0);
+		transform: translate3d(-5px,0,0)
+	}
+
+	to {
+		-webkit-transform: none;
+		transform: none
+	}
+}*/
+
+@keyframes bounceInRight {
+	0%,60%,75%,90%,to {
+		transition-timing-function: cubic-bezier(.215,.61,.355,1)
+	}
+
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(3000px,0,0);
+		transform: translate3d(3000px,0,0)
+	}
+
+	60% {
+		opacity: 1;
+		-webkit-transform: translate3d(-25px,0,0);
+		transform: translate3d(-25px,0,0)
+	}
+
+	75% {
+		-webkit-transform: translate3d(10px,0,0);
+		transform: translate3d(10px,0,0)
+	}
+
+	90% {
+		-webkit-transform: translate3d(-5px,0,0);
+		transform: translate3d(-5px,0,0)
+	}
+
+	to {
+		-webkit-transform: none;
+		transform: none
+	}
+}
+	</style>
+</head>
+<body>
+
+	<link rel="stylesheet" href="animate.min.css">
+
+	<div class="bb">
+			<img src="image.png" alt="" width="100px" height="92px" id="img1">
+	</div>
+
+
+</body>
+</html>

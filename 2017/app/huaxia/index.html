@@ -5,7 +5,24 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/main.min.css?1.0">
 	<title>Document</title>
-
+	<script type="text/javascript">
+		;(function(doc, win) {
+    var timer, docEle = doc.documentElement,
+    evt = "onorientationchange" in window ? "orientationchange": "resize",
+    setFontSize = function() {
+        var width = docEle.clientWidth;
+        var aaa = 750 / 10;
+        width && (docEle.style.fontSize = ((width / 750) * aaa) + "px");
+        win.aaa = ((width / 750) * aaa);
+    };
+    win.addEventListener(evt,
+    function() {
+        clearTimeout(timer);
+            timer = setTimeout(setFontSize, 200);
+        },false);
+        doc.addEventListener("DOMContentLoaded", setFontSize, false);
+    } (document, window));
+	</script>
 </head>
 <body >
 	<div class="app">
@@ -48,6 +65,7 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/TweenMax.min.js"></script>	
 	<script type="text/javascript">
+	console.log($(window).innerHeight())
 		var load = new createjs.LoadQueue();
   		
   		var imgArray= ["./images/bg.jpg","./images/gold1.png","./images/gold2.png","./images/gold3.png",
@@ -83,7 +101,7 @@
 					remove();
 					setTimeout(function(){
 						run();
-					},2000)
+					},2500)
 				}
 				run();		
 				function dh(){
@@ -102,26 +120,26 @@
 						$(".gold1 img").removeClass('gl1').addClass("showh");
 						$(".had").removeClass('haddx');
 						$(".ww").removeClass('wwdh');
-					},800)
+					},1200)
 					setTimeout(function(){
 						$(".gold2 img").removeClass('gl2').addClass("showh");
-					},900)
-
-					setTimeout(function(){
-						$(".gold3 img").removeClass('gl3').addClass("showh");
-					},1000)
-
-					setTimeout(function(){
-						$(".gold4 img").removeClass('gl4').addClass("showh");
 					},1100)
 
 					setTimeout(function(){
-						$(".gold5 img").removeClass('gl5').addClass("showh");
+						$(".gold3 img").removeClass('gl3').addClass("showh");
 					},1200)
 
 					setTimeout(function(){
-						$(".gold6 img").removeClass('gl6').addClass("showh");
+						$(".gold4 img").removeClass('gl4').addClass("showh");
 					},1300)
+
+					setTimeout(function(){
+						$(".gold5 img").removeClass('gl5').addClass("showh");
+					},1400)
+
+					setTimeout(function(){
+						$(".gold6 img").removeClass('gl6').addClass("showh");
+					},1500)
 				}
 
 			},200)

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/main.min.css?1.0">
+	<title>Document</title>
+
+</head>
+<body >
+	<div class="app">
+		<div class="bg-top"></div>
+		<div class="bg-bottom"></div>
+
+		<div class="logo"><img src="images/logo.png"></div>
+		<div class="gold1"><img src="images/gold1.png"></div>
+		<div class="gold2"><img src="images/gold2.png"></div>
+		<div class="gold3"><img src="images/gold3.png"></div>
+		<div class="gold4"><img src="images/gold4.png"></div>
+		<div class="gold5"><img src="images/gold5.png"></div>
+		<div class="gold6"><img src="images/gold6.png"></div>
+
+		<div class="lx1"><img src="images/lx1.png"></div>
+		<div class="lx2"><img src="images/lx2.png"></div>
+		<div class="lx3"><img src="images/lx3.png"></div>
+		<div class="lx4"><img src="images/lx4.png"></div>
+		<div class="lx5"><img src="images/lx5.png"></div>
+
+
+		<div class="x1"><img src="images/x1.png"></div>
+		<div class="x2"><img src="images/x2.png"></div>
+		<div class="x3"><img src="images/x3.png"></div>
+		
+		<div class="ha">
+				<div class="ww"><img src="images/w.png"></div>
+
+			<div class="had">
+				<div class="hand"><img src="images/hand.png"></div>
+				<div class="ka"><img src="images/ka.png"></div>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/preloadjs-0.6.2.min.js"></script>
+	<script type="text/javascript" src="js/main.js?1.0"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/TweenMax.min.js"></script>	
+	<script type="text/javascript">
+		var load = new createjs.LoadQueue();
+  		
+  		var imgArray= ["./images/bg.jpg","./images/gold1.png","./images/gold2.png","./images/gold3.png",
+  		"./images/gold4.png","./images/gold5.png","./images/gold6.png","./images/lx1.png","./images/lx2.png","./images/lx3.png"
+  		,"./images/lx4.png","./images/lx5.png","./images/x1.png","./images/x2.png","./images/x3.png","./images/hand.png","./images/ka.png","./images/w.png"];
+		
+		var loader = new createjs.LoadQueue(false);
+		loader.loadManifest(imgArray);
+		loader.addEventListener("complete", init);
+
+		function init(){
+
+			setTimeout(function(){
+				var lx1=new TimelineMax({repeat:-1});
+				$(".lx1 img,.lx2 img,.lx3 img,.lx4 img,.lx5 img").css("opacity","1");
+				lx1.fromTo(".lx1 img", 2,{y:-1000}, { y: 1000});
+
+				var lx2=new TimelineMax({repeat:-1});
+				lx2.fromTo(".lx2 img", 2,{y:-1000}, { y: 1000 },0.6);
+
+				var lx3=new TimelineMax({repeat:-1});
+				lx3.fromTo(".lx3 img", 2,{y:-1000}, { y: 1000 },1.2);
+
+				var lx4=new TimelineMax({repeat:-1});
+				lx4.fromTo(".lx4 img", 2,{y:-1000}, { y: 1000 },1.8);
+
+				var lx5=new TimelineMax({repeat:-1});
+				lx5.fromTo(".lx5 img", 2,{y:-1000}, { y: 1000 },1.0);
+
+				function run(){
+					$(".gold1 img,.gold2 img,.gold3 img,.gold4 img,.gold5 img,.gold6 img").removeClass("showh");
+					dh();
+					remove();
+					setTimeout(function(){
+						run();
+					},2000)
+				}
+				run();		
+				function dh(){
+					$(".gold1 img").addClass('gl1');
+					$(".gold2 img").addClass('gl2');
+					$(".gold3 img").addClass('gl3');
+					$(".gold4 img").addClass('gl4');
+					$(".gold5 img").addClass('gl5');
+					$(".gold6 img").addClass('gl6');
+
+					$(".had").addClass('haddx');
+					$(".ww").addClass('wwdh');
+				}
+				function remove(){
+					setTimeout(function(){
+						$(".gold1 img").removeClass('gl1').addClass("showh");
+						$(".had").removeClass('haddx');
+						$(".ww").removeClass('wwdh');
+					},800)
+					setTimeout(function(){
+						$(".gold2 img").removeClass('gl2').addClass("showh");
+					},900)
+
+					setTimeout(function(){
+						$(".gold3 img").removeClass('gl3').addClass("showh");
+					},1000)
+
+					setTimeout(function(){
+						$(".gold4 img").removeClass('gl4').addClass("showh");
+					},1100)
+
+					setTimeout(function(){
+						$(".gold5 img").removeClass('gl5').addClass("showh");
+					},1200)
+
+					setTimeout(function(){
+						$(".gold6 img").removeClass('gl6').addClass("showh");
+					},1300)
+				}
+
+			},200)
+		}
+	</script>
+</body>
+</html>

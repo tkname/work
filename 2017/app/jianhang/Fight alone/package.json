@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-postcss": "^7.0.0",
+    "gulp-px3rem": "^0.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "postcss-import": "^11.0.0"
+  }
+}
