@@ -1,2 +1,34 @@
-首页     index.html
-详情页   details.html
+首页     	index.html
+
+详情页   	details.html
+
+支付等待页面 	pay-wait.html
+
+支付结果页面    order-state.html
+
+跟团等待页面    group-wait.html
+
+跟团支付页面	group-pay.html
+
+订单成功详情    pay-suess.html
+
+订点但失败详情     pay-over.html
+
+订点进行中详情   pay-have.html
+
+成功   suess.html
+
+失败   over.html
+
+错误   cuo.html
+
+活动页面 ac.html
+
+登录页面  login.html
+
+注册页面 re.html
+
+忘记密码 for-pass.html
+
+重置密码 res-pass.html
+

@@ -1,0 +1,49 @@
+@charset 'utf-8';
+@import 'cube.css';
+@import 'swiper.min.css';
+html, body { margin: 0 auto;background: #fff;font-family: "PingFangSC-Light";  font-size: 12px;}
+input[type="button"], input[type="submit"], input[type="reset"] {-webkit-appearance: none;}
+/*input[type=checkbox] {visibility: hidden;}*/
+.wrapper { height: 100%; width: 750px; margin: 0 auto;position: relative;}
+img { width: 100%; }
+.clear{clear: both;}
+.swiper-container,.swiper-container-vertical>.swiper-wrapper{width:100%; height: 100%; position: absolute;top:0;left: 0}
+.mask{position: fixed;width: 100%;height: 100%;background: #000;opacity: 0.5;z-index: 10;top: 0;left: 0;}
+a:link{text-decoration: none;}
+a:active{text-decoration: none;}
+a:visited{text-decoration: none;}
+
+.ov{overflow: hidden;position: absolute;height: 100%}
+.color-red{color: #FF0700;}
+.color-gray{color: #B3B3B3 ;}
+.color-gray3{color: #030303;}
+.color-gray2{color: #666666 ;}
+.color-green{color: #09BB07;}
+.color-black{color: #000;}
+.none{display: none; }    
+.oa8{opacity: .2;}
+.mar-r{margin-right: 10px;}
+.mar-r2{margin-right: 43%;}
+.mar-r3{margin-bottom:  70px;}
+.font16{font-size: 16px;}
+.line{width: 100%;height: 15px;background: #F9F9F9;}
+.mar-r16{margin-right: 16%;}
+
+
+/*登陆页面*/
+.page-login {background: #f5f5f9;position: absolute;width: 100%;height: 100%;}
+.page-login .lg-ipt{width: 92%;margin-left: 4%;height: 55px;border-radius: 5px;margin-top: 15px;position: relative;}
+.page-login .lg-ipt .ipt{width: 75%;height: 55px;border: none;-webkit-appearance:none;padding-left: 15%;font-size: 15px;padding-right: 10%;color: #444 ;border-radius:5px;}
+.page-login .lg-ipt .ipt::-webkit-input-placeholder{color: #B3B3B3}
+.page-login .lg-ipt .iconfont{font-size: 25px;color: #aaa;position: absolute;left: 15px;top: 15px;}
+.page-login .lg-ipt .icon-se{font-size: 25px;color: #aaa;position: absolute;top: 15px;left: 90%;}
+.page-login .sb-bt{width: 92%;margin-left: 4%;background: #06B6F2;height: 55px;text-align: center;line-height: 55px;color: #fff;border-radius: 5px;margin-top: 15px;font-size: 16px;display: block;}
+.page-login .mm{color: #444444; text-align: center;margin-top: 24px;}
+.page-login .ts{margin-top: 49px;text-align: center;color: #444444;}
+.page-login .lg-main{position: relative;z-index: 2;height: 350px;background: #f5f5f9;}
+.page-login .jh{color: #444444;bottom: 15px;width: 100%;text-align: center;left: 0;position: absolute;z-index: 1;}
+.page-login .jh .color-gray{margin-top: 16px;}
+.page-login .yzm{width: 75px;height: 55px;position:absolute;right:  0;top: 0;background: #fff;text-align: center;line-height: 55px;color: #06B6F2;border-radius: 0px 5px 5px 0;}
+
+.yzts{text-align: center;height: 30px;line-height: 50px;}
+ 

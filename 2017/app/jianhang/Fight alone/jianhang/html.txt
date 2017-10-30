@@ -1,0 +1,7 @@
+首页     	index.html
+
+详情页   	details.html
+
+支付等待页面 	pay-wait.html
+
+支付结果页面    order-state.html

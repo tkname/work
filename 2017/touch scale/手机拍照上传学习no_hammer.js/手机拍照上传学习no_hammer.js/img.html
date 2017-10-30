@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="">
+</head>
+<body id="body">
+	
+	<canvas id="mycanvas" width="900px" height="900px"></canvas>	
+	<div id="div" style="width: 100px;height: 100px;background: red;position: absolute;left: 0;top: 0"></div>
+	<!-- <img src="images/1.png" id="img1" style="display: none;"> -->
+	<div class="bt">button</div>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/fabric.min.js"></script>
+	<script src="js/hammer.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			var hammer = new Hammer(document.querySelector("body"));
+
+			var canvas = new fabric.Canvas('mycanvas');
+			var lleft=0,ltop=0,lscale=1,originImg,zt=true;
+			scaleImg(lscale);
+			function scaleImg(lc){
+
+
+				var img=new Image();
+				img.src="images/finish.png";
+				img.onload=function(){
+
+					var cimg = new fabric.Image(img);
+				  cimg.left= lleft+(cimg.width/2)*(1-lc);
+				  cimg.top= ltop+(cimg.height/2)*(1-lc);
+
+					cimg.scale(lc);
+					originImg=cimg;
+
+					//添加移动
+					canvas.on({
+				    'mouse:up': function(e) {
+				      if (e.target) {
+				        e.target.opacity = 1;
+				        lleft=cimg.left-(cimg.width/2)*(1-lc);
+				        ltop=cimg.top-(cimg.height/2)*(1-lc);
+				        // canvas.renderAll();
+				      }
+				    }
+				  });	
+
+					canvas.clear().renderAll();
+						canvas.add(cimg);		
+					
+				 	 zt=false;
+				}
+
+		
+			}
+
+			var i=0;
+			$(".bt").click(function(){
+				i+=0.1;
+				// console.log(i);
+				scaleImg(i);
+			})
+
+
+// 然后加入相应的回调函数即可
+hammer.ondragstart = function(ev) {alert(1) };  // 开始拖动
+hammer.ondrag = function(ev) { alert(2)}; // 拖动中
+hammer.ondragend = function(ev) { alert(3)}; // 拖动结束
+hammer.onswipe = function(ev) { alert(4)}; // 滑动
+
+hammer.ontap = function(ev) { alert(5)}; // 单击
+hammer.ondoubletap = function(ev) { alert(6)}; //双击
+hammer.onhold = function(ev) { alert(7)}; // 长按
+
+hammer.ontransformstart = function(ev) {alert(8) }; // 双指收张开始
+hammer.ontransform = function(ev) { alert(9)}; // 双指收张中
+hammer.ontransformend = function(ev) { alert(10)}; // 双指收张结束
+
+hammer.onrelease = function(ev) {alert(11) }; // 手指离开屏幕
+
+
+hammer.on("tap", function(e){
+	console.log(e);
+	// alert(111);
+
+});
+
+var scaleIndex=1;
+hammer.get('pinch').set({ enable: true });
+hammer.on("pinchmove",e => {
+	// alert(111);
+    if(e.type == "pinchstart"){
+        scaleIndex = originImg.scale || 1;
+    }
+    lscale = scaleIndex * e.scale;
+    scaleImg(lscale);
+});
+
+
+
+
+
+		})
+	</script>
+</body>
+</html>

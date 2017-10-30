@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>step1---选择相机里的照片</title>
+
+<script src="../js/jquery-2.1.1.min.js"></script>
+ 
+<script src="../js/binaryajax.js"></script>
+<script src="../js/exif.js"></script>
+<script src="../js/canvasResize.js"></script>
+ <script src="../js/fabric.min.js"></script> 
+<link href="../css/main.css"  rel="stylesheet" />
+ 
+
+<style>
+li[index]{width:118px;min-width:118px}
+</style>
+</head>
+
+<body onload="init()" style="background-color:#D4D4D4">
+
+<div id=main>
+   <div id=workArea>
+     <div id=canvasArea>
+	    <canvas id="resCanvas" width="548"; height="669"></canvas>
+	 </div>
+	 <div id=cameraBar> </div>
+ 
+
+   </div>
+
+ 
+    
+<div class="loading"></div>
+ <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" style="display:none" />
+  
+<script>
+var maskImg
+var submitEnabled=false
+
+//var resCanvas = new fabric.StaticCanvas('resCanvas');//selection=false;// disable group selection
+var resCanvas = new fabric.Canvas('resCanvas'); 
+//new fabric.Canvas('c');StaticCanvas is without interactivity//
+var fileInput = document.getElementById('cameraInput');
+ fileInput.onchange = function () {
+			
+    var file = fileInput.files[0];
+	 
+	//if(file.size>3*1024*1024){ 
+	 // alert("请不要使用大于3M的图片！")
+	 // return
+	//} 
+	
+	$("#cameraBar").hide()
+     canvasResize(file, {
+                            width: 548,
+                            height: 669,
+                            crop: false,
+                            quality: 50,
+                            rotate: 0,
+                            callback: function(data, width, height) {
+							 convertDataToImage(data)
+							}
+   })
+   
+   $(".loading").show()
+
+};
+
+
+
+function convertDataToImage(callbackData){
+	var image = new Image();
+
+	image.onload=function(){
+	
+	    $(".loading").hide()
+
+        //bg是用户选择并传入的照片
+		var bg = new fabric.Image(image, {
+		  left: 0,
+		  top: 50,
+		 // angle: 10,
+		  //scaleX:0.1,
+		  opacity: 1 
+		});
+
+		submitEnabled=true// 可以点击提交button了
+
+		resCanvas.add(bg);
+		if(maskImg)resCanvas.remove(maskImg)
+		//bg.setFlipX(true)// 水平翻转
+		 
+		fabric.Image.fromURL('../images/1.png', function(frontPic) {
+		 resCanvas.add(frontPic);
+		
+		 maskImg=frontPic
+         frontPic.set({evented:false})// 这两句尤为重要，让前面的图片不接受手指触摸事件
+         frontPic.set({selectable:false})// 这两句尤为重要，让前面的图片不接受手指触摸事件
+		 
+		});
+		resCanvas.renderAll()  
+
+	}// end of onload
+	image.src = callbackData//canvas.toDataURL("image/png");
+
+
+}
+
+
+
+
+function init(){
+   
+	$("#cameraBar").click(function(){
+        $("#cameraInput").trigger("click")// 出发图片选择框或相机模式
+	}) 
+}
+ 
+
+
+</script>
+
+</body>
+</html>

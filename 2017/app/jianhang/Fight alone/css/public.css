@@ -2,10 +2,13 @@
     font-size:12px;
     /*font-family:Helvetica,STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;*/
     min-width: 320px;
-    max-width: 640px;
+/*    max-width: 640px;*/
     margin: 0 auto;
-    background:#f5f5f9;
+    background:#fff;
     color:#000;
+}
+.bg-gray{
+    background: #f5f5f9;
 }
 input, div, span, p,bottom,ul,li,textarea,select,option {
     margin:0;
@@ -250,7 +253,7 @@ only screen and (min-device-pixel-ratio: 3.0) {
 }
 
 
-.num {
+/*.num {
     width: 19px;
     height: 21px;
     background: url(img/in-bt.png) 0px -626px no-repeat;
@@ -258,10 +261,17 @@ only screen and (min-device-pixel-ratio: 3.0) {
     margin-top: -11px;
     margin-right: -11px;
     right: 50%;
-}
+}*/
 
 
 /** public*******************************************/
 .on-red {
     color:red;
 }
+
+
+.footer{height: 50px;width: 100%;background: #fff;position: fixed;bottom: 0; opacity: 1;}
+.footer .ftlist{width: 33%;height: 43px;background: #fff;text-align: center;padding-top: 7px;float: left;color: #B3B3B3;}
+.footer .on{color: #06B6F2;}
+.footer .ftlist .icon{font-size: 25px; }
+.footer .ftlist p{font-size: 9px;line-height: 0;margin-top:2px;}

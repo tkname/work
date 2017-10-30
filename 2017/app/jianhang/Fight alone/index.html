@@ -4,57 +4,48 @@
 	<meta charset="UTF-8">
 	<title>首页</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<!--   <script type="text/javascript">
-    !(function(doc, win) {
-      var timer,
-      docEle = doc.documentElement,
-      evt = "onorientationchange" in window ? "orientationchange": "resize",
-      setFontSize = function() {
-        var width = docEle.clientWidth;
-        if( width > 768 ){
-          width = 768;
-        }
-        var base = 768 / 10;
-        width && (docEle.style.fontSize = ((width / 768) * base) + "px");
-        win.fontSize = ((width / 768) * base);
-      };
-      win.addEventListener(evt,function() {
-        clearTimeout(timer);
-        timer = setTimeout(setFontSize, 300);
-      }, false);
-      doc.addEventListener("DOMContentLoaded", setFontSize, false);
-      setFontSize();
-    } (document, window));
-  </script> -->
+
   <script type="text/javascript" src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
   <link rel="stylesheet" type="text/css" href="css/icon/iconfont.css">  
   <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
   <link rel="stylesheet" type="text/css" href="css/public.css">
   <link rel="stylesheet" type="text/css" href="css/main.min.css">
+  <link rel="stylesheet" type="text/css" href="css/dropload.css">
 </head>
 <body>
-	<div class="page-index">
-		<div class="in-swiper">
-			<div class="swiper-container">
-				  <div class="swiper-wrapper">
-					    <div class="swiper-slide"><img src="images/in-banner.jpg">
-					    </div>
-					    <div class="swiper-slide"><img src="images/in-banner.jpg">
-					    </div>
-					    <div class="swiper-slide"><img src="images/in-banner.jpg">
-					    </div>
-				  </div>
-				  <div class="swiper-pagination"></div>
-			</div>			
-		</div>
+	<div class="in-swiper">
+		<div class="swiper-container">
+			  <div class="swiper-wrapper">
+				    <div class="swiper-slide"><img src="images/in-banner.jpg">
+				    </div>
+				    <div class="swiper-slide"><img src="images/in-banner.jpg">
+				    </div>
+				    <div class="swiper-slide"><img src="images/in-banner.jpg">
+				    </div>
+			  </div>
+			  <div class="swiper-pagination"></div>
+		</div>			
+	</div>
+	<div class="inmain-header" id="inmain-header">
+
+		<div class="healist on"><i class="iconfont icon-yiqipindansel mar-r"></i><span>我要拼单</span></div>
+		<div class="healist"><i class="iconfont icon-gentuanyouhover mar-r"></i><span>我要跟团</span></div>
+	</div>
+
+	<div class="page-index" >
+
+
+
 		<div class="in-main">
-			<div class="inmain-header">
-				<div class="healist on">我要拼单</div>
-				<div class="healist">我要跟团</div>
-			</div>
+
+<!-- 			<div class="inmain-header" id="inmain-header">
+
+				<div class="healist on"><i class="iconfont icon-yiqipindansel mar-r"></i><span>我要拼单</span></div>
+				<div class="healist"><i class="iconfont icon-gentuanyouhover mar-r"></i><span>我要跟团</span></div>
+			</div> -->
 			<!-- 拼单 -->
 			<div class="in-maalone">
-				<div class="alonelist tr-border at-bordert">
+				<div class="alonelist br-border at-bordert">
 					<a href="details.html" class="aloneimgd"><img src="images/ka.png"></a>	
 					<div class="alonetitle at-border bom-border"><span>Apple iPad mini 4 平板Apple iPad mini 4 平板Apple iPad mini 4 平板</span> </div>
 					<div class="alonedeta">
@@ -63,7 +54,7 @@
 						<div class="bt">拼单</div>
 					</div>
 				</div>
-				<div class="alonelist tr-border at-bordert">
+				<div class="alonelist br-border at-bordert">
 					<a href="details.html" class="aloneimgd"><img src="images/ka.png"></a>	
 					<div class="alonetitle at-border bom-border"><span>Apple iPad mini 4 平板Apple iPad mini 4 平板Apple iPad mini 4 平板</span> </div>
 					<div class="alonedeta">
@@ -72,7 +63,7 @@
 						<div class="bt">拼单</div>
 					</div>
 				</div>			
-				<div class="alonelist tr-border at-bordert">
+				<div class="alonelist br-border at-bordert">
 					<a href="details.html" class="aloneimgd"><img src="images/ka.png"></a>	
 					<div class="alonetitle at-border bom-border"><span>Apple iPad mini 4 平板Apple iPad mini 4 平板Apple iPad mini 4 平板</span> </div>
 					<div class="alonedeta">
@@ -81,7 +72,7 @@
 						<div class="bt">拼单</div>
 					</div>
 				</div>			
-				<div class="alonelist tr-border at-bordert">
+				<div class="alonelist br-border at-bordert">
 					<a href="details.html" class="aloneimgd"><img src="images/ka.png"></a>	
 					<div class="alonetitle at-border bom-border"><span>Apple iPad mini 4 平板Apple iPad mini 4 平板Apple iPad mini 4 平板</span> </div>
 					<div class="alonedeta">
@@ -90,7 +81,7 @@
 						<div class="bt">拼单</div>
 					</div>
 				</div>			
-				<div class="alonelist tr-border at-bordert">
+				<div class="alonelist br-border at-bordert">
 					<a href="details.html" class="aloneimgd"><img src="images/ka.png"></a>	
 					<div class="alonetitle at-border bom-border"><span>Apple iPad mini 4 平板Apple iPad mini 4 平板Apple iPad mini 4 平板</span> </div>
 					<div class="alonedeta">
@@ -99,7 +90,7 @@
 						<div class="bt">拼单</div>
 					</div>
 				</div>			
-				<div class="alonelist tr-border at-bordert">
+				<div class="alonelist br-border at-bordert">
 					<a href="details.html" class="aloneimgd"><img src="images/ka.png"></a>	
 					<div class="alonetitle at-border bom-border"><span>Apple iPad mini 4 平板Apple iPad mini 4 平板Apple iPad mini 4 平板</span> </div>
 					<div class="alonedeta">
@@ -108,8 +99,8 @@
 						<div class="bt">拼单</div>
 					</div>
 				</div>
-				<div class="clear"></div>
 			</div>
+			<div class="clear"></div>
 			
 			<!-- 跟团-->
 			<div class="group none">
@@ -122,7 +113,7 @@
 							飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗
 						</div>
 						<div class="price">
-							<span class="color-red mar-r">15.99</span>
+							<span class="color-red mar-r">¥15.99</span>
 							<span class="through oa8">39.99</span>
 						</div>
 						<div class="num">2人团，仅剩<span class="color-red">1</span>个名额</div>
@@ -141,7 +132,7 @@
 							飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗
 						</div>
 						<div class="price">
-							<span class="color-red mar-r">15.99</span>
+							<span class="color-red mar-r">¥15.99</span>
 							<span class="through oa8">39.99</span>
 						</div>
 						<div class="num">2人团，仅剩<span class="color-red">1</span>个名额</div>
@@ -160,7 +151,7 @@
 							飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗
 						</div>
 						<div class="price">
-							<span class="color-red mar-r">15.99</span>
+							<span class="color-red mar-r">¥15.99</span>
 							<span class="through oa8">39.99</span>
 						</div>
 						<div class="num">2人团，仅剩<span class="color-red">1</span>个名额</div>
@@ -179,7 +170,7 @@
 							飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗
 						</div>
 						<div class="price">
-							<span class="color-red mar-r">15.99</span>
+							<span class="color-red mar-r">¥15.99</span>
 							<span class="through oa8">39.99</span>
 						</div>
 						<div class="num">2人团，仅剩<span class="color-red">1</span>个名额</div>
@@ -198,7 +189,7 @@
 							飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗
 						</div>
 						<div class="price">
-							<span class="color-red mar-r">15.99</span>
+							<span class="color-red mar-r">¥15.99</span>
 							<span class="through oa8">39.99</span>
 						</div>
 						<div class="num">2人团，仅剩<span class="color-red">1</span>个名额</div>
@@ -217,7 +208,7 @@
 							飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗
 						</div>
 						<div class="price">
-							<span class="color-red mar-r">15.99</span>
+							<span class="color-red mar-r">¥15.99</span>
 							<span class="through oa8">39.99</span>
 						</div>
 						<div class="num">2人团，仅剩<span class="color-red">1</span>个名额</div>
@@ -229,26 +220,14 @@
 				</div>																				
 			</div>
 
-		</div>
-		<div class="footer">
-			<!-- 选中状态 -->
-			<div class="ftlist on">
-				<i class="icon icon-zhuye iconfont"></i>
-				<p class="text">首页</p>
-			</div>
-			<div class="ftlist">
-				<i class="icon icon-duihua iconfont"></i>
-				<p class="text">活动介绍</p>
-			</div>
-			<div class="ftlist">
-				<i class="icon icon-dingdan iconfont"></i>
-				<p class="text">订单中心</p>
-			</div>						
+			<div class="loading none">正在加载...</div>
+
 		</div>
 
-		<div class="mask"></div>
-		<div class="in-layer">
-			<div class="layer-close iconfont icon-cuo"></div>
+
+		<div class="mask none"></div>
+		<div class="in-layer none">
+			<div class="layer-close iconfont icon-guanbi"></div>
 			<div class="layer-image all-bordert at-bordert">
 				<img src="images/ka.png">
 			</div>
@@ -272,8 +251,64 @@
 				</div>								
 		</div>
 	</div>
+
+
+	<div class="footer top-border at-bordert">
+		<!-- 选中状态 -->
+		<div class="ftlist on">
+			<i class="icon icon-31shouye iconfont"></i>
+			<p class="text">首页</p>
+		</div>
+		<div class="ftlist">
+			<i class="icon icon-31pinglun iconfont"></i>
+			<p class="text">活动介绍</p>
+		</div>
+		<div class="ftlist">
+			<i class="icon icon-dingdan iconfont"></i>
+			<p class="text">订单中心</p>
+		</div>						
+	</div>
+	
+	<div class="jz1 none">
+		<div class="alonelist br-border at-bordert">
+			<a href="details.html" class="aloneimgd"><img src="images/ka.png"></a>	
+			<div class="alonetitle at-border bom-border"><span>Apple iPad mini 4 平板Apple iPad mini 4 平板Apple iPad mini 4 平板</span> </div>
+			<div class="alonedeta">
+				<div class="price">¥ 2688.00</div>
+				<div class="num">销量 3000</div>
+				<div class="bt">拼单</div>
+			</div>
+		</div>		
+	</div>
+	<div class="jz2 none">
+		<div class="grouplist bom-border at-border">
+			<div class="groupimg all-border at-bordert">
+				<img src="images/ka.png">
+			</div>
+			<div class="groupcontent">
+				<div class="title">
+					飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗飞利浦剃须刀原装进口防水可拆洗
+				</div>
+				<div class="price">
+					<span class="color-red mar-r">¥15.99</span>
+					<span class="through oa8">39.99</span>
+				</div>
+				<div class="num">2人团，仅剩<span class="color-red">1</span>个名额</div>
+			</div>
+			<div class="group-bt">
+				<div class="bt">跟团</div>
+			</div>
+			<div class="clear"></div>
+		</div>	
+	</div>
+
+
 	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/dropload.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/drload.js"></script>
+
 </body>
 </html> 

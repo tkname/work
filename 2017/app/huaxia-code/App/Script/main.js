@@ -37,7 +37,7 @@ $(function(){
 					remove();
 					setTimeout(function(){
 						run();
-					},1400)
+					},1800)
 				}
 				run();		
 				function dh(){
@@ -56,29 +56,28 @@ $(function(){
 						$(".gold1 img").removeClass('gl1').addClass("showh");
 						$(".had").removeClass('haddx');
 						$(".ww").removeClass('wwdh');
-					},800)
+					},1200)
 					setTimeout(function(){
 						$(".gold2 img").removeClass('gl2').addClass("showh");
-					},900)
-
-					setTimeout(function(){
-						$(".gold3 img").removeClass('gl3').addClass("showh");
-					},1000)
-
-					setTimeout(function(){
-						$(".gold4 img").removeClass('gl4').addClass("showh");
 					},1100)
 
 					setTimeout(function(){
-						$(".gold5 img").removeClass('gl5').addClass("showh");
+						$(".gold3 img").removeClass('gl3').addClass("showh");
 					},1200)
 
 					setTimeout(function(){
-						$(".gold6 img").removeClass('gl6').addClass("showh");
+						$(".gold4 img").removeClass('gl4').addClass("showh");
 					},1300)
+
+					setTimeout(function(){
+						$(".gold5 img").removeClass('gl5').addClass("showh");
+					},1400)
+
+					setTimeout(function(){
+						$(".gold6 img").removeClass('gl6').addClass("showh");
+					},1500)
 				}
 
-			},500)
+			},200)
 		}
-
 })

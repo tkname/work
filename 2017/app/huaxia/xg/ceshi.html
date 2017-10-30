@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/ceshi.css">
+</head>
+<body>	
+
+	<div style="transform: rotate(45deg);">
+		<div class="top" style="transform: rotate(-45deg)">
+			<div class="rect"></div>
+		</div>
+	</div>
+
+	<div class="top" >
+		<div class="rect1"></div>
+	</div>
+
+
+	<div class="gold3"><img src="images/gold3.png"></div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/TweenMax.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			var t = new TimelineMax({repeat:-1});
+			// t.to(".rect", 1, { x: 1000 });
+			t.to(".rect", 3, { x: 1000 });
+			t.restart();
+			var s=new TimelineMax({repeat:-1});
+			s.to(".rect1", 3, { x: 1000 });
+
+			var a=new TimelineMax({repeat:-1});
+			a.to(".rect1", 1, { x: 1000 });
+
+			var b=new TimelineMax({repeat:-1});
+			b.to(".rect1", 3, { x: 1000 });
+
+		})
+	</script>
+
+</body>
+</html>

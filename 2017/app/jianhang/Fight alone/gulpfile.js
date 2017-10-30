@@ -58,11 +58,68 @@ gulp.task('css', function () {
 	    //   browsers: ['>2%'],
 	    //   cascade: false
 	    // }))        
-        .pipe(rename('main.min.css'))
+        .pipe(rename('zmain.min.css'))
         .pipe(gulp.dest('css'))
         .pipe(connect.reload());
 
 });
+
+//定义css任务
+gulp.task('css2', function () {
+
+      var processors = [
+        autoprefixer
+    ];
+
+    gulp.src('css/slider.css')
+        // .pipe(gulp_postcss(processors))
+        // .on('error', errorHandler)
+      .pipe(px2rem({
+        baseDpr: 2,             // base device pixel ratio (default: 2)
+        threeVersion: false,    // whether to generate @1x, @2x and @3x version (default: false)
+        remVersion: true,       // whether to generate rem version (default: true)
+        remUnit: 37.5,            // rem unit value (default: 75)
+        remPrecision: 6         // rem precision (default: 6)
+      }))
+      // .pipe(cssnano())
+      // .pipe(autoprefixer({
+      //   browsers: ['>2%'],
+      //   cascade: false
+      // }))        
+        .pipe(rename('slider.min.css'))
+        .pipe(gulp.dest('css'))
+        .pipe(connect.reload());
+
+});
+
+//定义css任务
+gulp.task('css3', function () {
+
+      var processors = [
+        autoprefixer
+    ];
+
+    gulp.src('css/zgr.css')
+        // .pipe(gulp_postcss(processors))
+        // .on('error', errorHandler)
+      .pipe(px2rem({
+        baseDpr: 2,             // base device pixel ratio (default: 2)
+        threeVersion: false,    // whether to generate @1x, @2x and @3x version (default: false)
+        remVersion: true,       // whether to generate rem version (default: true)
+        remUnit: 37.5,            // rem unit value (default: 75)
+        remPrecision: 6         // rem precision (default: 6)
+      }))
+      // .pipe(cssnano())
+      // .pipe(autoprefixer({
+      //   browsers: ['>2%'],
+      //   cascade: false
+      // }))        
+        .pipe(rename('zgr.min.css'))
+        .pipe(gulp.dest('css'))
+        .pipe(connect.reload());
+
+});
+
 
 //定义livereload任务
 gulp.task('connect', function () {
@@ -82,11 +139,15 @@ gulp.task('watch', function () {
 
     gulp.watch('css/*.css', ['css']);
 
+    gulp.watch('css/*.css', ['css2']);
+
+    gulp.watch('css/*.css', ['css3']);
+
 });
 
 
 //定义默认任务
-gulp.task('default', [ 'js', 'html','css','watch', 'connect']);
+gulp.task('default', [ 'js', 'html','css','css2','css3','watch', 'connect']);
 
 function errorHandler(error) {
   console.log(error.message);
