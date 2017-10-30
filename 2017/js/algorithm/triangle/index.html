@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js 三角函数</title>
+</head>
+<body>
+	<script type="text/javascript" src="../../codejs/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="../../codejs/requestAnimationFrame.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var num=10; //数量
+			var r=200;	//半径
+			for(var i=1;i<=num;i++){
+				var div=$("<div>");
+				div.css({
+					"position":"absolute",
+					"top":Math.sin(360/num*i*Math.PI/180)*r+300,
+					"left":Math.cos(360/num*i*Math.PI/180)*r+300,
+					"width":"10px",
+					"height":"10px",
+					"background":"red"
+				})
+				$("body").append(div);
+			}
+
+			var rr=360/num;
+			function trins(){
+				for(var i=0;i<$("div").length;i++){
+					var ran=360/num+1;
+					rr++;
+					var top=$("div").eq(i).css("top")*1+1;
+					var left=$("div").eq(i).css("left")*1+1;
+
+					$("div").eq(i).css({
+						"top":Math.sin(rr*Math.PI/180)*r+300,
+						"left":Math.cos(rr*Math.PI/180)*r+300,
+					})
+				console.log(i,rr,$("div").length);
+
+				}
+			}
+
+			setInterval(function(){
+				trins();
+			},1000)
+		})
+	</script>
+</body>
+</html>
