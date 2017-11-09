@@ -11,6 +11,7 @@
 		$(function(){
 			var num=10; //数量
 			var r=200;	//半径
+
 			for(var i=1;i<=num;i++){
 				var div=$("<div>");
 				div.css({
@@ -24,26 +25,23 @@
 				$("body").append(div);
 			}
 
-			var rr=360/num;
+			var count=0; //初始化值
+			//转动
 			function trins(){
+				if(count>=360){count=0}
+				count++;
 				for(var i=0;i<$("div").length;i++){
-					var ran=360/num+1;
-					rr++;
-					var top=$("div").eq(i).css("top")*1+1;
-					var left=$("div").eq(i).css("left")*1+1;
-
+					var ran=360/num*i+count;
 					$("div").eq(i).css({
-						"top":Math.sin(rr*Math.PI/180)*r+300,
-						"left":Math.cos(rr*Math.PI/180)*r+300,
+						"top":Math.sin(ran*Math.PI/180)*r+300,
+						"left":Math.cos(ran*Math.PI/180)*r+300,
 					})
-				console.log(i,rr,$("div").length);
-
 				}
 			}
 
 			setInterval(function(){
 				trins();
-			},1000)
+			},0)
 		})
 	</script>
 </body>

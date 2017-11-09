@@ -177,7 +177,7 @@
 
         $(".btn").on("click", function(event) {  
                 event.preventDefault();  
-                html2canvas(document.body, {  
+                html2canvas($("#imgBox"), {  
                 allowTaint: true,  
                 taintTest: false,  
                 onrendered: function(canvas) {  
@@ -185,10 +185,11 @@
                     //document.body.appendChild(canvas);  
                     //生成base64图片数据  
                     var dataUrl = canvas.toDataURL();  
-                    var newImg = document.createElement("img");  
-                    newImg.src =  dataUrl;  
-                    document.body.appendChild(newImg);
-                    console.log(dataUrl);  
+                    console.log(dataUrl);
+                    // var newImg = document.createElement("img");  
+                    // newImg.src =  dataUrl;  
+                    // document.body.appendChild(newImg);
+                    // console.log(dataUrl);  
                 }  
             });  
         });    

@@ -1,6 +1,14 @@
 $(function(){
-		var zt=false;
-	$(".yzm").on('touchstart', function(event) {
+	var zt=false;
+	
+    //判断是pc还是移动端
+    var hasTouch = 'ontouchstart' in window,
+    touchstart = hasTouch ? 'touchstart' : 'mousedown',
+    touchmove = hasTouch ? 'touchmove' : 'mousemove',
+    touchend = hasTouch ? 'touchend' : 'mouseup',
+    touchcancel = hasTouch ? 'touchcancel' : 'mouseup';
+
+    $(".yzm").on('click', function(event) {
 		if(zt){return false;}
 		$(".mask").show();
 		$(".step-layer").show();
@@ -46,23 +54,25 @@ $(function(){
     var oIcon=$("#icon")[0];
 	var flag=1;
 	var he,re,button;
-    oBtn.addEventListener('touchstart',function(e){
+
+    oBtn.addEventListener(touchstart,function(e){
+        console.log(2222)
 	    he=$(".slider").width();
 	    re=parseInt($(window).width()-he);
 	    button=$(".button").width();
 
 		if(flag==1){
 			console.log(e);
-			var touches = e.touches[0];
+            var touches = hasTouch ? e.touches[0] : e;
 			oW = touches.clientX - oBtn.offsetLeft;
 			oBtn.className="button";
 			oTrack.className="track";
 		}
     },false);
  
-    oBtn.addEventListener("touchmove", function(e) {
+    oBtn.addEventListener(touchmove, function(e) {
 		if(flag==1){
-			var touches = e.touches[0];
+            var touches = hasTouch ? e.touches[0] : e;
 			oLeft = touches.clientX - oW;
 			if(oLeft < 0) {
 				oLeft = 0;
@@ -73,12 +83,11 @@ $(function(){
 			oTrack.style.width=oLeft+button*2/3+ 'px';			
 		}        
     },false);
-    oBtn.addEventListener("touchend",function() {
+    oBtn.addEventListener(touchend,function() {
         if(oLeft>=(oSlider.clientWidth-oBtn.clientWidth)){
             oBtn.style.left = (document.documentElement.clientWidth - oBtn.offsetWidth-re);
             oTrack.style.width= (document.documentElement.clientWidth - oBtn.offsetWidth-re);
 			flag=0;			
-            // $("#btn").addClass('bg-green2');      
             $(".yzts").show();      
             setTimeout(function(){
                 $(".mask,.step-layer").hide();

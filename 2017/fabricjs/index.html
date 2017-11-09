@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">	
+	<title>1111</title>
+	<style type="text/css">
+		.webapp{position: relative;}
+		.canvas-container{margin:0 auto;}
+		.button{width: 90%;background:#66D9C7;height: 50px;text-align: center;line-height: 50px;margin-top: 20px;color: #fff;margin:20px auto;border-radius: 8px; }
+		.button2{width: 90%;background:#66D9C7;height: 50px;text-align: center;line-height: 50px;margin-top: 20px;color: #fff;margin:20px auto;border-radius: 8px; }
+
+	</style>
+</head>
+<body>
+	<div class="webapp">
+		<canvas id="myCanvas" width="375px" height="667px"></canvas>
+
+		<input type="file" style="opacity: 0" id="file">
+
+	</div>
+	<div class="button">选择照片</div>
+	<div class="button2">上传</div>
+
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/fabric_with_gestures.js"></script>
+
+	<script type="text/javascript" src="js/exif.js"></script>
+	<script type="text/javascript" src="js/hammer.min.js"></script>
+	<script type="text/javascript" src="js/binaryajax.js"></script>
+	<script type="text/javascript" src="js/canvasResize.js"></script>
+	
+
+	<script src="//cdn.bootcss.com/eruda/1.2.6/eruda.min.js"></script>
+	<script>eruda.init();</script>	
+	
+
+		
+	<script type="text/javascript">
+	var _imgwid=548;
+	var _imghei=669;
+	var _width=$(window).width();
+	var _height=$(window).height();
+
+    var canvas = new fabric.Canvas('myCanvas', {width:_width*0.9,height:_width*0.9/_imgwid*_imghei});
+    
+    //初始化
+    people("d.jpg");
+
+    var peopleimg,bgimg;
+    function people(url){
+		fabric.Image.fromURL(url, function(img) {
+			var _scale=_width/img.width*0.5;
+
+			img.set({
+				hasBorders: false,
+				hasControls: false,
+				lockRotation: false,
+				scaleX:_scale,
+				scaleY:_scale,
+			});
+			if(peopleimg){canvas.remove(peopleimg);}
+			peopleimg=img;
+
+			canvas.add(img);
+			addBg();
+		});
+    }	
+
+    //添加背景图
+	function addBg(){ 
+		fabric.Image.fromURL('bg.png', function(maskImg) {
+	  	  var _scale=_width*0.9/_imgwid;
+		  maskImg.set({
+			left:0,
+			top: 0,
+			selectable: false,
+			evented:false,  //不支持鼠标事件
+	        scaleX:_scale,
+	      	scaleY:_scale
+
+		  });
+
+			if(bgimg){canvas.remove(bgimg);}
+			bgimg=maskImg;
+		  canvas.add(maskImg);  
+		}); 
+	}
+
+	//生产图片
+	function convertCanvasToImage(canvas) {
+		var image = new Image();
+		image.src = canvas.toDataURL("image/png");
+        $.ajax({
+            url:"http://192.168.1.106:8080/test/fabricjs/up.php",
+            type:"post",
+            data:{img:image.src},
+            success:function(res){
+            	console.log(1);
+            	alert("上传成功!");
+            },
+            error:function(res){
+                    alert(res.note);
+            }
+
+        })  
+
+		return image;
+	}
+
+	//选择图片
+	$(".button").click(function(){
+		$("#file").trigger("click");
+	})
+
+	//上传图片
+	$(".button2").click(function(){
+		convertCanvasToImage(canvas);
+	})
+
+
+	//选择图片时
+	$("#file").on("change",function(res){
+		var file=$("#file")[0].files[0];
+		console.log(file);//得到图片信息
+		//处理图片信息
+		canvasResize(file, {
+	        width: 548,
+	        height: 669,
+	        crop: false,
+	        quality: 50,
+	        rotate: 0,
+	        callback: function(data, width, height) {
+			 convertDataToImage(data)
+			}
+		})
+
+
+		function convertDataToImage(callbackData){
+			var image = new Image();
+
+			image.onload=function(){
+			
+				 
+				people(image.src);
+
+			}// end of onload
+			image.src = callbackData//canvas.toDataURL("image/png");
+
+
+		}
+	})
+
+	</script>
+</body>
+</html>
