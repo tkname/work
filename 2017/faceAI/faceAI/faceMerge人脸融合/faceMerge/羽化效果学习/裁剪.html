@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<canvas id="myCanvas" width="1000px" height="1000px" ></canvas>
+	<script type="text/javascript" src="createjs-2015.11.26.min.js"></script>
+	<script type="text/javascript" src="bitmapdata-1.1.1.min.js"></script>
+	<script type="text/javascript">
+		// Linit(50, "mylegend", 800, 480, main);
+
+		var canvas=document.getElementById("myCanvas");
+		var stage = new createjs.Stage(canvas);
+		var imgs=[];
+		createjs.Ticker.setFPS(24);
+    	createjs.Ticker.addEventListener("tick", stateUpdate);
+		
+		//初始化
+		var loader = new createjs.LoadQueue();  
+
+		function handleComplete(){
+			console.log(imgs);
+			//把canvas 设为舞台
+			var bitmap = new createjs.Bitmap(imgs.image02s);
+			stage.addChild(bitmap);
+			console.log(bitmap.getBounds());
+
+			map = new createjs.BitmapData(null, 640, 360, 0xCCCCCC);
+			
+		
+		}
+
+		//加载完成
+		loader.on("complete", handleComplete, this);
+
+		//单个加载
+		loader.on("fileload", fileloadHandler,this);
+		
+		//放入加载列表
+		var fileList=[{src:"img/image_02_s.jpg", id:"image02s"},{src:"img/mask.png", id:"mask"}];
+		loader.loadManifest(fileList);		
+
+		//把图片存入 数组
+		function fileloadHandler(e){
+			imgs[e.item.id]=e.result;
+		}
+
+		//
+		function stateUpdate(){
+			stage.update();
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+
+var image = new Image();
+image.crossOrigin = "Anonymous"; // Server must suport CORS, and you must do this for cross-domain.
+image.onload = drawImage;
+image.src = "https://i.imgur.com/FkdZbGb.jpg";
+
+function drawImage() {
+    var bitmap = new createjs.Bitmap(image);
+    
+    var blurFilter = new createjs.BlurFilter(100,0,1);//BlurFilter ( [blurX=0]  [blurY=0]  [quality=1] )
+    bitmap.filters = [blurFilter];
+	bitmap.cache(0,0,image.width,image.height);
+    
+    stage.addChild(bitmap);
+}
+
+
+
+======================================================
+
+var shape = new createjs.Shape().set({x:100,y:100});
+ shape.graphics.beginFill("green").drawCircle(0,0,150);
+
+ var blurFilter = new createjs.BlurFilter(50, 50, 0.8);
+ shape.filters = [blurFilter];
+ var bounds = blurFilter.getBounds();
+
+ shape.cache(-50+bounds.x, -50+bounds.y, 100+bounds.width, 100+bounds.height);
+ 
+ stage.addChild(shape)

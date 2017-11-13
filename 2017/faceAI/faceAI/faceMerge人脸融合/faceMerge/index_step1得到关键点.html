@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>人脸融合测试</title>
+<script src="libs/jquery.js"></script>
+<script src="libs/createjs-2015.11.26.min.js"></script>
+<script src="libs/bitmapdata-1.1.1.min.js"></script>
+<script src="draw.js"></script>
+<script>
+var data='{"session_id":"","image_height":498,"image_width":396,"face":[{"face_id":"2299691457874818753","x":124,"y":192,"height":186,"width":186,"pitch":12,"roll":-2,"yaw":-3,"age":27,"gender":56,"glass":false,"expression":6,"beauty":83,"face_shape":{"face_profile":[{"x":145,"y":261},{"x":146,"y":276},{"x":148,"y":291},{"x":151,"y":306},{"x":156,"y":320},{"x":161,"y":334},{"x":168,"y":348},{"x":177,"y":360},{"x":187,"y":371},{"x":198,"y":381},{"x":213,"y":385},{"x":228,"y":383},{"x":243,"y":376},{"x":255,"y":366},{"x":266,"y":354},{"x":275,"y":341},{"x":282,"y":327},{"x":287,"y":312},{"x":291,"y":296},{"x":294,"y":281},{"x":296,"y":266}],"left_eye":[{"x":165,"y":260},{"x":171,"y":266},{"x":179,"y":268},{"x":187,"y":268},{"x":195,"y":266},{"x":190,"y":260},{"x":181,"y":257},{"x":173,"y":257}],"right_eye":[{"x":267,"y":264},{"x":260,"y":269},{"x":252,"y":271},{"x":244,"y":271},{"x":236,"y":268},{"x":242,"y":262},{"x":251,"y":260},{"x":259,"y":261}],"left_eyebrow":[{"x":153,"y":241},{"x":164,"y":241},{"x":175,"y":242},{"x":186,"y":244},{"x":197,"y":246},{"x":187,"y":238},{"x":175,"y":233},{"x":163,"y":233}],"right_eyebrow":[{"x":278,"y":245},{"x":267,"y":244},{"x":256,"y":245},{"x":244,"y":246},{"x":233,"y":246},{"x":243,"y":239},{"x":256,"y":237},{"x":268,"y":237}],"mouth":[{"x":189,"y":337},{"x":196,"y":344},{"x":205,"y":349},{"x":215,"y":351},{"x":225,"y":350},{"x":234,"y":346},{"x":241,"y":340},{"x":232,"y":336},{"x":223,"y":333},{"x":216,"y":334},{"x":208,"y":332},{"x":199,"y":335},{"x":197,"y":340},{"x":206,"y":342},{"x":215,"y":343},{"x":224,"y":342},{"x":233,"y":341},{"x":232,"y":339},{"x":224,"y":340},{"x":215,"y":340},{"x":205,"y":339},{"x":196,"y":338}],"nose":[{"x":211,"y":308},{"x":215,"y":268},{"x":209,"y":278},{"x":203,"y":289},{"x":198,"y":299},{"x":191,"y":310},{"x":201,"y":317},{"x":212,"y":320},{"x":223,"y":318},{"x":235,"y":312},{"x":230,"y":300},{"x":225,"y":289},{"x":220,"y":279}]}}],"errorcode":0,"errormsg":"OK"}'
+
+
+  var server_data = JSON.parse(data)
+//以上数据是通过youtu_qq_sdk获取到的
+
+
+//以下代码基本都是animate cc自动生成
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+ 
+	var comp=AdobeAn.getComposition("259D5B72EE450941A905066E9F414BCA");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+ 
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.draw();
+	stage = new lib.Stage(canvas);
+	stage.addChild(exportRoot);	
+ 
+	createjs.Ticker.setFPS(lib.properties.fps);
+    createjs.Ticker.addEventListener("tick", stage);
+	 
+	AdobeAn.compositionLoaded(lib.properties.id);
+
+//以上代码基本都是animate cc自动生成	
+
+
+	console.log(server_data.errormsg)
+	if(server_data.errormsg=="SDK_IMAGE_FACEDETECT_FAILED"){
+	alert("照片中没有发现正确的人脸信息！请换张照片试试！")
+	return
+	}
+	
+	
+	var img_height//用户图片的高度
+	var img_width//用户图片的宽度
+	var imgX,imgY//用户图片中人脸部分的左上∠坐标x，y
+
+	imgX=server_data.face[0].x
+	imgY=server_data.face[0].y
+	img_width=server_data.face[0].width
+	img_height=server_data.face[0].height
+	
+	 console.log(imgX,imgY,img_width,img_height)
+	 
+	 
+	 
+	
+	var leftEyeBrow=new lib.ball //左眉最左端点
+	leftEyeBrow.scaleX=leftEyeBrow.scaleY=2
+	leftEyeBrow.x=server_data.face[0].face_shape.left_eyebrow[0].x
+	leftEyeBrow.y=server_data.face[0].face_shape.left_eyebrow[0].y
+	stage.addChild(leftEyeBrow)
+	
+	
+	var rightEyeBrow=new lib.ball//右眉最右端点
+	rightEyeBrow.scaleX=rightEyeBrow.scaleY=2
+	rightEyeBrow.x=server_data.face[0].face_shape.right_eyebrow[0].x
+	rightEyeBrow.y=server_data.face[0].face_shape.right_eyebrow[0].y
+	stage.addChild(rightEyeBrow)
+
+	 
+	 
+	var lefteye=new lib.ball  //左眼睛最左点
+	lefteye.scaleX=lefteye.scaleY=2
+	console.log(server_data.face[0].face_shape.face_profile[0].x,server_data.face[0].face_shape.face_profile[0].y)
+	lefteye.x=server_data.face[0].face_shape.left_eye[0].x
+	lefteye.y=server_data.face[0].face_shape.left_eye[0].y
+
+	stage.addChild(lefteye)
+
+
+	var righteye=new lib.ball //右眼睛最右点
+	righteye.scaleX=righteye.scaleY=2
+	righteye.x=server_data.face[0].face_shape.right_eye[0].x
+	righteye.y=server_data.face[0].face_shape.right_eye[0].y
+	stage.addChild(righteye)
+	
+	var nosePointLeft=new lib.ball //左鼻孔点
+	nosePointLeft.scaleX=nosePointLeft.scaleY=2
+	nosePointLeft.x=server_data.face[0].face_shape.nose[5].x
+	nosePointLeft.y=server_data.face[0].face_shape.nose[5].y
+	stage.addChild(nosePointLeft)
+	
+	
+	var nosePointRight=new lib.ball //右鼻孔点
+	nosePointRight.scaleX=nosePointRight.scaleY=2
+	nosePointRight.x=server_data.face[0].face_shape.nose[9].x
+	nosePointRight.y=server_data.face[0].face_shape.nose[9].y
+	stage.addChild(nosePointRight)
+	
+	
+	
+    var mouthPointLeft=new lib.ball //左嘴角点
+	mouthPointLeft.scaleX=mouthPointLeft.scaleY=2
+	mouthPointLeft.x=server_data.face[0].face_shape.mouth[0].x
+	mouthPointLeft.y=server_data.face[0].face_shape.mouth[0].y
+	stage.addChild(mouthPointLeft)
+	
+	var mouthPointRight=new lib.ball //右嘴角点
+	mouthPointRight.scaleX=mouthPointRight.scaleY=2
+	mouthPointRight.x=server_data.face[0].face_shape.mouth[6].x
+	mouthPointRight.y=server_data.face[0].face_shape.mouth[6].y
+	stage.addChild(mouthPointRight)
+
+
+	
+ for(var i=0; i<server_data.face[0].face_shape.face_profile.length;i++){//脸部外轮廓线上的各个点  ，21个脸部轮廓点
+	
+	var b=new lib.blueBall
+	b.scaleX=b.scaleY=2
+	b.x=server_data.face[0].face_shape.face_profile[i].x
+	b.y=server_data.face[0].face_shape.face_profile[i].y
+	stage.addChild(b)
+	
+}
+
+
+
+
+
+
+
+ 
+ 
+}
+</script>
+
+</head>
+<body onload="init();" style="margin:0px;">
+	 
+		<canvas id="canvas" width="750" height="1334" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>  
+</body>
+</html>

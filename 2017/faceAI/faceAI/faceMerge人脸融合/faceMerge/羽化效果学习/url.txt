@@ -1,0 +1,374 @@
+https://github.com/u-kudox/BitmapData_for_EaselJS
+
+
+https://github.com/u-kudox/BitmapData_for_EaselJS
+
+http://kudox.jp/java-script/createjs-easeljs-bitmapdata-tutorial
+-----------------------------------------------------------------------------------------
+
+BitmapData在EaselJS，基本上ActionScript 3.0一起制作的，所以Flash舒服的人没有不协调感可以使用。
+
+ 
+BitmapData在EaselJS ver 1.00追加了applyFilter，expand，perlinNoise方面 
+
+目录
+
+BitmapData实例 
+从DisplayObject取得BitmapData
+colorTransform ()
+compare ()
+copyChannel ()
+copyPixels ()
+draw ()
+fillRect ()
+floodFill ()
+getPixel (), setPixel ()
+getPixels (), setPixels ()
+hitTest ()
+merge ()
+noise ()
+paletteMap ()
+pixelDissolve ()
+threshold ()
+
+
+BitmapData实例 
+
+BitmapData实例，构造函数更可制作。第一引数读取的结束了HTMLImageElement过渡，其图像的BitmapData实例创建。第1的论点是HTMLImageElement，不仅HTMLCanvasElement，HTMLVideoElement指定也可以。
+
+油漆的BitmapData制作，如果想要第一参数null了第二把手，以后width，height，fillColor指定。fillColor的指定，CSS文字列0 xAARRGGBB形式的16进制值用了。
+
+BitmapData实例Stage上显示的是Bitmap班使用，Bitmap班构造函数是BitmapData实例，而是BitmapData实例的canvas财产给点请注意。
+
+var image = _image01;
+_bmd01 = new createjs.BitmapData(image);
+_bitmap01 = new createjs.Bitmap(_bmd01.canvas);
+_stage.addChild(_bitmap01);
+var width = 200;
+var height = 200;
+var fillColor = 0x80FF0000;
+_bmd02 = new createjs.BitmapData(null, width, height, fillColor);
+_bitmap02 = new createjs.Bitmap(_bmd02.canvas);
+_stage.addChild(_bitmap02);
+
+从DisplayObject BitmapData取得
+
+BitmapData班的静态方法getBitmapData ()使用，从而() cache被DisplayObject及其亚型的实例BitmapData作为可以得到。getBitmapData ()得到的BitmapData，DisplayObject的cache的参照。DisplayObject方面updateCache ()运行的情况下，取得了BitmapData也被更新点请注意。
+
+_shape = new createjs.Shape();
+var g = _shape.graphics;
+g.f("rgba(0,0,255,1)").dp(0, 0, 100, 5, 0.6, -90).ef();
+_shape.x = _canvas.width >> 1;
+_shape.y = _canvas.height >> 1;
+_shape.cache(-100, -100, 200, 200);
+_bmd01 = createjs.BitmapData.getBitmapData(_shape);
+var colorTransform = new createjs.ColorTransform(1, 1, 0, 1, 255);
+var rect = new createjs.Rectangle(0, 0, _bmd01.width >> 1, _bmd01.height);
+_bmd01.colorTransform(rect, colorTransform);
+_stage.addChild(_shape);
+
+-----------------------------------------------------------------
+
+colorTransform ()使用BitmapData的彩色值可以调整。第一引数用彩色的调整领域Rectangle指定第二把手，在指定ColorTransform实例。ColorTransform构造函数的争论，按顺序redMultiplier，greenMultiplier，blueMultiplier，alphaMultiplier，redOffset，greenOffset，blueOffset，alphaOffset。下面的样品，画面右侧一半的彩色值调整。
+
+_bmd01 = new createjs.BitmapData(_image01);
+var halfW = _image01.width >> 1;
+var rect = new createjs.Rectangle(halfW, 0, halfW, _image01.height);
+var colorTransform = new createjs.ColorTransform(0.5, 1.5, 1.5);
+_bmd01.colorTransform(rect, colorTransform);
+-------------------------------------------------------------------------------
+compare ()
+
+compare ()，现在的BitmapData和参数中得到的对象进行比较。可以指定对象，BitmapData，HTMLCanvasElement，HTMLImageElement，HTMLVideoElement，createjs . Stage，cache ()被createjs . DisplayObject的亚型。
+
+返回值方面，ActionScript 3.0配合，ActionScript 3.0参考看也许领受就好了。下面的样品，左右配置的图像的差分和获得的BitmapData中央表示。
+
+_bmd01 = new createjs.BitmapData(_image01);
+_bmd03 = new createjs.BitmapData(_image02);
+var otherSource = _bmd03;
+_bmd02 = _bmd01.compare(otherSource);
+_bitmap01 = new createjs.Bitmap(_bmd01.canvas);
+_bitmap02 = new createjs.Bitmap(_bmd02.canvas);
+_bitmap03 = new createjs.Bitmap(_bmd03.canvas);
+_bitmap01.x = 10;
+_bitmap02.x = 220;
+_bitmap03.x = 430;
+_bitmap01.y = _bitmap02.y = _bitmap03.y = 80;
+------------------------------------------------------
+copyChannel ()
+
+copyChannel ()，第一引数中得到的源对象的频道现在的BitmapData的频道的高潮。可以指定对象，BitmapData，HTMLCanvasElement，HTMLImageElement，HTMLVideoElement，createjs . Stage，cache ()被createjs . DisplayObject的亚型。
+
+第二把手沙司对象的范围Rectangle显示，第3参数数据被配置的左上角的坐标表示，虽然这个第4参数上酱的频道，第5参数中转递地址的频道指定。频道的指定，BitmapDataChannel班常数使用。下面的样品，源图像的阿尔法频道为目标的BitmapData青频道转送。
+
+_bmd01 = new createjs.BitmapData(_image01);
+var source = _image02;
+var sourceRect = new createjs.Rectangle(0, 0, _image02.width, _image02.height);
+var destPoint = new createjs.Point();
+var channel = Object.create(createjs.BitmapDataChannel);
+var sourceChannel = channel.ALPHA;
+var destChannel = channel.BLUE;
+_bmd01.copyChannel(source, sourceRect, destPoint, sourceChannel, destChannel);
+
+copyPixels ()
+
+copyPixels ()，第一引数中得到的源物体现在的BitmapData粘贴。可以指定对象，BitmapData，HTMLCanvasElement，HTMLImageElement，HTMLVideoElement，createjs . Stage，cache ()被createjs . DisplayObject的亚型。
+
+第二把手沙司对象的范围Rectangle显示，第3参数粘贴处的左上角坐标表示虽然这个。第4参数以后选项，源对象的阿尔法频道使用对象可以指定。第4参数在阿尔法频道的源的对象，第5参数在该对象的左上角坐标表示，虽然这个第6参数在阿尔法频道使用是否Bool值指定。
+
+语言是很难明白的说明，所以实际看到样品的易懂吧。下面的样品的3种copyPixels ()的执行结果并排着，从左面alphaSource、无alphaSource有，alphaSource有阿尔法频道使用。
+bmd01 = new createjs.BitmapData(null, 640, 360, 0xCCCCCC);
+var source = _image01;
+var sourceRect = new createjs.Rectangle(0, 0, _image01.width, _image01.height);
+var destPoint;
+var alphaSource = _maskImage;
+var alphaPoint = new createjs.Point();
+var mergeAlpha = true;
+destPoint = new createjs.Point(10, 80);
+_bmd01.copyPixels(source, sourceRect, destPoint);
+destPoint = new createjs.Point(220, 80);
+_bmd01.copyPixels(source, sourceRect, destPoint, alphaSource);
+destPoint = new createjs.Point(430, 80);
+_bmd01.copyPixels(source, sourceRect, destPoint, alphaSource, alphaPoint, mergeAlpha);
+
+draw ()
+
+draw ()，第一引数中得到的源物体现在的BitmapData字体。可以指定对象，BitmapData，HTMLCanvasElement，HTMLImageElement，HTMLVideoElement，createjs . Stage，cache ()被createjs . DisplayObject的亚型。
+
+第二把手上酱对象的变换矩阵，第三引数在指定ColorTransform对象。第4参数Flash中blendMode的指定，不过，在EaselJS BitmapData是Canvas的globalCompositeOperation的值。关于globalCompositeOperation值，HTML 5 . JP的Canvas参考参考。
+
+第5参数剪裁领域Rectangle显示，第6参数平滑行Bool值指定。下面的样品，星形的Shape实例BitmapData从取得matrix和colorTransform一边改变一张BitmapData连续性的绘图。
+var matrix = new createjs.Matrix2D(1, 0, 0, 1, -_sourceRect.width >> 1, -_sourceRect.height >> 1);
+var rotation = Math.random() * 360 >> 0;
+matrix.rotate(rotation * createjs.Matrix2D.DEG_TO_RAD);
+var scale = Math.random() * 0.5 + 0.5;
+matrix.prepend(scale, 0, 0, scale, 0, 0);
+var tx = Math.random() * _bmd01.width >> 0;
+var ty = Math.random() * _bmd01.height >> 0;
+matrix.translate(tx, ty);
+var red = (Math.random() * 224 >> 0) + 32;
+var green = (Math.random() * 224 >> 0) + 32;
+var blue = (Math.random() * 224 >> 0) + 32;
+var colorTransform = new createjs.ColorTransform(0, 0, 0, 1, red, green, blue);
+var compositeOperation = "lighter";
+var clipRect = null;
+var smoothing = true;
+_bmd01.draw(_source, matrix, colorTransform, compositeOperation, clipRect, smoothing);
+
+fillRect ()
+
+fillRect ()，第一引数中被指定的Rectangle领域的第二把手的彩色值填充。彩色值的指定，CSS文字列0 xAARRGGBB形式的16进制值用了。另外，在EaselJS BitmapData是clearRect ()也定义。clearRect ()的参数x，y，width，height，指定的领域透明的黑。
+
+_bmd01 = new createjs.BitmapData(null, 200, 200);
+_bmd02 = _bmd01.clone();
+var rect = new createjs.Rectangle(0, 0, 200, 200);
+var color01 = 0x80FF0000;
+_bmd01.fillRect(rect, color01);
+var color02 = createjs.Graphics.getRGB(0, 0, 255, 0.5)
+_bmd02.fillRect(rect, color02);
+var x = 50;
+var y = 50;
+var width = 100;
+var height = 100;
+_bmd01.clearRect(x, y, width, height);
+_bmd02.clearRect(x, y, width, height);
+
+floodFill ()
+
+floodFill ()，第1，2参数中x，y坐标指定第三引数，在指定颜色值相比，上下左右连续的颜色工具的水桶一样可以涂满。彩色值的指定，0 xAARRGGBB形式的16进制值仅用CSS字符串不能使用。下面的样品，stage上点击开始，随机被描画的矩形为floodFill在()填充。
+
+function clickHandler(evt) {
+  _bmd01.floodFill(evt.stageX, evt.stageY, 0xFFCCCCCC);
+  _stage.update();
+}
+
+getPixel (), setPixel ()
+
+getPixel ()，参数指定的x，y坐标的RGB值在回去。setPixel ()，第1，2参数指定的第三引数坐标的颜色的彩色值设定。彩色值的指定，0 xRRGGBB形式的16进制值仅用CSS字符串不能使用。
+
+ActionScript 3.0，处理的高速化的原因lock ()和unlock ()被准备。BitmapData在EaselJS稍微规格都是不同的。BitmapData在EaselJS总是被lock ()的状态，unlock ()到位的updateContext ()。updateContext ()实行，setPixel比()和setPixel 32 ()去处理BitmapData反映。
+var w = this.stageW;
+var h = this.stageH;
+var bmd = this.bmd;
+var forcemap = this.forcemap;
+bmd.fillRect(this.rect, 0xEE000000);
+var channelX = this.channelX;
+var channelY = this.channelY;
+var particles = this.particles;
+for (var i = 0, l = particles.length; i < l; i++) {
+  var p = particles[i];
+  var color = forcemap.getPixel(p.x, p.y);
+  var cx = color >> channelX & 0xFF;
+  var cy = color >> channelY & 0xFF;
+  p.ax += (cx - 128) * 0.0005;
+  p.ay += (cy - 128) * 0.0005;
+  p.sx += p.ax;
+  p.sy += p.ay;
+  p.x += p.sx;
+  p.y += p.sy;
+  p.ax *= 0.96;
+  p.ay *= 0.96;
+  p.sx *= 0.92;
+  p.sy *= 0.92;
+  if (p.x < 0) {
+    p.x = w - 1;
+  } else if (w <= p.x) {
+    p.x = 0;
+  }
+  if (p.y < 0) {
+    p.y = h - 1;
+  } else if (h <= p.y) {
+    p.y = 0;
+  }
+  bmd.setPixel(p.x, p.y, 0x0099FF);
+}
+bmd.updateContext();
+
+--------------------------------------------------------
+getPixels (), setPixels ()
+
+getPixels ()使用参数的Rectangle指定的领域的像素数据数组相似的形式就可以得到。返回值的像素数据，ActionScript 3.0是A，R，G，B的排列，不过，在EaselJS BitmapData是R，G，A，B列了，请注意。
+
+setPixels ()，第一引数的Rectangle中被指定的领域的像素数据第二把手中被指定的排列的数据替换。getPixels ()相同像素的排列是R，G，B，A的顺序。
+
+下面的样品，getPixels在()像素数据，X坐标是奇数的像素只不同的图像数据变更，在setPixels ()替换。
+bmd01 = new createjs.BitmapData(_image01);
+_bmd02 = new createjs.BitmapData(_image02);
+var rect = new createjs.Rectangle(20, 20, 160, 160);
+var data01 = _bmd01.getPixels(rect);
+var data02 = _bmd02.getPixels(rect);
+for (var i = 0, l = data01.length; i < l; i += 4) {
+  if (i / 4 % 2 !== 0) {
+    var r = i;
+    var g = i + 1;
+    var b = i + 2;
+    var a = i + 3;
+    data01[r] = data02[r];
+    data01[g] = data02[g];
+    data01[b] = data02[b];
+    data01[a] = data02[a];
+  }
+}
+_bmd01.setPixels(rect, data01);
+
+------------------------------------------------------
+
+hitTest ()
+
+hitTest ()，阿尔法频道在内的像素水平的冲突判定进行。第一引数在任意的坐标空间中的现状BitmapData的坐标，第二把手，在现在的BitmapData不透明的阿尔法频道的门槛指定。
+
+第三引数冲突判定的对象指定对象。可以指定对象，createjs .虽然这个，createjs . Rectangle，BitmapData，HTMLCanvasElement，HTMLImageElement，HTMLVideoElement，createjs . Stage，cache ()被createjs . DisplayObject的亚型。
+
+第4参数以后对象对象，虽然这个Rectangle的情况没有必要。第4参数对象对象的坐标，第5参数对象对象不透明的阿尔法频道的门槛指定。
+var firstPoint = new createjs.Point(_bitmap01.x, _bitmap01.y);
+var firstAlphaThreshold = 0xFF;
+var secondObject = _shape_bmd;
+var secondObjectPoint = new createjs.Point(_shape.x -20, _shape.y -20);
+var secondAlphaThreshold = 0x80;
+if (_bmd01.hitTest(firstPoint, firstAlphaThreshold, secondObject, secondObjectPoint, secondAlphaThreshold)) {
+  if (!_isHitting) {
+    changeColor("rgba(0,255,0,0.75)");
+  }
+} else {
+  if (_isHitting) {
+    changeColor("rgba(0,0,255,0.75)");
+  }
+}
+
+merge ()
+
+merge ()，现在的BitmapData和第一引数中被指定的对象频道每混合。可以指定对象，BitmapData，HTMLCanvasElement，HTMLImageElement，HTMLVideoElement，createjs . Stage，cache ()被createjs . DisplayObject的亚型。
+
+第二把手沙司对象的范围Rectangle显示，第3参数merge处的坐标表示虽然这个指定。第4参数以后，R，G，A，B的顺序各自的频道对指定使用乘数可以。下面的样品，左右配置的图像的合并后的结果为中央的表示。
+_bmd01 = new createjs.BitmapData(_image01);
+_bmd02 = _bmd01.clone();
+_bmd03 = new createjs.BitmapData(_image02);
+var source = _bmd03;
+var sourceRect = new createjs.Rectangle(0, 0, _image02.width, _image02.height);
+var destPoint = new createjs.Point();
+var redMultiplier = 192;
+var greenMultiplier = 64;
+var blueMultiplier = 128;
+var alphaMultiplier = 128;
+_bmd02.merge(source, sourceRect, destPoint, redMultiplier, greenMultiplier, blueMultiplier, alphaMultiplier);
+
+-------------------------------------
+
+noise ()
+
+noise ()使用随机噪声能产生。ActionScript 3.0第一引数在randomSeed（乱数的种子）指定，可以在EaselJS BitmapData常常是随机的噪音。
+
+第1参数各频道的最小值，第二把手各频道的最大值。第三引数对象的频道可以指定。频道的指定，BitmapDataChannel班常数使用，或逻辑算子复数的频道的组合也可以。
+
+第4参数，噪声的灰。Bool值指定。真的场合，阿尔法频道之外的所有频道相同值。
+
+_bmd01 = new createjs.BitmapData(null, 200, 200);
+var low = 128;
+var high = 200;
+var channel = Object.create(createjs.BitmapDataChannel);
+var channelOptions = channel.BLUE | channel.ALPHA;
+var grayScale = false;
+_bmd01.noise(low, high, channelOptions, grayScale);
+
+
+
+
+paletteMap ()
+
+paletteMap ()，参数中得到的调色板数据数组，使用BitmapData的彩色值映射。第一引数上酱指定对象。可以指定对象，BitmapData，HTMLCanvasElement，HTMLImageElement，HTMLVideoElement，createjs . Stage，cache ()被createjs . DisplayObject的亚型。
+
+第二把手沙司对象的范围Rectangle显示，第3参数映射处的左上角坐标表示虽然这个。第4参数以后各频道的托盘数据数组R，G，A，B的顺序指定。托盘数据数组null指定了频道，源对象的频道，被使用。
+
+下面的样品，画面的中央部分的颜色逆转。
+_bmd01 = new createjs.BitmapData(_image01);
+var source = _bmd01;
+var sourceRect = new createjs.Rectangle(64, 48, 256, 144);
+var destPoint = new createjs.Point(sourceRect.x, sourceRect.y);
+var redArray = [], greenArray = [], blueArray = [], alphaArray = null;
+for (var i = 0, l = 256; i < l; i++) {
+  redArray[i] = (255 - i) << 16;
+  greenArray[i] = (255 - i) << 8;
+  blueArray[i] = 255 - i;
+}
+_bmd01.paletteMap(source, sourceRect, destPoint, redArray, greenArray, blueArray, alphaArray);
+--------------------------------------------
+
+pixelDissolve ()
+
+pixelDissolve ()使用现在的BitmapData来源对象的像素为ディゾルブ可以执行。第一引数上酱指定对象。可以指定对象，BitmapData，HTMLCanvasElement，HTMLImageElement，HTMLVideoElement，createjs . Stage，cache ()被createjs . DisplayObject的亚型。
+
+第二把手沙司对象的范围Rectangle显示，第3参数ディゾルブ处的左上角坐标表示虽然这个。第4参数ActionScript 3.0是randomSeed，不过，在EaselJS BitmapData是buffer排列。pixelDissolve ()的返回值指定连续的像素ディゾルブ实行的点是一样。
+
+第5参数，有一次处理取代像素数，第6参数是现在的BitmapData和源对象相等的场合使用彩色值为0 xAARRGGBB形式的十六进制数的值指定。
+function tickHandler(evt) {
+  if (_buffer === 0) {
+    return;
+  }
+  var sourceRect = new createjs.Rectangle(0, 0, _source.width, _source.height);
+  var destPoint = new createjs.Point(sourceRect.x, sourceRect.y);
+  var numPixels = 600;
+  var fillColor = null
+  _buffer = _bmd01.pixelDissolve(_source, sourceRect, destPoint, _buffer, numPixels, fillColor);
+  _stage.update();
+}
+
+threshold ()
+
+threshold ()，参数的阈值BitmapData像素值在测试合格与否，其根据像素的新颜色值设置。第一引数上酱指定对象。可以指定对象，BitmapData，HTMLCanvasElement，HTMLImageElement，HTMLVideoElement，createjs . Stage，cache ()被createjs . DisplayObject的亚型。
+
+第二把手沙司对象的范围表示，第三引数Rectangle像素的调换之前的左上角坐标表示虽然这个。第4参数中像素的测试使用比较运算符字符串中指定。可以指定值，"<", "<=", ">", ">=", "==", "!="。
+
+第5参数阈值的彩色值，第6参数，考试合格了的时候被设置新颜色值，第7参数比较的设定的范围口罩值指定。彩色值的指定，0 xAARRGGBB形式的16进制值仅用CSS字符串不能使用。
+
+第8参数，比较的结果是假场合源对象的像素为现在的BitmapData拷贝？Bool值指定。
+_bmd01 = new createjs.BitmapData(_image01);
+var source = _bmd01;
+var halfW = _bmd01.width >> 1;
+var sourceRect = new createjs.Rectangle(halfW, 0, halfW, _bmd01.height);
+var destPoint = new createjs.Point(sourceRect.x, sourceRect.y);
+var operation = "<";
+var threshold = 0xFFEE0000;
+var color = 0x00000000;
+var mask = 0xFFFF0000;
+var copySource = false;
+_bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mask, copySource);

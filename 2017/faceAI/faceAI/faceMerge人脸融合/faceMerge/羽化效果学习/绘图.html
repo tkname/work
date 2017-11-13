@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<canvas id="myCanvas" width="1000px" height="1000px" ></canvas>
+	<script type="text/javascript" src="createjs-2015.11.26.min.js"></script>
+	<script type="text/javascript" src="bitmapdata-1.1.1.min.js"></script>
+	<script type="text/javascript">
+		var canvas=document.getElementById("myCanvas");
+		var stage = new createjs.Stage(canvas);
+
+		//刷新频率设置
+		createjs.Ticker.setFPS(24);
+    	createjs.Ticker.addEventListener("tick", stateUpdate);
+
+		init();
+
+		function init(){
+			//创建形状			
+			var shape = new createjs.Shape();
+			stage.addChild(shape);
+
+
+			var s = new createjs.Shape();
+			// s.x=canvas.width/2;
+			// s.y=canvas.height/2;
+
+			var g = s.graphics;
+			g.setStrokeStyle(2, 'round', 'round'); //设置画笔 样式
+			g.beginStroke("red"); //设置画笔颜色
+			// g.drawCircle(300, 300, 100); //55,53 x,y,r 绘制圈
+			// g.arc(0, 0, 60, 0, Math.PI); // x  y  半径  开始的角度  结束的角度  逆时针方向的
+			g.moveTo(0,0); //开始点
+			g.bezierCurveTo(0,200,200,200,200,0); //cp1x  cp1y  cp2x  cp2y  x  y //三次贝塞尔曲线
+
+			g.beginStroke("blue"); //设置画笔颜色
+			g.moveTo(300,0);  
+			g.quadraticCurveTo(430,150,560,0); //cpx  cpy  x  y//二次贝塞尔曲线
+			// g.closePath(); //闭合路径
+
+			g.beginFill("#FC0"); //色彩填充
+			g.moveTo(0,300);   
+			g.lineTo(0,400);
+			g.lineTo(100,400);
+			g.lineTo(100,300);
+			g.closePath();
+
+			g.rect(300,300,100,100); //绘制矩形
+
+			g.beginFill();
+			g.drawRoundRect(500, 500, 130, 130, 30); //绘制圆角矩形
+			stage.addChild(s);
+		}		
+		
+		function stateUpdate(){
+			stage.update();
+		}
+
+	</script>
+</body>
+</html>

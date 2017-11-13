@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=550,user-scalable=no" />
+<title>game</title> 
+<script src="js/easeljs-0.7.0.min.js"></script>
+<script src="js/tweenjs-0.5.0.min.js"></script>
+<script src="js/movieclip-0.7.0.min.js"></script>
+<script src="js/preloadjs-0.4.0.min.js"></script>
+<script src="car.js"></script>
+<script src="TweenMax.min.js"></script>
+<script src="plugins/EaselPlugin.min.js"></script>
+ 
+<style>
+html, body, div, canvas {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+ 
+}
+
+html,body{width:100%}
+</style>
+<script>
+function init(){
+
+var canvas = document.getElementById('myCanvas'), 
+    stage = new createjs.Stage(canvas),
+    circle = new createjs.Shape(),
+    g = circle.graphics;
+//draw a red circle in the Shape
+g.beginFill(createjs.Graphics.getRGB(255, 0, 0));
+g.drawCircle(0, 0, 100);
+g.endFill();
+//in order for the ColorFilter to work, we must cache() the circle
+circle.cache(-100, -100, 200, 200);
+//place the circle at 200,200
+circle.x = 200;
+circle.y = 200;
+//add the circle to the stage
+
+var mycar=new lib.Box()
+mycar.stop()
+mycar.x=mycar.y=300
+stage.addChild(circle);
+stage.addChild(mycar);
+//setup a "tick" event listener so that the EaselJS stage gets updated on every frame/tick
+TweenLite.ticker.addEventListener("tick", refresh, stage);//TweenLite.ticker.addEventListener("tick", stage.update, stage);
+
+function refresh(){
+//circle.x+=10
+stage.update();
+
+}
+//createjs.Ticker.addEventListener("tick", stage);
+stage.update();
+//tween the tint of the circle to green and scale it to half-size
+TweenLite.to(circle, 2, {scaleX:.5, scaleY:.5, easel:{tint:0x00FF00}});
+TweenLite.to(mycar, 1, {easel:{frame:15}});
+ 
+// //tween to a different tint that is only 50% (mixing with half of the original color) and animate the scale, position, and rotation simultaneously.
+// TweenLite.to(circle, 3, {scaleX:1.5, scaleY:0.8, x:250, y:150, rotation:180, easel:{tint:"#0000FF", tintAmount:0.5}, delay:3, ease:Elastic.easeOut});
+// //then animate the saturation down to 0
+// TweenLite.to(circle, 2, {easel:{saturation:0}, delay:2});
+
+
+}
+ 
+	
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="myCanvas" width="550" height="400" style="background-color:#FFFFFF"></canvas>
+</body>
+</html>
