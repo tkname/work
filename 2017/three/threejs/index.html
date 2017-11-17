@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>three.js webgl - blender -json</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		 
+	</head>
+	<body>
+
+		<div id="container"> 
+		</div>
+
+		<script src="js/three.js"></script>
+
+		<script src="js/Detector.js"></script>
+		<script src="js/libs/stats.min.js"></script>
+
+		<script>
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var container, stats, clock, mixer;
+			var camera, scene, renderer, objects;
+			
+			var teapot,cube;
+
+			init();
+			animate();
+
+			function init() {
+
+				container = document.getElementById( 'container' );
+
+				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.set( 0, 0, 55 );
+
+				clock = new THREE.Clock();
+
+				scene = new THREE.Scene();
+				//scene.fog = new THREE.FogExp2( 0x000000, 0.035 );
+				scene.background = new THREE.Color( 0xffffff );
+
+				var geometry0 = new THREE.BoxGeometry( 20, 20, 20 );
+
+				for ( var i = 0; i < geometry0.faces.length; i += 2 ) {
+
+					var hex0 = 0xccccc// Math.random() * 0xccccc;
+					geometry0.faces[ i ].color.setHex( hex0 );
+					geometry0.faces[ i + 1 ].color.setHex( hex0 );
+
+				}
+
+				var material0 = new THREE.MeshBasicMaterial( {color: 0xe0e0e0, overdraw: 0.5 } );
+
+				cube = new THREE.Mesh( geometry0, material0 );
+				cube.position.y = 0;
+				scene.add( cube );
+
+				// Plane
+
+				//var geometry = new THREE.PlaneBufferGeometry( 200, 200 );
+				//geometry.rotateX( - Math.PI / 2 );
+
+				//var material = new THREE.MeshBasicMaterial( { color: 0xe0e0e0, overdraw: 0.5 } );
+
+				//plane = new THREE.Mesh( geometry, material );
+				//scene.add( plane );
+
+				 
+				var loader = new THREE.JSONLoader();
+				loader.load( '1.js', function ( geometry, materials ) {
+					// adjust color a bit
+					var material = materials[ 0 ];
+					material.morphTargets = true;
+					material.color.setHex( 0xffaaaa );		
+
+						teapot = new THREE.Mesh( geometry, materials );					 
+						teapot.position.set( 0, 0, 0 );
+						var s = 0.5//THREE.Math.randFloat( 0.00075, 0.001 );
+						teapot.scale.set( s, s, s );
+						//teapot.rotation.y = THREE.Math.randFloat( -0.25, 0.25 );
+						//teapot.matrixAutoUpdate = false;
+						teapot.updateMatrix();
+						scene.add( teapot );				
+				} );
+
+				// lights
+
+				var ambientLight = new THREE.AmbientLight( 0xcccccc );
+				scene.add( ambientLight );
+
+				var pointLight = new THREE.PointLight( 0xff4400, 5, 30 );
+				pointLight.position.set( 5, 0, 0 );
+				scene.add( pointLight );
+
+				// renderer
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+
+				// stats
+
+				//stats = new Stats();
+				//container.appendChild( stats.dom );
+
+				// events
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+			//
+
+			function onWindowResize( event ) {
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+			}
+
+			//
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+				render();
+				//stats.update();
+
+			}
+
+			function render() {
+
+				var timer = Date.now() * 0.0005;
+
+				//camera.position.x = Math.cos( timer ) * 10;
+				//camera.position.y = 4;
+				//camera.position.z = Math.sin( timer ) * 10;
+
+				//mixer.update( clock.getDelta() );
+                teapot.rotation.y+=0.01
+				//camera.lookAt(  );//scene.position
+				cube.position.y=-20
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+	
+
+</body></html>

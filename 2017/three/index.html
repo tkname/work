@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript" src="https://cdn.bootcss.com/three.js/r83/three.min.js"></script>
+	<style type="text/css">
+		body{margin: 0}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var scene=new THREE.Scene(); //实例化场景
+		var camera=new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000 ); //实例化相机 视角 长宽比  近裁面 远裁面
+
+		var renderer=new THREE.WebGLRenderer(); //实例化webgl
+		renderer.setSize(window.innerWidth,window.innerHeight);  
+		
+		document.body.appendChild(renderer.domElement);
+
+		var geometry=new THREE.BoxGeometry(10,10,10); //创建盒子模型
+		var meterial=new THREE.MeshPhongMaterial({map: THREE.ImageUtils.loadTexture('image/wall.jpg')}); //材料 color, map, shading, wireframe
+		var cube=new THREE.Mesh( geometry, meterial); //立方体 网孔 承载几何模型，并把材料应用上去
+		scene.add(cube);
+
+		//创建地面  MeshBasicMaterial  MeshPhongMaterial无光
+		var ground=new THREE.PlaneGeometry(50,50,1);
+		var ge_meterial=new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture("image/crate.gif")});
+		ge_meterial.side = THREE.DoubleSide
+		var ge_cube=new THREE.Mesh(ground,ge_meterial);
+		ge_cube.position.y=-5;
+		ge_cube.rotation.x=Math.PI/2;
+		scene.add(ge_cube);
+
+		camera.position.z=50;
+		camera.position.y=20;
+
+		var light = new THREE.PointLight(0x404040,5,500); // soft white light
+		var sphere = new THREE.SphereGeometry( 0.5, 16, 8 );
+		light.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xff0040 } ) ) );
+
+		light.position.y=15;
+		scene.add(light);
+
+		var light2 = new THREE.PointLight(0x404040,5,500); // soft white light
+		var sphere2 = new THREE.SphereGeometry( 0.5, 16, 8 );
+		light2.add( new THREE.Mesh( sphere2, new THREE.MeshBasicMaterial( { color: 0xffffff } ) ) );
+
+		light2.position.y=0;
+		light2.position.x=10;
+		scene.add(light2);
+
+
+		// conos
+		// 
+		// 渲染
+		function render(){
+			requestAnimationFrame(render);
+			renderer.render(scene,camera);
+			//.rotation.x += 0.1;
+			cube.rotation.y += 0.1;
+			camera.position.z+=0.1
+			camera.position.x+=0.3
+			camera.lookAt(cube.position)
+		}
+
+		render();
+
+	</script>
+</body>
+</html>
