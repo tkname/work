@@ -4,55 +4,62 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
-
 <body>
-	<canvas id="myCanvas" width="1000px" height="1000px" ></canvas>
+	<canvas id="myCanvas" width="1000px" height="1000px"></canvas>
 	<script type="text/javascript" src="createjs-2015.11.26.min.js"></script>
 	<script type="text/javascript" src="bitmapdata-1.1.1.min.js"></script>
 	<script type="text/javascript">
-		// Linit(50, "mylegend", 800, 480, main);
+		 var canvas=document.getElementById("canvas");
+		 var stage = new createjs.Stage("myCanvas");
+		 var queue = new createjs.LoadQueue();
+  		 var imgs=[];
+	  	 createjs.Ticker.setFPS(24);
+	     createjs.Ticker.addEventListener("tick", stage);  		 
+  		 //加载完成
+		 queue.on("complete", handleComplete, this);
+		 //加载完一个执行	
+		 queue.on("fileload", fileloadHandler, this);
+		 queue.loadManifest([
+		     {id: "image_02", src:"img/image_02_s.jpg"}
+		 ]);
+		 function handleComplete() {
+			createCanvas = new createjs.BitmapData(null, 500, 500, 0x000000); //创建一块画布
+			_bitmap02 = new createjs.Bitmap(createCanvas.canvas);   
+			stage.addChild(_bitmap02);
 
-		var canvas=document.getElementById("myCanvas");
-		var stage = new createjs.Stage(canvas);
-		var imgs=[];
-		createjs.Ticker.setFPS(24);
-    	createjs.Ticker.addEventListener("tick", stateUpdate);
-		
-		//初始化
-		var loader = new createjs.LoadQueue();  
+			var source = imgs.image_02;
+			console.log(imgs.image_02);
+			var sourceRect = new createjs.Rectangle(0, 0,source.width,source.height); //绘制一个图形一样大小的矩形
 
-		function handleComplete(){
-			console.log(imgs);
-			//把canvas 设为舞台
-			var bitmap = new createjs.Bitmap(imgs.image02s);
-			stage.addChild(bitmap);
-			console.log(bitmap.getBounds());
+			var shape=new createjs.Shape(); 
+		    var graphics=shape.graphics;  
+			// graphics.beginFill("#eee");  
+		 //    graphics.drawCircle(100, 100, 100); //画圆 中心点位置x,y;半径 			
+		 	graphics.beginFill("red");
+			graphics.drawRoundRect(20, 20, 150, 150, 30); //绘制圆角矩形
+			stage.addChild(shape);
 
-			map = new createjs.BitmapData(null, 640, 360, 0xCCCCCC);
-			
-		
-		}
+			shape.cache(0,0,200,200)//这个15是 BlurFilter的blur值， //设置缓存  裁剪必需
 
-		//加载完成
-		loader.on("complete", handleComplete, this);
 
-		//单个加载
-		loader.on("fileload", fileloadHandler,this);
-		
-		//放入加载列表
-		var fileList=[{src:"img/image_02_s.jpg", id:"image02s"},{src:"img/mask.png", id:"mask"}];
-		loader.loadManifest(fileList);		
+			var destPoint;
+			//copyPixels ( source  sourceRect  destPoint  [alphaSource=null]  [alphaPoint=null]  [mergeAlpha=false] )
+			//
+			var alphaPoint = new createjs.Point(); //绘制点
+			destPoint = new createjs.Point(0, 0); //绘制点
+			createCanvas.copyPixels(source, sourceRect, destPoint,shape);  //对象 矩形 点
 
-		//把图片存入 数组
-		function fileloadHandler(e){
-			imgs[e.item.id]=e.result;
-		}
+			_bitmap01 = new createjs.Bitmap(createCanvas.canvas);
+			stage.addChild(_bitmap01);
 
-		//
-		function stateUpdate(){
-			stage.update();
-		}
-
+		 }
+		 function fileloadHandler(e){
+		 	console.log(e);
+		 	imgs[e.item.id]=e.result;
+		 }
+		 function stage(){
+		 	stage.update();
+		 }
 	</script>
 </body>
 </html>
