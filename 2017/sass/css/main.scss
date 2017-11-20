@@ -1,0 +1,49 @@
+
+//样式导入
+@import "public.scss";
+// //函数
+// @mixin bgImg($src,$size:cover){
+// 	background-image:url(../image/#{$src});
+// 	background-size:$size;
+// 	background-repeat:no-repeat;
+// }
+
+//变量名
+$blue : red;　
+div {
+    color : $blue;
+}
+
+.color-blue{color:blue}
+
+//运算
+$side : 2;
+.rounded {
+	width:2*20%;
+	
+	//嵌套
+	.hh{
+		//样式继承
+		@extend .color-blue;
+		color:red;
+		//函数调用
+		@include bgImg("1.png");
+	}
+}
+
+//杉树编写
+@function double($n) {
+	@return $n * 2;
+}
+#sidebar {
+	width: double(5px);
+}
+
+
+
+
+
+
+
+
+

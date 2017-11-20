@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+	<script src="js/jquery.validate.js"></script>
+
+	<script type="text/javascript" src="extends.js"></script>
+	<script type="text/javascript" src="mobile/layer.js"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="css/main.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="mobile/need/layer.css">
+</head>
+<body>
+
+	<form onsubmit="return false;">
+		<input type="text" name="name" >
+		<button id="sub">提交</button>
+	</form>
+
+
+	<div class="box"></div>
+	
+	<script type="text/javascript">
+		$(function(){
+			 //提交的表单
+			 $("form").validate({
+			 	 rules: {
+      				name: {"required":true,minlength:2}
+      			}, messages: {
+      				name: {required:"请输入您的名字",minlength:"长度不够"},
+      			},submitHandler:function(){
+                    layer.open({
+                        content:'保存成功',
+                        skin:"msg",
+                        time:2,
+                        end:function(){
+                            // location.href = location.href+'&t='+ Date.parse(new Date());
+                        }
+                    });  
+      			}
+			 })
+
+
+		    $(".sub").click(function(){
+		        $("form").submit();
+		    })
+
+		})
+
+
+		// console.log($("form").validate());
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+//函数
+@mixin bgImg($src,$size:cover){
+	background-image:url(../image/#{$src});
+	background-size:$size;
+	background-repeat:no-repeat;
+}
+
+
+
+
+
+
+
+
+
