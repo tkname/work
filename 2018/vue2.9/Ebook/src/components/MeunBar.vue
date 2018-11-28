@@ -1,7 +1,7 @@
 <template>
     <div class="meun-up">
       <transition name="slide-up">
-        <div class="meun-wrapper" v-show="ifTitleAndMenuShow">
+        <div class="meun-wrapper" v-show="ifTitleAndMenuShow" :class="{'hide-box-shadow':ifSettingShow || !ifTitleAndMenuShow}">
           <div class="icon-wrapper">
             <span class="icon-caidan iconfont"></span>
           </div>
@@ -37,7 +37,7 @@
     },
     data(){
      return {
-       ifSettingShow:false
+       ifSettingShow:false,
      }
     },
     methods:{
@@ -67,6 +67,9 @@
       .icon-wrapper{
         flex: 1;
         @include center();
+      }
+      &.hide-box-shadow{
+        box-shadow: none;
       }
     }
     .setting-wrapper{
