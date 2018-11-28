@@ -1,0 +1,24 @@
+@import 'reset';
+
+@mixin center(){
+  display:flex;
+  align-items: center;//垂直居中
+  justify-content: center;//水平居中
+}
+
+.iconfont{
+  color: #333;
+  font-size: 0.4rem;
+}
+.slide-up-enter,.slide-up-leave-to{
+  transform: translate3d(0,100%,0)
+}
+.slide-down-enter,.slide-down-leave-to{
+  transform: translate3d(0,-100%,0)
+}
+.slide-down-enter-to,.slide-down-leave,.slide-up-enter-to,.slide-up-leave{
+  transform: translate3d(0,0,0)
+}
+.slide-down-enter-active,.slide-down-leave-active,.slide-up-enter-active,.slide-up-leave-active{
+  transition: all .3s linear;
+}
