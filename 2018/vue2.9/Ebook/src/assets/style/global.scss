@@ -5,13 +5,18 @@
   align-items: center;//垂直居中
   justify-content: center;//水平居中
 }
-
+body{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 .iconfont{
   color: #333;
   font-size: 0.4rem;
 }
 .slide-up-enter,.slide-up-leave-to{
-  transform: translate3d(0,100%,0)
+  transform: translate3d(0,2.16rem,0)
 }
 .slide-down-enter,.slide-down-leave-to{
   transform: translate3d(0,-100%,0)
@@ -21,4 +26,11 @@
 }
 .slide-down-enter-active,.slide-down-leave-active,.slide-up-enter-active,.slide-up-leave-active{
   transition: all .3s linear;
+}
+
+.fade-enter,.fade-leave-to{
+  opacity: 0;
+}
+.fade-enter-to,.fade-leave{
+  opacity: 1;
 }

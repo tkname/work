@@ -21,6 +21,7 @@
 
 <script>
   export default {
+    //props  子组件使用父组件数据
     props:{
       ifTitleAndMenuShow:{
         type:Boolean,
