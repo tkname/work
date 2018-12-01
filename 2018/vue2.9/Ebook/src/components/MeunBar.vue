@@ -3,7 +3,7 @@
       <transition name="slide-up">
         <div class="meun-wrapper" v-show="ifTitleAndMenuShow" :class="{'hide-box-shadow':ifSettingShow || !ifTitleAndMenuShow}">
           <div class="icon-wrapper">
-            <span class="icon-caidan iconfont"></span>
+            <span class="icon-caidan iconfont" @click="showSetting(3)"></span>
           </div>
           <div class="icon-wrapper">
             <span class="icon-tiaoshi iconfont" @click="showSetting(2)"></span>
@@ -61,25 +61,29 @@
           </div>
         </div>
       </transition>
-      <!-- <content-view :ifShowContent="ifShowContent"
+
+      <content-view :ifShowContent="ifShowContent"
                     v-show="ifShowContent"
                     :navigation="navigation"
                     :bookAvailable="bookAvailable"
-                    @jumpTo="jumpTo"></content-view> -->
+                    @jumpTo="jumpTo">
+      </content-view>
+
       <transition name="fade">
         <div class="content-mask" v-show="ifShowContent" @click="hideContent">
         </div>
       </transition>
+
     </div>
 
 </template>
 
 <script>
-  // import ContentView from '@/components/Content'
+  import ContentView from '@/components/Content'
   export default {
-    // components:{
-    //   ContentView
-    // },
+    components:{
+      ContentView
+    },
     //props  子组件使用父组件数据
     props:{
       ifTitleAndMenuShow:{
@@ -91,7 +95,8 @@
       themeList:Array,
       defaultTheme:Number,
       bookAvailable:false,
-      navigation:Object
+      navigation:{}
+
     },
     data(){
      return {
@@ -107,6 +112,7 @@
       },
       jumpTo(target){
         this.$emit('jumpTo',target)
+        this.hideContent();
       },
       // 进度条拖动时触发事件
       onProgressInput(progress){
@@ -121,9 +127,18 @@
       setTheme(index){
         this.$emit("setTheme",index);
       },
+      hideTitle(index){
+        this.$emit("hideTitle");
+      },
       showSetting(index){
         this.showTag=index;
-        this.ifSettingShow=true;
+        if(index===3){
+          this.ifShowContent=true;
+          this.ifSettingShow=false;
+          this.$emit('hideTitle');
+        }else{
+          this.ifSettingShow=true;
+        }
       },
       hideSetting(){
         this.ifSettingShow=false;
@@ -133,7 +148,7 @@
       }
     },
     mounted(){
-      console.log(this.navigation,2222);
+      console.log(this.navigation,"菜单页加载完");
     }
   }
 </script>

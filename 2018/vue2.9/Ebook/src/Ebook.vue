@@ -19,6 +19,7 @@
               :bookAvailable="bookAvailable"
               @onProgressChange="onProgressChange"
               @jumpTo="jumpTo"
+              @hideTitle="hideTitle"
               :navigation="navigation"
               @setFontSize="setFontSize"></meun-bar>
   </div>
@@ -91,14 +92,18 @@
     },
     methods:{
       // 根据连接跳转到指定位置
-      jumpTo(){
+      jumpTo(href){
         this.rendition.display(href);
-        this.hideTitleAndMeun();
+        this.ifTitleAndMenuShow=false;
+      },
+      hideTitle(){
+        this.ifTitleAndMenuShow=false;
       },
       // 隐藏标题栏和菜单栏
       hideTitleAndMeun(){
         // 隐藏标题栏和菜单栏
         this.ifTitleAndMenuShow=false;
+        console.log(111);
         // 隐藏菜单栏弹出的设置栏
         this.$refs.meunBar.hideSetting();
         // 隐藏目录
@@ -146,13 +151,14 @@
         //通过epubjs的钩子函数来实现
         this.book.ready.then(()=>{
           this.navigation=this.book.navigation;
+          console.log(this.navigation,1);
           //生成Locations对象
           return this.book.locations.generate();
           //异步执行
         }).then(result=>{
           this.locations=this.book.locations;
           this.bookAvailable=true;
-          this.onProgressChange(100);
+          // this.onProgressChange(100);
         })
       },
       prevPage(){
