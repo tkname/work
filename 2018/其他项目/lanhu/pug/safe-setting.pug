@@ -1,0 +1,79 @@
+include ../public/public.pug
+
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        title CHAOEX
+        link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+        script(type="text/javascript",src="./res/scripts/rem.js")
+        script(type="text/javascript",src="./res/scripts/jquery.min.js")
+        script(type="text/javascript",src="./res/scripts/swiper.min.js")
+        script(type="text/javascript",src="./res/scripts/main.js")
+        //- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+        - let imgUrl="./res/images/";
+    body
+        .header
+            span.title 安全设置
+        .main.safe-setting
+            .tips
+                span  為保證信息安全，請不要將短信和谷歌驗證碼透露給任 何人（包括CHAOEX客服人員）
+            .item-boxList
+                    .title 
+                        i.icon-google 
+                        label 谷歌驗證
+                        .btn-blue.btn 綁定
+                    .desc 
+                        span 用於登錄、充提幣、找回密碼、修改安全設置、管理API時進行安全驗證，為了您的資產安全，建議開啟
+            .item-boxList
+                    .title 
+                        i.icon-circle-ipone 
+                        label 手機號碼
+                        .btn 綁定
+                    .desc 
+                        span 用於提幣、找回密碼、修改安全設置、管理API時進行安全驗證，為了您的資產安全，建議開啟
+            .item-boxList
+                    .title 
+                        i.icon-email 
+                        label 郵箱地址
+                        .btn-blue.btn 綁定
+                    .desc 
+                        span 用於提幣、找回密碼、修改安全設置、管理API時進行安全驗證，為了您的資產安全，建議開啟
+            .item-boxList
+                    .title 
+                        i.icon-key-yellow 
+                        label 登錄密碼
+                        .btn-blue.btn 綁定
+                    .desc 
+                        span 上次登錄時間：2018-12-19 00:52:05 
+                        br 
+                        | 地址：112.120.124.29
+            .item-boxList
+                    .title 
+                        i.icon-key-green 
+                        label 交易密碼
+                        .btn-blue.btn 綁定
+                    .desc 
+                        span 用於充提幣和交易，為了您的資產安全，建議開啟
+            .content-box
+                .nav-meun.line-blue.clearfix
+                    ul
+                        li 
+                            span 登錄記錄
+                        li.active 
+                            span 安全設置記錄
+                -for (let i=0;i<5;i++)
+                    .content-box.line-blue
+                        .list
+                            .title 登錄時間
+                            .desc 2018.12.19 22:42:36
+                        .list
+                            .title IP 地址
+                            .desc 183.277.145.41
+                        .list
+                            .title 登錄所在地
+                            .desc Guangzhou,Guangdong,China
+
+
+
+                

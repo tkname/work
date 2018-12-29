@@ -1,0 +1,66 @@
+include ../public/public.pug
+
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        title CHAOEX
+        link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+        link(href='./res/styles/select.css?v=1.1',type='text/css',rel='stylesheet')
+        link(href='./res/styles/jquery.mCustomScrollbar.min.css?v=1.1',type='text/css',rel='stylesheet')
+
+        script(type="text/javascript",src="./res/scripts/rem.js")
+        script(type="text/javascript",src="./res/scripts/jquery.min.js")
+        script(type="text/javascript",src="./res/scripts/swiper.min.js")
+        script(type="text/javascript",src="./res/scripts/jquery.mCustomScrollbar.concat.min.js")
+        script(type="text/javascript",src="./res/scripts/jquery.select.js")
+        script(type="text/javascript",src="./res/scripts/main.js")
+        //- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+        - let imgUrl="./res/images/";
+    body
+        .header
+            .logo.left
+            .btn-box
+                a.login 登录
+                a.register 注册
+        .main.register
+            .content-box
+                .nav-meun.line-blue.clearfix
+                    ul
+                        li 
+                            span 邮箱注册
+                        li.active 
+                            span 手机注册
+            .form
+                .form-group.line-blue
+                    label 手机号码 *
+                    .type-box.type-ipone
+                        .vertical
+                            span +86
+                            //- select#mySelect
+                            //-     -for(let i=0;i<20;i++)
+                            //-         option(value="1") 成功1
+
+                        input(type="text" placeholder='请输入手机号')
+                .form-group.line-blue
+                    label 密码 *
+                    .type-box
+                        input(type="text" placeholder='请输入密码')
+                .form-group.line-blue
+                    label 确认密码 *
+                    .type-box
+                        input(type="text" placeholder='请输入密码')
+                .form-group.line-blue
+                    label 手机验证码 *
+                    .type-box
+                        input(type="text" placeholder='请输入验证码')
+                        .code 发送验证码
+                .form-group.line-blue
+                    label 邀请码
+                    .type-box
+                        input(type="text" placeholder='请输入邀请码')
+                .form-check
+                    label.check-box
+                        input(type='checkbox' class='input-protocol')
+                        span
+                    span 我已閱讀並同意《CHAOEX服務條款》

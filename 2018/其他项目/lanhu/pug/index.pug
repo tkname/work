@@ -1,0 +1,199 @@
+
+include ../public/public.pug
+
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        title CHAOEX
+        link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+        script(type="text/javascript",src="./res/scripts/rem.js")
+        script(type="text/javascript",src="./res/scripts/jquery.min.js")
+        script(type="text/javascript",src="./res/scripts/swiper.min.js")
+        script(type="text/javascript",src="./res/scripts/main.js")
+        //- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+        - let imgUrl="./res/images/";
+    body
+        .mask.none
+        .lang-listBox.allow-top.none
+            .item-list  
+                .img
+                    img(src=imgUrl+"hk.png")
+                span HK 
+            .item-list  
+                .img
+                    img(src=imgUrl+"en.png")
+                span EN     
+        +header(true)
+        .main
+            .swiper-container.banner-swiper
+                .swiper-wrapper
+                    .swiper-slide
+                        .banner-img
+                            img(src=imgUrl+"banner-img.png")
+                        .cont 
+                            .text chaoex 3.0 全新版本震撼來襲
+                            .desc 1000萬boin
+                    .swiper-slide
+                        .banner-img
+                            img(src=imgUrl+"banner-img.png")
+                        .cont 
+                            .text chaoex 3.0 全新版本震撼來襲
+                            .desc 1000萬boin
+                    .swiper-slide
+                        .banner-img
+                            img(src=imgUrl+"banner-img.png")
+                        .cont 
+                            .text chaoex 3.0 全新版本震撼來襲
+                            .desc 1000萬boin
+                .swiper-pagination
+            .details-swiper
+                .swiper-wrapper
+                    .swiper-slide.active
+                        .cont
+                            .title BN／btc
+                            .number 0.00003234
+                            .percentage -3.12%
+                    .swiper-slide
+                        .cont
+                            .title BN／btc
+                            .number 0.00003234
+                            .percentage -3.12%
+                    .swiper-slide
+                        .cont
+                            .title BN／btc
+                            .number 0.00003234
+                            .percentage -3.12%
+                    .swiper-slide
+                        .cont
+                            .title BN／btc
+                            .number 0.00003234
+                            .percentage -3.12%                            
+                .swiper-pagination                                                    
+            .notice
+                .title 最新公告
+                .desc NULS虛擬共識節點12月11日獎勵...
+            .type-table-index
+                .nav-box
+                    ul.clearfix
+                        li.active 自選
+                        li BTC
+                        li ETH
+                        li USDT
+                .cont-box
+                    .item-title
+                        ul.clearfix
+                            li.type 幣種
+                            li.new 最新價
+                            li.num 成交量
+                    .item-list
+                        ul.clearfix
+                            li.type 
+                                i.collect
+                                i.ltc.mar
+                                span 
+                                    | LTC 
+                                    span.small / BTC
+                            li.new 0.007084
+                            li.num 88,536.46
+                    .item-list
+                        ul.clearfix
+                            li.type 
+                                i.collect
+                                i.etc.mar
+                                span 
+                                    | ETC 
+                                    span.small / ETH
+                            li.new.color-red 0.001111
+                            li.num 246,677.07
+                    .item-list
+                        ul.clearfix
+                            li.type 
+                                i.collect
+                                i.xmr1.mar
+                                span 
+                                    | XMR 
+                                    span.small / ETH
+                            li.new 0.012664
+                            li.num 18,989.98   
+                    .item-list
+                        ul.clearfix
+                            li.type 
+                                i.collect
+                                i.eth.mar
+                                span 
+                                    | ETH 
+                                    span.small / USDT
+                            li.new 0.026154
+                            li.num 7,403.54  
+                    .item-list
+                        ul.clearfix
+                            li.type 
+                                i.collect
+                                i.xlm.mar
+                                span 
+                                    | XLM 
+                                    span.small / USDT
+                            li.new 0.00003290
+                            li.num 7,403.54                                                                                   
+            .type-table-ranking
+                .nav-box
+                    ul.clearfix
+                        li.active
+                            i.add 
+                            span 涨幅榜
+                        li 
+                            i.fall
+                            span 跌幅榜
+                .cont-box
+                    .item-title
+                        ul.clearfix
+                            li.type 市场
+                            li.new 最新价
+                            li.num 24h涨跌
+                    .item-list
+                        ul.clearfix
+                            li.type 
+                                span 
+                                    | LTC 
+                                    span.small / BTC
+                            li.new 0.007084
+                            li.num 
+                                .btn-blue +1.63%
+                    .item-list
+                        ul.clearfix
+                            li.type 
+                                span 
+                                    | ETC 
+                                    span.small / ETH
+                            li.new.color-red 0.001111
+                            li.num 
+                                .btn-red +1.63%
+                    .item-list
+                        ul.clearfix
+                            li.type 
+                                span 
+                                    | XMR 
+                                    span.small / ETH
+                            li.new 0.012664
+                            li.num
+                                .btn-blue +0.02%
+                    .item-list
+                        ul.clearfix
+                            li.type 
+                                span 
+                                    | ETH 
+                                    span.small / USDT
+                            li.new 0.026154
+                            li.num 
+                                .btn-blue +0.89%
+        .adv.clearfix
+            .adv-left.adv-list
+                img(src=imgUrl+"adv.png")
+            .adv-center.adv-list
+                .box
+                    .text APP版下載 
+                    .desc 多元化交易體驗應你所需
+            .adv-right.adv-list
+                .btn-blue   立即下載
+        +footer()

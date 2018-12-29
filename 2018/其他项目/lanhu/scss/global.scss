@@ -1,0 +1,275 @@
+
+$urlImg:'../images/';
+
+
+@mixin bgCover($url){
+  background: url($urlImg+$url);
+  background-size:cover;
+}
+
+@mixin bgAuto($url){
+  background: url($urlImg+$url);
+  background-size:100%;
+}
+
+@mixin positionCenter($setting){
+  left: 50%;
+  transform: translateX(-50%);
+  @if $setting == 'center' {
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+
+i.collect{
+    display: inline-block;
+    width: .3rem;
+    height: .28rem;
+    @include bgAuto('collect.png');
+}
+i.ltc{
+    display: inline-block;
+    width: .4rem;
+    height: .4rem;
+    @include bgAuto('ltc.png');
+}
+i.etc{
+    display: inline-block;
+    width: .4rem;
+    height: .4rem;
+    @include bgAuto('etc.png');
+}
+i.xmr1{
+    display: inline-block;
+    width: .4rem;
+    height: .4rem;
+    @include bgAuto('xmr1.png');
+}
+i.eth{
+    display: inline-block;
+    width: .4rem;
+    height: .4rem;
+    @include bgAuto('eth.png');
+}
+i.xlm{
+    display: inline-block;
+    width: .4rem;
+    height: .4rem;
+    @include bgAuto('xlm.png');
+}
+i.add{
+    display: inline-block;
+    width: .39rem;
+    height: .29rem;
+    @include bgAuto('add.png');
+}
+i.fall{
+    display: inline-block;
+    width: .38rem;
+    height: .28rem;
+    @include bgAuto('fall.png');
+}
+
+//导航 主页 未选
+i.work{
+    display: inline-block;
+    width: .30rem;
+    height: .31rem;
+    @include bgAuto('work.png');
+}
+//导航 主页 未选
+i.deal{
+    display: inline-block;
+    width: .33rem;
+    height: .30rem;
+    @include bgAuto('deal.png');
+}
+
+//导航 资讯 未选
+i.info{
+    display: inline-block;
+    width: .29rem;
+    height: .31rem;
+    @include bgAuto('info.png');
+}
+
+//导航 资讯 未选
+i.user{
+    display: inline-block;
+    width: .29rem;
+    height: .29rem;
+    @include bgAuto('user.png');
+}
+
+i.hk{
+    display: inline-block;
+    width: .54rem;
+    height: .38rem;
+    @include bgAuto('hk.png'); 
+}
+i.en{
+    display: inline-block;
+    width: .54rem;
+    height: .36rem;
+    @include bgAuto('en.png'); 
+}
+i.icon-back{
+    display: inline-block;
+    width: .22rem;
+    height: .24rem;
+    @include bgAuto('back.png'); 
+}
+
+i.icon-login{
+    display: inline-block;
+    width: .28rem;
+    height: .31rem;
+    @include bgAuto('icon-record.png'); 
+}
+
+i.icon-safe{
+    display: inline-block;
+    width: .26rem;
+    height: .30rem;
+    @include bgAuto('icon-safe.png'); 
+}
+
+//安全设置图片组
+
+i.icon-google{
+    display: inline-block;
+    width: .54rem;
+    height: .54rem;
+    @include bgAuto('icon-google.png'); 
+}
+
+i.icon-circle-ipone{
+    display: inline-block;
+    width: .54rem;
+    height: .54rem;
+    @include bgAuto('circle-ipone.png'); 
+}
+
+i.icon-key-green{
+    display: inline-block;
+    width: .54rem;
+    height: .54rem;
+    @include bgAuto('key-green.png'); 
+}
+
+i.icon-key-yellow{
+    display: inline-block;
+    width: .54rem;
+    height: .54rem;
+    @include bgAuto('key-yellow.png'); 
+}
+
+i.icon-email{
+    display: inline-block;
+    width: .54rem;
+    height: .54rem;
+    @include bgAuto('email.png'); 
+}
+
+
+.color-red{
+    color: #FE3B5F !important;
+}
+.color-yellow{
+    color: #E7BF3A !important;
+}
+.color-blue{
+    color: #3064CB !important;
+}
+
+.btn-red{
+    width: 1.44rem;
+    height: 0.48rem;
+    font-size: 0.28rem;
+    text-align: center;
+    line-height: 0.48rem;
+    background: #fd3a5e;
+    display: inline-block;
+    border-radius: .05rem;
+}
+.btn-blue{
+    @extend .btn-red;
+    background: #3064cb;
+
+}
+
+.allow-top:after {
+    border-left: 0.1rem solid transparent;
+    border-right: 0.1rem solid transparent;
+    border-bottom: 0.1rem solid #27325c;
+    content: "";
+    position: absolute;    
+    width: 0;
+    top: -0.1rem;
+    right: .2rem;
+}
+
+.none{
+    display: none;
+}
+
+//checkbox  开关
+.row {
+    display: block;
+    line-height: .60rem;
+    text-align: center;
+}
+.row input[type="checkbox"] {
+    display: none;
+}
+
+.row input[type="checkbox"] + label {
+    display: inline-block;
+    width: .80rem;
+    height: .42rem;
+    position: relative;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.row .radio-box + label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: .8rem;
+    height: .42rem;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.row .radio-box + label {
+    background: #ddd;
+    border-radius: .1rem;
+}
+
+.row .radio-box + label:after {
+    background: #fff;
+    width: .36rem;
+    height: .36rem;
+    border-radius: .1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    left: .03rem;
+}
+
+.row .radio-box:checked + label.bule {
+    background: #2d60c6;
+}
+
+.row .radio-box:checked + label.bule:after {
+    background: #111938;
+}
+
+.row .radio-box:checked + label:after {
+    left: calc(100% - .39rem);
+}

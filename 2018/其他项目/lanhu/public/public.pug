@@ -1,0 +1,28 @@
+mixin footer()
+    .footer
+        ul.clearfix
+            li.active
+                .box
+                    i.work
+                    span 我的主页
+            li
+                .box
+                    i.deal
+                    span 交易中心
+            li
+                .box 
+                    i.info
+                    span 公告资讯
+            li 
+                .box
+                    i.user
+                    span 我的
+mixin header($en)
+    .header
+        .logo
+        if $en
+            .right-btnBox
+                .lang-box   
+                    .img
+                        img(src=imgUrl+'en.png')
+                    span EN
