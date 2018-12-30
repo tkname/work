@@ -172,6 +172,20 @@ i.icon-email{
     @include bgAuto('email.png'); 
 }
 
+i.icon-passHide{
+    display: inline-block;
+    width: .26rem;
+    height: .26rem;
+    @include bgAuto('icon-passHide.png'); 
+}
+
+i.icon-passShow{
+    display: inline-block;
+    width: .26rem;
+    height: .26rem;
+    @include bgAuto('icon-passShow.png'); 
+}
+
 
 .color-red{
     color: #FE3B5F !important;
@@ -197,6 +211,15 @@ i.icon-email{
     @extend .btn-red;
     background: #3064cb;
 
+}
+.btn-submit{
+    @extend .btn-red;
+    width: 100%;
+    font-size: .3rem;
+    line-height: .8rem;
+    height: .8rem;
+    background: #3064cb;
+    margin-top: .6rem;
 }
 
 .allow-top:after {

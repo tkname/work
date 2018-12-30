@@ -58,8 +58,25 @@ $(function(){
         $("#mySelect").select({
             width: "1.14rem",
             color:'#fff'
-		});
+        });
+        $(".register").on("click",".nav-meun li",function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            console.log($(this).index());
+            $('.form').find(".form-box").eq($(this).index()).removeClass("none").siblings().addClass("none");
+        })        
     })();
+
+    //登录
+    !(function(){
+        $(".login").on("click",".icon-passHide",function(){
+            console.log("zzz");
+            $(this).parents(".icon-box").siblings('.type-box').find("input").attr("type","password");
+        }).on("click",".icon-passShow",function(){
+            console.log("zzz2");
+            $(this).parents(".icon-box").siblings('.type-box').find("input").attr("type","text");
+        })
+
+    })();    
 
     // 底部
     $(".footer").on("click","li",function(){

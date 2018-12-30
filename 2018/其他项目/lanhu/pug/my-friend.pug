@@ -1,0 +1,45 @@
+include ../public/public.pug
+
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        title CHAOEX
+        link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+        link(href='./res/styles/select.css?v=1.1',type='text/css',rel='stylesheet')
+        link(href='./res/styles/jquery.mCustomScrollbar.min.css?v=1.1',type='text/css',rel='stylesheet')
+
+        script(type="text/javascript",src="./res/scripts/rem.js")
+        script(type="text/javascript",src="./res/scripts/jquery.min.js")
+        script(type="text/javascript",src="./res/scripts/swiper.min.js")
+        script(type="text/javascript",src="./res/scripts/jquery.mCustomScrollbar.concat.min.js")
+        script(type="text/javascript",src="./res/scripts/jquery.select.js")
+        script(type="text/javascript",src="./res/scripts/main.js")
+        //- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+        - let imgUrl="./res/images/";
+    body
+        .header
+            .logo.left
+            .btn-box
+                a.login 登录
+                a.register 注册
+        .main.login
+            .form-title.line-blue 账号登陆
+            .form
+                .form-ipone.form-box
+                    .form-group.line-blue
+                        label 邮箱或手机
+                        .type-box
+                            input(type="text" placeholder='请输入邮箱或手机')
+                    .form-group.line-blue
+                        label 密码
+                        .type-box
+                            input(type="password" placeholder='请输入密码')
+                        .icon-box
+                            i.icon-passHide
+                            i.icon-passShow
+                    .btn-submit 登录
+                    .form-loginText
+                        | 已有帳戶？ 
+                        span 登錄   
+                        span.forget-pass 忘记密码   
