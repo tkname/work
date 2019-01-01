@@ -1,0 +1,34 @@
+include ../public/public.pug
+
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        title CHAOEX
+        link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+        script(type="text/javascript",src="./res/scripts/rem.js")
+        script(type="text/javascript",src="./res/scripts/jquery.min.js")
+        script(type="text/javascript",src="./res/scripts/swiper.min.js")
+        script(type="text/javascript",src="./res/scripts/main.js")
+        //- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+        - let imgUrl="./res/images/";
+    body
+        .header
+            .seach-box
+                .seach-text
+                    input(type="text" )
+                    i.icon-seach
+                .btn 搜索
+        .main
+            .center-title.line-blue 歷史公告
+            .notice                               
+                .notice-item.faq
+                        - for(var i=0;i<5;i++)
+                            - if(i==4)
+                                .notice-box
+                                    .title 
+                                        span 【2018-06-25】關於CHAOEX全網停機12小時公告
+                            - else 
+                                .notice-box.line-blue
+                                    .title 
+                                        span 【2018-06-25】關於CHAOEX全網停機12小時公告

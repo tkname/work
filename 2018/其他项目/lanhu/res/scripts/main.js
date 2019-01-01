@@ -78,6 +78,18 @@ $(function(){
 
     })();    
 
+    //邀请好友
+    !(function(){
+        var moreSwiper = new Swiper('.more-swiper .swiper-container', {
+            slidesPerView: 2.2,
+            spaceBetween: 15,
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+          });
+    })();
+
     // 底部
     $(".footer").on("click","li",function(){
         $(this).addClass("active").siblings().removeClass("active");

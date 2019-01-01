@@ -1,6 +1,8 @@
 @import './swiper.min.css';
 @import './reset.scss';
 @import './global.scss';
+//public.scss
+@import './public.scss';
 
 @function a($num){
     @return $num*2rem; 
@@ -23,6 +25,7 @@ body{
     width: 100%;
     height: 1.28rem;
     position: relative;
+    overflow: hidden;
     .logo{
         position: absolute;
         width: 1.95rem;
@@ -66,7 +69,41 @@ body{
         @include positionCenter('center');
         color: #fff;
     }
+    .seach-box{
+        padding: 0 .3rem;
+        position: relative;
+        .seach-text{
+            padding-right: .92rem;
+            height: .6rem;
+            margin-top: .3rem;
+            position: relative;
+            input{
+                width: 100%;
+                height: 100%;
+                background: #141d3f;
+                border:none;
+                border-radius: 1rem;
+                font-size: .26rem;
+                color: #fff;
+                padding-left: .2rem;
+            }
+            i.icon-seach{
+                position: absolute;
+                left: .24rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        .btn{
+            color: #2d60c6;
+            position: absolute;
+            right: .3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: .28rem;
 
+        }
+    }
     //登录/注册
     .btn-box{
         position: absolute;
@@ -234,6 +271,7 @@ body{
     padding-bottom: 1.1rem;
     width: b(346);
     margin: 0 auto;
+    overflow: hidden;
     .banner-swiper{
         width: 100%;
         height: a(1.07);
@@ -305,6 +343,7 @@ body{
         margin-bottom: .3rem;
         border-radius: .15rem;
         background: #141d3f;
+        overflow: hidden;
         .nav-box{
             width: 100%;
             height: .9rem;
@@ -344,6 +383,20 @@ body{
                 }
                 li.active{
                     color: #fff;
+                }
+            }
+            .title-text{
+                width: 100%;
+                height: .9rem;
+                line-height: .9rem;
+                padding-left: .3rem;
+                padding-right: .3rem;
+                position: relative;
+                .btn{
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: .3rem;
                 }
             }
         }
@@ -696,6 +749,215 @@ body{
     }
 }
 
+// 邀请好友
+.my-friend{
+    color: #fff;
+    .tips{
+        padding-left: .4rem;
+        font-size: .26rem;
+        position: relative;
+        margin-bottom: .4rem;
+        &::after{
+            content: "";
+            width: .3rem;
+            height: .3rem;
+            @include bgAuto('icon-friedTips.png');
+            position: absolute;
+            left: 0;
+            top:.05rem;
+        }
+        span{
+            line-height: .4rem;
+        }
+
+    }  
+    .item-listBox{
+        width: 100%;
+        height: 1.8rem;
+        padding: .4rem .34rem .5rem .34rem;
+        background: #1C2753;
+        border-radius: .1rem;
+        position: relative;
+        margin-bottom: .2rem;
+        .title{
+            font-size: .26rem;
+            color: #8B9ED5;
+            line-height: .26rem;
+        }
+        .desc{
+            font-size: .36rem;
+            line-height: .36rem;
+            width: 75%;
+            height: .36rem;
+            margin-top: .4rem;
+        }
+        .btn{
+            position: absolute;
+            right: .34rem;
+            bottom: .5rem;
+        }
+    }
+    .swiper-boxs{
+        background: #1C2753;
+        height: 7rem;
+        .title{
+            width: 100%;
+            height: .8rem;
+            line-height: .8rem;
+            color: #8B9ED5;
+            font-size: .26rem;
+            padding-left: .3rem;
+        }
+        .more-swiper{
+            width: 100%;
+            height: 4.8rem;
+            border-radius: .1rem;
+            overflow: hidden;
+            padding: 0 .3rem;
+            .swiper-container{
+                .swiper-wrapper{
+                    .swiper-slide{
+                        background: red;
+                        position: relative;
+                        .check-box{
+                            position: absolute;
+                            width: .5rem;
+                            height: .5rem;
+                            overflow: hidden;
+                            top: .2rem;
+                            left: .2rem;
+                            input{
+                                position: absolute;
+                                left: -100%;
+                                &:checked + i{
+                                    width: .5rem;
+                                    height: .5rem;
+                                    @include bgAuto("more-check-click.png");
+                                }
+                            }
+                            i{
+                                position: absolute;
+                                width: .5rem;
+                                height: .5rem;
+                                @include bgAuto("more-check-defalut.png");
+                            }
+    
+                        }
+                    }
+                    .swiper-slide.active{
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+        .desc{
+            padding: .4rem 0 .52rem .3rem;
+            color: #8B9ED5;
+            font-size: .26rem;
+            position: relative;
+            .btn{
+                position: absolute;
+                right: .3rem;
+                bottom: .4rem;
+            }
+        }
+    }
+
+    .content-box{
+        .nav-meun{
+            width: 100%;
+            height: .88rem;
+            ul{
+                width: 100%;
+                li{
+                    width: 50%;
+                    height: 100%;
+                    float: left;
+                    text-align: center;
+                    font-size: .3rem;
+                    color: #898990;
+                    line-height: .88rem;
+                    span{
+                        position: relative;
+                    }
+                }
+                li.active{
+                    color: #FCE700;
+                    span{
+                        &::after{
+                            content: "";
+                            width: 100%;
+                            height: .04rem;
+                            background: #FCE700;
+                            position: absolute;
+                            bottom: -.23rem;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .content-box{
+            width: 100%;
+            padding: .3rem;
+            .list{
+                font-size: .22rem;
+                width: 100%;
+                height: .45rem;
+                line-height: .45rem;
+                padding-left: 1.90rem;
+                text-align: right;
+                position: relative;
+                .title{
+                    position: absolute;
+                    left: 0;
+                    color: #898990;
+                }
+            }
+        }
+    } 
+}
+
+//公告管理
+.notice-content{
+    .content-box{
+        .nav-meun{
+            width: 100%;
+            height: .88rem;
+            ul{
+                width: 100%;
+                li{
+                    width: 50%;
+                    height: 100%;
+                    float: left;
+                    text-align: center;
+                    font-size: .28rem;
+                    color: #898990;
+                    line-height: .88rem;
+                    span{
+                        position: relative;
+                    }
+                }
+                li.active{
+                    color: #FCE700;
+                    span{
+                        &::after{
+                            content: "";
+                            width: 100%;
+                            height: .04rem;
+                            background: #FCE700;
+                            position: absolute;
+                            bottom: -.23rem;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+    }    
+}
+
 .line-blue{
     border-bottom: .01rem solid #141D3F;
 }
@@ -985,6 +1247,67 @@ body{
         }
     }
 }
+
+//公告
+.notice-item{
+    .notice-box {
+        .title{
+            height: .8rem;
+            line-height: .8rem;
+            width: 100%;
+            position: relative;
+            font-size: .3rem;
+            i{
+                position: absolute;
+                right: 0;
+                top:50%;
+                transform: translateY(-50%);
+            }
+            span.text{
+                position: absolute;
+                display: block;
+                right: .3rem;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: .24rem;
+            }
+        }
+        .desc{
+            width: 100%;
+            .notice-sonList{
+                display: block;
+                height: .8rem;
+                line-height: .8rem;
+                width: 100%;
+                font-size: .3rem;
+                color: #fce700;
+            }
+        }
+
+    }
+    .btn{
+        margin: .5rem auto 0 auto;
+    }
+}
+
+.notice-sonList.icon-notice{
+    padding-left: .5rem;
+    position: relative;
+    &::after{
+        content: "";
+        width: .3rem;
+        height: .28rem;
+        left: 0;
+        position: absolute;
+        @include bgAuto('white-collect.png');
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+
+
+
 //底部  导航
 .footer{
     z-index: 9;

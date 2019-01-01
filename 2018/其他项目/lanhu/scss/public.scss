@@ -1,0 +1,165 @@
+//导航 3
+.nav-meunBox{
+    .content-box{
+        .nav-meun{
+            width: 100%;
+            height: .88rem;
+            ul{
+                width: 100%;
+                li{
+                    width: 50%;
+                    height: 100%;
+                    float: left;
+                    text-align: center;
+                    font-size: .3rem;
+                    color: #898990;
+                    line-height: .88rem;
+                    span{
+                        position: relative;
+                    }
+                }
+                li.active{
+                    color: #FCE700;
+                    span{
+                        &::after{
+                            content: "";
+                            width: 100%;
+                            height: .04rem;
+                            background: #FCE700;
+                            position: absolute;
+                            bottom: -.23rem;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .nav-meun.three{
+            width: 100%;
+            height: .88rem;
+            ul{
+                width: 100%;
+                li{
+                    width: 33%;
+                    height: 100%;
+                    float: left;
+                    text-align: center;
+                    font-size: .3rem;
+                    color: #898990;
+                    line-height: .88rem;
+                    span{
+                        position: relative;
+                    }
+                    &:nth-last-child(1){
+                        width: 34%;
+                    }
+                }
+                li.active{
+                    color: #FCE700;
+                    span{
+                        &::after{
+                            content: "";
+                            width: 100%;
+                            height: .04rem;
+                            background: #FCE700;
+                            position: absolute;
+                            bottom: -.23rem;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }        
+        .content-box{
+            width: 100%;
+            padding: .3rem;
+            .list{
+                font-size: .22rem;
+                width: 100%;
+                height: .45rem;
+                line-height: .45rem;
+                padding-left: 1.90rem;
+                text-align: right;
+                position: relative;
+                .title{
+                    position: absolute;
+                    left: 0;
+                    color: #898990;
+                }
+            }
+        }
+    } 
+}
+
+//纪录
+.trade-box{
+    .left-box{
+        width: 47%;
+        padding-right: .24rem;
+        float: left;
+        .nav-item{
+            width: 100%;
+            height: 1rem;
+            line-height: 1rem;
+            ul{
+                li{
+                    width: 50%;
+                    float: left;
+                }
+                li.num{
+                    text-align: right;
+                }
+            }
+        }
+        .cotent-box{
+            height: 3.6rem;
+            width: 100%;
+            font-size: .24rem;
+            .cotent-list{
+                position: relative;
+                span{
+                    width: 50%;
+                    line-height: .44rem;
+                    height: .44rem;
+                    float: left;
+                    // display: block;
+                }
+                span.price{
+                    color: #fe3b5f;
+                }
+                span.num{
+                    text-align: right;
+                }
+            }
+        }
+        .trans{
+            .cotent-list{
+                span.price{
+                    color: #2c62da;
+                }
+            } 
+        }
+        .price-mean{
+            width: 100%;
+            height: 1rem;
+            line-height: 1rem;
+            color: #fe3b5f;
+            font-size: .3rem;
+        }
+
+    }
+    .right-box{
+        width: 53%;
+        float: right;
+        padding: .4rem .3rem 0 .24rem;
+        .select-box{
+            width: 100%;
+            height: .92rem;
+        }
+    }
+
+}
+
+
+
+

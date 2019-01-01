@@ -2,168 +2,175 @@ i.collect {
   display: inline-block;
   width: .3rem;
   height: .28rem;
-  background: url("../images/collect.png?v=f7439a");
+  background: url("../images/collect.png?v=ef865f");
   background-size: 100%; }
 
 i.ltc {
   display: inline-block;
   width: .4rem;
   height: .4rem;
-  background: url("../images/ltc.png?v=f7439a");
+  background: url("../images/ltc.png?v=ef865f");
   background-size: 100%; }
 
 i.etc {
   display: inline-block;
   width: .4rem;
   height: .4rem;
-  background: url("../images/etc.png?v=f7439a");
+  background: url("../images/etc.png?v=ef865f");
   background-size: 100%; }
 
 i.xmr1 {
   display: inline-block;
   width: .4rem;
   height: .4rem;
-  background: url("../images/xmr1.png?v=f7439a");
+  background: url("../images/xmr1.png?v=ef865f");
   background-size: 100%; }
 
 i.eth {
   display: inline-block;
   width: .4rem;
   height: .4rem;
-  background: url("../images/eth.png?v=f7439a");
+  background: url("../images/eth.png?v=ef865f");
   background-size: 100%; }
 
 i.xlm {
   display: inline-block;
   width: .4rem;
   height: .4rem;
-  background: url("../images/xlm.png?v=f7439a");
+  background: url("../images/xlm.png?v=ef865f");
   background-size: 100%; }
 
 i.add {
   display: inline-block;
   width: .39rem;
   height: .29rem;
-  background: url("../images/add.png?v=f7439a");
+  background: url("../images/add.png?v=ef865f");
   background-size: 100%; }
 
 i.fall {
   display: inline-block;
   width: .38rem;
   height: .28rem;
-  background: url("../images/fall.png?v=f7439a");
+  background: url("../images/fall.png?v=ef865f");
   background-size: 100%; }
 
 i.work {
   display: inline-block;
   width: .30rem;
   height: .31rem;
-  background: url("../images/work.png?v=f7439a");
+  background: url("../images/work.png?v=ef865f");
   background-size: 100%; }
 
 i.deal {
   display: inline-block;
   width: .33rem;
   height: .30rem;
-  background: url("../images/deal.png?v=f7439a");
+  background: url("../images/deal.png?v=ef865f");
   background-size: 100%; }
 
 i.info {
   display: inline-block;
   width: .29rem;
   height: .31rem;
-  background: url("../images/info.png?v=f7439a");
+  background: url("../images/info.png?v=ef865f");
   background-size: 100%; }
 
 i.user {
   display: inline-block;
   width: .29rem;
   height: .29rem;
-  background: url("../images/user.png?v=f7439a");
+  background: url("../images/user.png?v=ef865f");
   background-size: 100%; }
 
 i.hk {
   display: inline-block;
   width: .54rem;
   height: .38rem;
-  background: url("../images/hk.png?v=f7439a");
+  background: url("../images/hk.png?v=ef865f");
   background-size: 100%; }
 
 i.en {
   display: inline-block;
   width: .54rem;
   height: .36rem;
-  background: url("../images/en.png?v=f7439a");
+  background: url("../images/en.png?v=ef865f");
   background-size: 100%; }
 
 i.icon-back {
   display: inline-block;
   width: .22rem;
   height: .24rem;
-  background: url("../images/back.png?v=f7439a");
+  background: url("../images/back.png?v=ef865f");
   background-size: 100%; }
 
 i.icon-login {
   display: inline-block;
   width: .28rem;
   height: .31rem;
-  background: url("../images/icon-record.png?v=f7439a");
+  background: url("../images/icon-record.png?v=ef865f");
   background-size: 100%; }
 
 i.icon-safe {
   display: inline-block;
   width: .26rem;
   height: .30rem;
-  background: url("../images/icon-safe.png?v=f7439a");
+  background: url("../images/icon-safe.png?v=ef865f");
   background-size: 100%; }
 
 i.icon-google {
   display: inline-block;
   width: .54rem;
   height: .54rem;
-  background: url("../images/icon-google.png?v=f7439a");
+  background: url("../images/icon-google.png?v=ef865f");
   background-size: 100%; }
 
 i.icon-circle-ipone {
   display: inline-block;
   width: .54rem;
   height: .54rem;
-  background: url("../images/circle-ipone.png?v=f7439a");
+  background: url("../images/circle-ipone.png?v=ef865f");
   background-size: 100%; }
 
 i.icon-key-green {
   display: inline-block;
   width: .54rem;
   height: .54rem;
-  background: url("../images/key-green.png?v=f7439a");
+  background: url("../images/key-green.png?v=ef865f");
   background-size: 100%; }
 
 i.icon-key-yellow {
   display: inline-block;
   width: .54rem;
   height: .54rem;
-  background: url("../images/key-yellow.png?v=f7439a");
+  background: url("../images/key-yellow.png?v=ef865f");
   background-size: 100%; }
 
 i.icon-email {
   display: inline-block;
   width: .54rem;
   height: .54rem;
-  background: url("../images/email.png?v=f7439a");
+  background: url("../images/email.png?v=ef865f");
   background-size: 100%; }
 
 i.icon-passHide {
   display: inline-block;
   width: .26rem;
   height: .26rem;
-  background: url("../images/icon-passHide.png?v=f7439a");
+  background: url("../images/icon-passHide.png?v=ef865f");
   background-size: 100%; }
 
 i.icon-passShow {
   display: inline-block;
   width: .26rem;
   height: .26rem;
-  background: url("../images/icon-passShow.png?v=f7439a");
+  background: url("../images/icon-passShow.png?v=ef865f");
+  background-size: 100%; }
+
+i.icon-seach {
+  display: inline-block;
+  width: .32rem;
+  height: .32rem;
+  background: url("../images/seach.png?v=ef865f");
   background-size: 100%; }
 
 .color-red {
@@ -196,6 +203,32 @@ i.icon-passShow {
   background: #3064cb;
   margin-top: .6rem; }
 
+.btn-border {
+  width: 1.8rem;
+  height: .56rem;
+  border: 1px solid #2d60c6;
+  line-height: .56rem;
+  text-align: center;
+  border-radius: .1rem;
+  color: #2d60c6; }
+
+.twoLine {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all; }
+
+.oneLine {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all; }
+
+.mar-top3 {
+  margin-top: .3rem; }
+
 .allow-top:after {
   border-left: 0.1rem solid transparent;
   border-right: 0.1rem solid transparent;
@@ -205,6 +238,13 @@ i.icon-passShow {
   width: 0;
   top: -0.1rem;
   right: .2rem; }
+
+.center-title {
+  width: 100%;
+  height: 0.88rem;
+  text-align: center;
+  line-height: .88rem;
+  color: #fff; }
 
 .none {
   display: none; }

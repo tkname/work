@@ -1,0 +1,124 @@
+include ../public/public.pug
+
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        title CHAOEX
+        link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+        script(type="text/javascript",src="./res/scripts/rem.js")
+        script(type="text/javascript",src="./res/scripts/jquery.min.js")
+        script(type="text/javascript",src="./res/scripts/swiper.min.js")
+        script(type="text/javascript",src="./res/scripts/main.js")
+        //- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+        - let imgUrl="./res/images/";
+    body
+        .header
+            .seach-box
+                .seach-text
+                    input(type="text" )
+                    i.icon-seach
+                .btn 搜索
+        .main
+            .nav-meunBox
+                .content-box
+                    .nav-meun.three.line-blue.clearfix
+                        ul
+                            li 
+                                span 行情
+                            li 
+                                span 交易
+                            li.active 
+                                span 当前委托
+                .type-table-ranking.mar-top3.none
+                    .nav-box
+                        .title-text 卖出 BTC/USDT
+                            .btn.color-blue 撤销
+                    .cont-box
+                        .item-title
+                            ul.clearfix
+                                li.type 价格(USDT)
+                                li.new 数量(BTC)
+                                li.num 实际成交(BTC)
+                        .item-list
+                            ul.clearfix
+                                li.type 
+                                    span 0.10000
+                                li.new 10000.00
+                                li.num 500.00
+                                    //- .btn-blue +1.63%
+                .trade-box.clearfix
+                    .left-box
+                        .nav-item.clearfix
+                            ul 
+                                li 价格
+                                li.num 数量
+                        .cotent-box       
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 5312.1
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 23584.0
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 96.5
+                            .cotent-list.clearfix
+                                span.price 0.00722
+                                span.num 137.6
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 5312.1
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 23584.0
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 5312.1
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 23584.0
+
+                        .price-mean
+                            span 0.00722 ≈ ￥0.08
+
+                        .cotent-box.trans  
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 5312.1
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 23584.0
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 96.5
+                            .cotent-list.clearfix
+                                span.price 0.00722
+                                span.num 137.6
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 5312.1
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 23584.0
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 5312.1
+                            .cotent-list.clearfix
+                                span.price 0.00721
+                                span.num 23584.0
+
+
+                    .right-box
+                        .select-box
+                            select
+                                option 1111
+                                option 2222
+                                option 3333
+
+
+
+
+
+
+

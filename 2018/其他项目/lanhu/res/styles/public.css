@@ -1,0 +1,114 @@
+.nav-meunBox .content-box .nav-meun {
+  width: 100%;
+  height: .88rem; }
+  .nav-meunBox .content-box .nav-meun ul {
+    width: 100%; }
+    .nav-meunBox .content-box .nav-meun ul li {
+      width: 50%;
+      height: 100%;
+      float: left;
+      text-align: center;
+      font-size: .3rem;
+      color: #898990;
+      line-height: .88rem; }
+      .nav-meunBox .content-box .nav-meun ul li span {
+        position: relative; }
+    .nav-meunBox .content-box .nav-meun ul li.active {
+      color: #FCE700; }
+      .nav-meunBox .content-box .nav-meun ul li.active span::after {
+        content: "";
+        width: 100%;
+        height: .04rem;
+        background: #FCE700;
+        position: absolute;
+        bottom: -.23rem;
+        left: 0; }
+
+.nav-meunBox .content-box .nav-meun.three {
+  width: 100%;
+  height: .88rem; }
+  .nav-meunBox .content-box .nav-meun.three ul {
+    width: 100%; }
+    .nav-meunBox .content-box .nav-meun.three ul li {
+      width: 33%;
+      height: 100%;
+      float: left;
+      text-align: center;
+      font-size: .3rem;
+      color: #898990;
+      line-height: .88rem; }
+      .nav-meunBox .content-box .nav-meun.three ul li span {
+        position: relative; }
+      .nav-meunBox .content-box .nav-meun.three ul li:nth-last-child(1) {
+        width: 34%; }
+    .nav-meunBox .content-box .nav-meun.three ul li.active {
+      color: #FCE700; }
+      .nav-meunBox .content-box .nav-meun.three ul li.active span::after {
+        content: "";
+        width: 100%;
+        height: .04rem;
+        background: #FCE700;
+        position: absolute;
+        bottom: -.23rem;
+        left: 0; }
+
+.nav-meunBox .content-box .content-box {
+  width: 100%;
+  padding: .3rem; }
+  .nav-meunBox .content-box .content-box .list {
+    font-size: .22rem;
+    width: 100%;
+    height: .45rem;
+    line-height: .45rem;
+    padding-left: 1.90rem;
+    text-align: right;
+    position: relative; }
+    .nav-meunBox .content-box .content-box .list .title {
+      position: absolute;
+      left: 0;
+      color: #898990; }
+
+.trade-box .left-box {
+  width: 47%;
+  padding-right: .24rem;
+  float: left; }
+  .trade-box .left-box .nav-item {
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem; }
+    .trade-box .left-box .nav-item ul li {
+      width: 50%;
+      float: left; }
+    .trade-box .left-box .nav-item ul li.num {
+      text-align: right; }
+  .trade-box .left-box .cotent-box {
+    height: 3.6rem;
+    width: 100%;
+    font-size: .24rem; }
+    .trade-box .left-box .cotent-box .cotent-list {
+      position: relative; }
+      .trade-box .left-box .cotent-box .cotent-list span {
+        width: 50%;
+        line-height: .44rem;
+        height: .44rem;
+        float: left; }
+      .trade-box .left-box .cotent-box .cotent-list span.price {
+        color: #fe3b5f; }
+      .trade-box .left-box .cotent-box .cotent-list span.num {
+        text-align: right; }
+  .trade-box .left-box .trans .cotent-list span.price {
+    color: #2c62da; }
+  .trade-box .left-box .price-mean {
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    color: #fe3b5f;
+    font-size: .3rem; }
+
+.trade-box .right-box {
+  width: 53%;
+  float: right;
+  padding: .4rem .3rem 0 .24rem; }
+  .trade-box .right-box .select-box {
+    width: 100%;
+    height: .92rem; }
