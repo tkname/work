@@ -193,6 +193,19 @@ i.icon-seach{
 
 }
 
+i.icon-cz{
+    display: inline-block;
+    width: .30rem;
+    height: .31rem;
+    @include bgAuto('icon-cz.png'); 
+}
+i.icon-meun{
+    display: inline-block;
+    width: .30rem;
+    height: .25rem;
+    @include bgAuto('icon-muen.png'); 
+}
+
 
 .color-red{
     color: #FE3B5F !important;
@@ -202,6 +215,12 @@ i.icon-seach{
 }
 .color-blue{
     color: #3064CB !important;
+}
+.color-bule-light{
+    color: #8b9ed5 !important;
+}
+.color-bule-light2,.color-bule-light2 span{
+    color: #2c62da !important;
 }
 
 .btn-red{
@@ -219,6 +238,23 @@ i.icon-seach{
     background: #3064cb;
 
 }
+.btn-blueBig{
+    @extend .btn-red;
+    background: #3064cb;
+    width: 100%;
+    height: .8rem;
+    line-height: .8rem;
+    text-align: center;
+}
+.btn-redBig{
+    @extend .btn-red;
+    width: 100%;
+    height: .8rem;
+    line-height: .8rem;
+    text-align: center;    
+    background: #fe3b5f;
+}
+
 .btn-submit{
     @extend .btn-red;
     width: 100%;
@@ -257,6 +293,10 @@ i.icon-seach{
 .mar-top3{
     margin-top: .3rem;
 }
+.mar-top2{
+    margin-top: .2rem;
+}
+
 
 .allow-top:after {
     border-left: 0.1rem solid transparent;

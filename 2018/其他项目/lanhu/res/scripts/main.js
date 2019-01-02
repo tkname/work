@@ -55,15 +55,14 @@ $(function(){
 
     //注册
     !(function(){
-        $("#mySelect").select({
-            width: "1.14rem",
-            color:'#fff'
-        });
-        $(".register").on("click",".nav-meun li",function(){
-            $(this).addClass("active").siblings().removeClass("active");
-            console.log($(this).index());
-            $('.form').find(".form-box").eq($(this).index()).removeClass("none").siblings().addClass("none");
-        })        
+      $(".vertical").on("click","span",function(){
+        $(this).siblings(".select-box").removeClass("none");
+      })
+      $(".vertical .select-box").on("click","li",function(){
+        $(this).parents(".select-box").siblings("span").text($(this).attr("data-val"));
+        $(this).parents(".select-box").addClass("none");
+      })    
+    
     })();
 
     //登录
@@ -90,8 +89,16 @@ $(function(){
           });
     })();
 
-    // 底部
-    $(".footer").on("click","li",function(){
-        $(this).addClass("active").siblings().removeClass("active");
+    // 交易中心
+    $(function(){
+        $(".nav-meunBox .nav-meun").on("click","li",function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $('.type-box').find(".type-list").eq($(this).index()).removeClass("none").siblings().addClass("none");
+           })
     })
+
+    // // 底部
+    // $(".footer").on("click","li",function(){
+    //     $(this).addClass("active").siblings().removeClass("active");
+    // })
 })

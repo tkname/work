@@ -16,70 +16,71 @@ html
     body
         .mask.none
         +header(false)
-        .main.my
-            .user-box
-                .user-img
-                    img(src=imgUrl+"user-photo.png")
-                .user-info
-                    .email
-                        span 
-                            | 1111111111qq.com
-                    .name
-                        span UID:594905
-                .user-setting
-                    span 安全设置
-            .price-dedu
-                .event-header
-                    span 使用CHEX抵扣手续费
-                    .row
-                        input(type="checkbox"  class='radio-box' id='radioBox')
-                        label(for="radioBox" class='bule')
-                .price-showBox
-                    .price-tableB.price-bgB
-                        .title 0.00000000BTC
-                        .desc ≈￥0.00
-                        .text 總資產折合
-                    .price-table.price-bg
+        .main
+            .my
+                .user-box
+                    .user-img
+                        img(src=imgUrl+"user-photo.png")
+                    .user-info
+                        .email
+                            span 
+                                | 1111111111qq.com
+                        .name
+                            span UID:594905
+                    .user-setting
+                        a(href="safe-setting.html") 安全设置
+                .price-dedu
+                    .event-header
+                        span 使用CHEX抵扣手续费
+                        .row
+                            input(type="checkbox"  class='radio-box' id='radioBox')
+                            label(for="radioBox" class='bule')
+                    .price-showBox
+                        .price-tableB.price-bgB
+                            .title 0.00000000BTC
+                            .desc ≈￥0.00
+                            .text 總資產折合
+                        .price-table.price-bg
+                            .title 
+                                span 534D35P
+                                .num 1
+                            .desc 
+                                span 我的邀請码
+                                .state 成功邀请
+                            .text 
+                                span 邀請好友註冊，輕鬆返佣 
+                                .btn  
+                                    span 立即邀请 
+                                    i.icon-back
+                .auth-itemBox
+                    .auth-itemList
                         .title 
-                            span 534D35P
-                            .num 1
+                            span.color-yellow KYC3 
+                            label 視頻認證
+                            .btn-blue 認證
                         .desc 
-                            span 我的邀請码
-                            .state 成功邀请
-                        .text 
-                            span 邀請好友註冊，輕鬆返佣 
-                            .btn  
-                                span 立即邀请 
-                                i.icon-back
-            .auth-itemBox
-                .auth-itemList
-                    .title 
-                        span.color-yellow KYC3 
-                        label 視頻認證
-                        .btn-blue 認證
-                    .desc 
-                        span 可享受更低費率與更高提幣限額
-                .auth-itemList
-                    .title 
-                        span.color-red KYC2 
-                        label 身份認證
-                        .btn-blue 認證
-                    .desc 
-                        span 日提幣限額:5BTC
-                .auth-itemList
-                    .title 
-                        span.color-blue KYC1  
-                        label 基礎認證
-                        .btn-blue 認證
-                    .desc 
-                        span 日提幣限額:0BTC
-            .auth-navBox
-                .nav-list
-                    i.icon-login
-                    .text 登錄記錄
-                    i.icon-back
-                .nav-list
-                    i.icon-safe
-                    .text 安全設置記錄
-                    i.icon-back                    
-        +footer()
+                            span 可享受更低費率與更高提幣限額
+                    .auth-itemList
+                        .title 
+                            span.color-red KYC2 
+                            label 身份認證
+                            .btn-blue 認證
+                        .desc 
+                            span 日提幣限額:5BTC
+                    .auth-itemList
+                        .title 
+                            span.color-blue KYC1  
+                            label 基礎認證
+                            .btn-blue 認證
+                        .desc 
+                            span 日提幣限額:0BTC
+                .auth-navBox
+                    .nav-list
+                        i.icon-login
+                        .text 登錄記錄
+                        i.icon-back
+                    .nav-list
+                        i.icon-safe
+                        .text 安全設置記錄
+                        i.icon-back                    
+        +footer(4)

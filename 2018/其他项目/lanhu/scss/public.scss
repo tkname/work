@@ -1,3 +1,5 @@
+@import './global.scss';
+
 //导航 3
 .nav-meunBox{
     .content-box{
@@ -126,6 +128,7 @@
                 }
                 span.price{
                     color: #fe3b5f;
+                    margin: 0;
                 }
                 span.num{
                     text-align: right;
@@ -151,11 +154,263 @@
     .right-box{
         width: 53%;
         float: right;
-        padding: .4rem .3rem 0 .24rem;
+        padding: .4rem 0 0 .24rem;
         .select-box{
             width: 100%;
             height: .92rem;
+            position: relative;
+            &::after{
+                content:"";
+                width: .23rem;
+                height: .15rem;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: .4rem;
+                @include bgAuto('select.png');
+            }
+            select{
+                -webkit-appearance: none;
+                border:none;
+                width: 100%;
+                height: 100%;
+                background: #1c2753;
+                border-radius: .1rem;
+                padding-left: .3rem;
+                color: #fff;
+                font-size: .36rem;
+            }
         }
+        .type-box{
+            width: 100%;
+            height: .8rem;
+            border:.04rem solid #FCE700;
+            margin-top: .2rem;
+            .box{
+                width: 50%;
+                height: 100%;
+                text-align: center;
+                line-height: .72rem;
+                background: #FCE700;
+                color: #070814;
+                float: left;
+            }
+            .box.active{
+                width: 50%;
+                color: #FCE700;
+                background: #070814;
+            }
+
+
+        }
+        .use-price{
+            .title{
+                height: .5rem;
+                line-height: .5rem;
+                margin-top: .1rem;
+                font-size: .24rem;
+                color: #898990;
+                position: relative;
+                span.details{
+                    position: absolute;
+                    right: 0;
+                    color: #fff;
+                }
+                .link{
+                    text-decoration: underline;   
+                    color: #2c62da;
+                }
+                .row{
+                    position: absolute;
+                    right: 0;
+                    top:50%;
+                    transform: translateY(-50%);
+                }
+            }
+            .desc{
+                height: .5rem;
+                line-height: .5rem;
+                margin-bottom: .1rem;
+                font-size: .24rem;
+                font-size: .24rem;
+            }
+        }    
+        .btn{
+            width: 100%;
+            height: .8rem;
+            font-size: .3rem;
+            line-height: .8rem;
+        }
+        .count-box{
+            width: 100%;
+            padding: 0 .65rem 0 .65rem;
+            height: .8rem;
+            position: relative;
+            border-radius: .1rem;
+            overflow: hidden;
+            input{
+                width: 100%;
+                height: 100%;
+                -webkit-appearance: none;
+                background: #fff;
+                border:none;
+                padding-left: .1rem;
+            }
+            span{
+                position: absolute;
+                width: .65rem;
+                height: .8rem;
+                background: #1c2753;
+                left: 0;
+                top: 0;
+            }
+            span.add{
+                right: 0;
+                top: 0;
+                left: auto;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    width: .2rem;
+                    height: .2rem;
+                    @include bgAuto('icon-add.png');
+                    @include positionCenter('center');
+                    pointer-events: none;
+                }
+            }
+            span.reduce{
+                &::after{
+                    content: "";
+                    position: absolute;
+                    width: .2rem;
+                    height: .04rem;
+                    @include bgAuto('icon-reduce.png');
+                    @include positionCenter('center');
+                    pointer-events: none;
+                }
+
+            }
+        }   
+        .per-box{
+            width: 100%;
+            .per-list{
+                width: .8rem;
+                height: .4rem;
+                text-align: center;
+                line-height: .4rem;
+                border-radius: .1rem;
+                border:1px solid #1c2753;
+                font-size: .22rem;
+                float: left;
+                margin-right: .06rem;
+
+                &:nth-last-child(1){
+                    margin-right: 0rem;
+                }
+                &.active{
+                    border:1px solid #2c62da;
+                }
+            }
+            
+        }
+    }
+
+}
+
+//类型
+.market-typeBox{
+    width: 100%;
+    min-height: 2.7rem;
+    background: #1c2753;
+    border-radius: .1rem;
+    padding: .2rem 0;
+    .content-top{
+        width: 100%;
+        height: 1.4rem;
+        padding: 0 .3rem;
+        border-bottom: 0.01rem solid #070814;
+        .title{
+            font-size: .36rem;
+            height: .7rem;
+            line-height: .7rem;
+        }
+        .desc{
+            width: 100%;
+            height: .5rem;
+            font-size: .26rem;
+            line-height: .5rem;
+        }
+
+    }
+    .cont{
+        padding: .05rem .3rem;
+        .cont-list{
+            height: .5rem;
+            line-height: .5rem;
+            font-size: .26rem;
+            .title{
+                float: left;
+                width: 35%;
+                text-align: left;
+            }
+            .desc{
+                float: left;
+                width: 46%;
+                text-align: right;
+            }
+            .num{
+                float: left;
+                width: 19%;
+                text-align: right;
+            }
+        }
+
+    }
+}
+
+// 比特币 图
+.map-box{
+    width: 100%;
+    height: 6rem;
+    margin-left: auto;
+    margin-right: auto;   
+    position: relative;
+    font-size:.24rem;
+    background-color: transparent;     
+}
+.chart_container.dark .chart_toolbar_tabgroup li a {
+    /*color: #1987da*/
+    color:rgba(255,255,255,0.3);
+    /* font-size: 300; */
+    font-size: .24rem !important;
+  }
+  
+  .chart_container.dark .chart_toolbar_tabgroup li a:hover {
+    background-color: #383838
+  }
+  
+  .chart_container.dark .chart_toolbar_tabgroup li a.selected {
+    /*color: #ffac00*/
+    color:rgba(255,255,255,1);
+    /* font-size: 300; */
+    font-size: .24rem !important;
+  }
+
+.submit-box{
+    width: 100%;
+    height: 1.1rem;
+    background: #111938;
+    margin-bottom: 1.1rem;
+    margin-top: -1.1rem;
+    padding: 0 .3rem;
+    
+    .btn-blueBig{
+        margin-right: .2rem;
+    }
+    .btn-blueBig,.btn-redBig{
+        margin-top:0.15rem;
+        width: 3.34rem;
+        float: left;
     }
 
 }

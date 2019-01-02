@@ -6,10 +6,12 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <title>CHAOEX</title>
-    <link href="./res/styles/main.css?v=ef865f1.1" type="text/css" rel="stylesheet"/>
+    <link href="./res/styles/main.css?v=434e4b1.1" type="text/css" rel="stylesheet"/>
+    <link href="./res/styles/kline.css?v=434e4b1.1" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="./res/scripts/rem.js"></script>
     <script type="text/javascript" src="./res/scripts/jquery.min.js"></script>
     <script type="text/javascript" src="./res/scripts/swiper.min.js"></script>
+    <script type="text/javascript" src="./res/scripts/kline/require.js"></script>
     <script type="text/javascript" src="./res/scripts/main.js"></script>
   </head>
   <body>
@@ -19,6 +21,19 @@
           <input type="text"/><i class="icon-seach"></i>
         </div>
         <div class="btn">搜索</div>
+      </div>
+    </div>
+    <div class="mask none">
+      <div class="layer">
+        <div class="center-title">说明</div>
+        <div class="desc">自2018年12月1日至2019年3月31日期间，平台交易手续费享受如下优惠</div>
+        <div class="content">
+          <div class="list"><span class="time">2018年12月1日至31日   </span><span class="detail">交易手续费减免<span class="color-red">50%</span></span></div>
+          <div class="list"><span class="time">2018年12月1日至31日   </span><span class="detail">交易手续费减免<span class="color-red">50%</span></span></div>
+          <div class="list"><span class="time">2018年12月1日至31日   </span><span class="detail">交易手续费减免<span class="color-red">50%</span></span></div>
+          <div class="list"><span class="time">2018年12月1日至31日   </span><span class="detail">交易手续费减免<span class="color-red">50%</span></span></div>
+        </div>
+        <div class="close"></div>
       </div>
     </div>
     <div class="main">
@@ -32,71 +47,277 @@
             </ul>
           </div>
         </div>
-        <div class="type-table-ranking mar-top3 none">
-          <div class="nav-box">
-            <div class="title-text">卖出 BTC/USDT
-              <div class="btn color-blue">撤销</div>
+        <div class="type-box">
+          <div class="market type-list none">
+            <div class="market-typeBox mar-top3">
+              <div class="content-top"> 
+                <div class="title">BTC/USDT</div>
+                <div class="desc"> <span class="color-blue">3,877.27</span>≈￥26947.03</div>
+              </div>
+              <div class="cont">  
+                <div class="cont-list clearfix">
+                  <div class="title">+1.46%</div>
+                  <div class="desc color-bule-light">24h最低價</div>
+                  <div class="num">3,765.71</div>
+                </div>
+                <div class="cont-list clearfix">
+                  <div class="title color-bule-light">漲幅</div>
+                  <div class="desc color-bule-light">24h最低價</div>
+                  <div class="num">3,931.12</div>
+                </div>
+              </div>
+            </div>
+            <div class="map-box">
+              <div id="kline_container"></div>
+            </div>
+            <div class="type-table-ranking mar-top3">
+              <div class="nav-box">
+                <ul class="clearfix">
+                  <li class="active"><i class="icon-cz"> </i><span>	最新成交</span></li>
+                  <li> <i class="icon-meun"></i><span>深度</span></li>
+                </ul>
+              </div>
+              <div class="cont-box">
+                <div class="item-title">
+                  <ul class="clearfix">
+                    <li class="type">价格</li>
+                    <li class="new">数量</li>
+                    <li class="num">时间</li>
+                  </ul>
+                </div>
+                <div class="item-list">
+                  <ul class="clearfix">
+                    <li class="type"> <span>
+                         0.00721 </span></li>
+                    <li class="new">5312.1</li>
+                    <li class="num">
+                       13:25:45</li>
+                  </ul>
+                </div>
+                <div class="item-list">
+                  <ul class="clearfix">
+                    <li class="type"> <span>
+                         0.00721 </span></li>
+                    <li class="new">23584.0</li>
+                    <li class="num">
+                       13:25:45</li>
+                  </ul>
+                </div>
+                <div class="item-list">
+                  <ul class="clearfix">
+                    <li class="type"> <span>
+                         0.00721</span></li>
+                    <li class="new">96.5</li>
+                    <li class="num">
+                       13:25:45</li>
+                  </ul>
+                </div>
+                <div class="item-list">
+                  <ul class="clearfix">
+                    <li class="type"> <span>
+                         0.00721</span></li>
+                    <li class="new">96.5</li>
+                    <li class="num">
+                       13:25:45                                        </li>
+                  </ul>
+                </div>
+                <div class="item-list">
+                  <ul class="clearfix">
+                    <li class="type color-bule-light2"> <span>
+                         0.00721 </span></li>
+                    <li class="new">23584.0</li>
+                    <li class="num">
+                       13:25:45</li>
+                  </ul>
+                </div>
+                <div class="item-list">
+                  <ul class="clearfix">
+                    <li class="type color-bule-light2"> <span>
+                         0.00721</span></li>
+                    <li class="new">96.5</li>
+                    <li class="num">
+                       13:25:45</li>
+                  </ul>
+                </div>
+                <div class="item-list">
+                  <ul class="clearfix">
+                    <li class="type color-bule-light2"> <span>
+                         0.00721</span></li>
+                    <li class="new">96.5</li>
+                    <li class="num">
+                       13:25:45</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="cont-box">
-            <div class="item-title">
-              <ul class="clearfix">
-                <li class="type">价格(USDT)</li>
-                <li class="new">数量(BTC)</li>
-                <li class="num">实际成交(BTC)</li>
-              </ul>
+          <div class="trade-box clearfix type-list none">
+            <div class="left-box">
+              <div class="nav-item clearfix">
+                <ul> 
+                  <li>价格</li>
+                  <li class="num">数量</li>
+                </ul>
+              </div>
+              <div class="cotent-box">      
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">96.5</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00722</span><span class="num">137.6</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
+              </div>
+              <div class="price-mean"><span>0.00722 ≈ ￥0.08</span></div>
+              <div class="cotent-box trans"> 
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">96.5</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00722</span><span class="num">137.6</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
+                <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
+              </div>
             </div>
-            <div class="item-list">
-              <ul class="clearfix">
-                <li class="type"> <span>0.10000</span></li>
-                <li class="new">10000.00</li>
-                <li class="num">500.00</li>
-              </ul>
+            <div class="right-box">
+              <div class="select-box">
+                <select>
+                  <option>BTC/USDT</option>
+                  <option>2222</option>
+                  <option>3333</option>
+                </select>
+              </div>
+              <div class="type-box">  
+                <div class="buy box">買入</div>
+                <div class="out box active">賣出</div>
+              </div>
+              <div class="use-price"> 
+                <div class="title">可用余额</div>
+                <div class="desc">0.0000000 BTC</div>
+              </div>
+              <div class="count-box"><span class="reduce"></span>
+                <input type="text"/><span class="add"></span>
+              </div>
+              <div class="count-box mar-top3"><span class="reduce"></span>
+                <input type="text"/><span class="add"></span>
+              </div>
+              <div class="use-price"> 
+                <div class="title">可用余额<span class="details">0000 BTC</span></div>
+              </div>
+              <div class="per-box clearfix mar-top3">
+                <div class="per-list"> <span>25%</span></div>
+                <div class="per-list active"><span>50%</span></div>
+                <div class="per-list"> <span>75%</span></div>
+                <div class="per-list"> <span>100%</span></div>
+              </div>
+              <div class="use-price"> 
+                <div class="title">CHEX抵扣<a class="link" href="#">手續費</a>
+                  <div class="row">
+                    <input class="radio-box" type="checkbox" id="radioBox"/>
+                    <label class="bule" for="radioBox"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="use-price"> 
+                <div class="title">可用余额<span class="details">0000 BTC</span></div>
+              </div>
+              <div class="btn btn-blue mar-top3">買入</div>
             </div>
           </div>
-        </div>
-        <div class="trade-box clearfix">
-          <div class="left-box">
-            <div class="nav-item clearfix">
-              <ul> 
-                <li>价格</li>
-                <li class="num">数量</li>
-              </ul>
+          <div class="type-table-ranking mar-top3 type-list">
+            <div class="nav-box">
+              <div class="title-text">卖出 BTC/USDT
+                <div class="btn color-blue">撤销</div>
+              </div>
             </div>
-            <div class="cotent-box">      
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">96.5</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00722</span><span class="num">137.6</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
-            </div>
-            <div class="price-mean"><span>0.00722 ≈ ￥0.08</span></div>
-            <div class="cotent-box trans"> 
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">96.5</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00722</span><span class="num">137.6</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">5312.1</span></div>
-              <div class="cotent-list clearfix"><span class="price">0.00721</span><span class="num">23584.0</span></div>
-            </div>
-          </div>
-          <div class="right-box">
-            <div class="select-box">
-              <select>
-                <option>1111</option>
-                <option>2222</option>
-                <option>3333</option>
-              </select>
+            <div class="cont-box">
+              <div class="item-title">
+                <ul class="clearfix">
+                  <li class="type">价格(USDT)</li>
+                  <li class="new">数量(BTC)</li>
+                  <li class="num">实际成交(BTC)</li>
+                </ul>
+              </div>
+              <div class="item-list">
+                <ul class="clearfix">
+                  <li class="type"> <span>0.10000</span></li>
+                  <li class="new">10000.00</li>
+                  <li class="num">500.00</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="submit-box">
+      <div class="btn-blueBig">買入BTC</div>
+      <div class="btn-redBig">賣出BTC</div>
+    </div>
+    <div class="footer">
+      <ul class="clearfix">
+        <li><a class="box" href="index.html"><i class="work"></i><span>我的主页</span></a></li>
+        <li class="active"><a class="box" href="trading-center.html"><i class="deal"></i><span>交易中心</span></a></li>
+        <li><a class="box" href="notice.html"> <i class="info"></i><span>公告资讯</span></a></li>
+        <li><a class="box" href="my.html"><i class="user"></i><span>我的</span></a></li>
+      </ul>
+    </div>
+    <script>
+      var i=0;
+      require.config({
+      	paths: {
+      		"jquery": "https://www.chaoex.info/static/js/jquery",
+      		"jquery.mousewheel": "https://www.chaoex.info/static/js/jquery.mousewheel",
+      		"sockjs": "https://www.chaoex.info/static/js/sockjs",
+      		"stomp": "https://www.chaoex.info/static/js/stomp",
+      		"kline": "https://www.chaoex.info/static/js/kline.min",
+      	},
+      	shim: {
+      		"jquery.mousewheel": {
+      			deps: ["jquery"]
+      		},
+      		"kline": {
+      			deps: ["jquery.mousewheel", "sockjs", "stomp"]
+      		}
+      	}
+      })
+      
+      require(['kline'], function () {
+      	var kline = new Kline({
+      		element: "#kline_container",
+      		width: 1250,
+      		height: 880,
+      		theme: 'dark', // light/dark
+      		language: 'en-us', // zh-cn/en-us/zh-tw
+      		// ranges: ["1w", "1d", "1h", "30m", "15m", "5m", "1m", "line"],
+      		ranges: ["1M", "1w", "1d","12h", "6h","4h", "2h","1h", "30m", "15m", "5m", "1m", "line"],
+      		symbol: "btcusdt",
+      		symbolName: "btcusdt",
+      		type: "poll", // poll/socket
+      		url: "https://www.chaoex.info/dataop/get_chaoex_kline", //mock.json", --}},
+      		limit: 1000,
+      		intervalTime: 30 * 1000,
+      		debug: false,
+      		showTrade: false
+      	})
+      	kline.draw()
+      	console.log(Kline.instance.element)
+      	$(Kline.instance.element).css({
+      		position: 'absolute',
+      		left: '0',
+      		right: '0',
+      		top: '0',
+      		bottom: '0',
+      		width: '100%',
+      		height: '100%',
+      		zIndex: '10000'
+      	});
+      	kline.resize()
+      
+      })
+    </script>
   </body>
 </html>
 </html>

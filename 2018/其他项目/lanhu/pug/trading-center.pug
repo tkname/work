@@ -1,124 +1,324 @@
 include ../public/public.pug
 
 html
-    head
-        meta(charset="utf-8")
-        meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
-        title CHAOEX
-        link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
-        script(type="text/javascript",src="./res/scripts/rem.js")
-        script(type="text/javascript",src="./res/scripts/jquery.min.js")
-        script(type="text/javascript",src="./res/scripts/swiper.min.js")
-        script(type="text/javascript",src="./res/scripts/main.js")
-        //- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
-        - let imgUrl="./res/images/";
-    body
-        .header
-            .seach-box
-                .seach-text
-                    input(type="text" )
-                    i.icon-seach
-                .btn 搜索
-        .main
-            .nav-meunBox
-                .content-box
-                    .nav-meun.three.line-blue.clearfix
-                        ul
-                            li 
-                                span 行情
-                            li 
-                                span 交易
-                            li.active 
-                                span 当前委托
-                .type-table-ranking.mar-top3.none
-                    .nav-box
-                        .title-text 卖出 BTC/USDT
-                            .btn.color-blue 撤销
-                    .cont-box
-                        .item-title
-                            ul.clearfix
-                                li.type 价格(USDT)
-                                li.new 数量(BTC)
-                                li.num 实际成交(BTC)
-                        .item-list
-                            ul.clearfix
-                                li.type 
-                                    span 0.10000
-                                li.new 10000.00
-                                li.num 500.00
-                                    //- .btn-blue +1.63%
-                .trade-box.clearfix
-                    .left-box
-                        .nav-item.clearfix
-                            ul 
-                                li 价格
-                                li.num 数量
-                        .cotent-box       
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 5312.1
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 23584.0
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 96.5
-                            .cotent-list.clearfix
-                                span.price 0.00722
-                                span.num 137.6
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 5312.1
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 23584.0
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 5312.1
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 23584.0
+	head
+		meta(charset="utf-8")
+		meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+		title CHAOEX
+		link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+		link(href='./res/styles/kline.css?v=1.1',type='text/css',rel='stylesheet')
 
-                        .price-mean
-                            span 0.00722 ≈ ￥0.08
+		script(type="text/javascript",src="./res/scripts/rem.js")
+		script(type="text/javascript",src="./res/scripts/jquery.min.js")
+		script(type="text/javascript",src="./res/scripts/swiper.min.js")
+		script(type="text/javascript",src="./res/scripts/kline/require.js")
+		script(type="text/javascript",src="./res/scripts/main.js")
+		//- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+		- let imgUrl="./res/images/";
+	body
+		.header
+			.seach-box
+				.seach-text
+					input(type="text" )
+					i.icon-seach
+				.btn 搜索
+		.mask.none
+			.layer
+				.center-title 说明
+				.desc 自2018年12月1日至2019年3月31日期间，平台交易手续费享受如下优惠
+				.content
+					- for(var i=0;i<4;i++)
+						.list
+							span.time 2018年12月1日至31日   
+							span.detail 交易手续费减免
+								span.color-red 50%
+				.close
+		.main
+			.nav-meunBox
+				.content-box
+					.nav-meun.three.line-blue.clearfix
+						ul
+							li 
+								span 行情
+							li 
+								span 交易
+							li.active 
+								span 当前委托
+				.type-box
+					//- 行情
+					.market.type-list.none
+						.market-typeBox.mar-top3
+							.content-top  
+								.title BTC/USDT
+								.desc 
+									span.color-blue 3,877.27
+									| ≈￥26947.03
+							.cont   
+								.cont-list.clearfix
+									.title +1.46%
+									.desc.color-bule-light 24h最低價
+									.num 3,765.71
+								.cont-list.clearfix
+									.title.color-bule-light 漲幅
+									.desc.color-bule-light 24h最低價
+									.num 3,931.12
+						.map-box
+							#kline_container
 
-                        .cotent-box.trans  
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 5312.1
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 23584.0
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 96.5
-                            .cotent-list.clearfix
-                                span.price 0.00722
-                                span.num 137.6
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 5312.1
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 23584.0
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 5312.1
-                            .cotent-list.clearfix
-                                span.price 0.00721
-                                span.num 23584.0
+						.type-table-ranking.mar-top3
+							.nav-box
+								ul.clearfix
+									li.active
+										i.icon-cz 
+										span 	最新成交
+									li 
+										i.icon-meun
+										span 深度
+							.cont-box
+								.item-title
+									ul.clearfix
+										li.type 价格
+										li.new 数量
+										li.num 时间
+								.item-list
+									ul.clearfix
+										li.type 
+											span 
+												| 0.00721 
+										li.new 5312.1
+										li.num 
+											| 13:25:45
+								.item-list
+									ul.clearfix
+										li.type 
+											span 
+												| 0.00721 
+										li.new 23584.0
+										li.num 
+											| 13:25:45
+								.item-list
+									ul.clearfix
+										li.type 
+											span 
+												| 0.00721
+										li.new 96.5
+										li.num 
+											| 13:25:45
+								.item-list
+									ul.clearfix
+										li.type 
+											span 
+												| 0.00721
+										li.new 96.5
+										li.num 
+											| 13:25:45                                        
+								.item-list
+									ul.clearfix
+										li.type.color-bule-light2 
+											span 
+												| 0.00721 
+										li.new 23584.0
+										li.num 
+											| 13:25:45
+								.item-list
+									ul.clearfix
+										li.type.color-bule-light2 
+											span 
+												| 0.00721
+										li.new 96.5
+										li.num 
+											| 13:25:45
+								.item-list
+									ul.clearfix
+										li.type.color-bule-light2 
+											span 
+												| 0.00721
+										li.new 96.5
+										li.num 
+											| 13:25:45
+					//- 交易
+					.trade-box.clearfix.type-list.none
+						.left-box
+							.nav-item.clearfix
+								ul 
+									li 价格
+									li.num 数量
+							.cotent-box       
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 5312.1
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 23584.0
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 96.5
+								.cotent-list.clearfix
+									span.price 0.00722
+									span.num 137.6
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 5312.1
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 23584.0
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 5312.1
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 23584.0
+
+							.price-mean
+								span 0.00722 ≈ ￥0.08
+
+							.cotent-box.trans  
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 5312.1
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 23584.0
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 96.5
+								.cotent-list.clearfix
+									span.price 0.00722
+									span.num 137.6
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 5312.1
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 23584.0
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 5312.1
+								.cotent-list.clearfix
+									span.price 0.00721
+									span.num 23584.0
 
 
-                    .right-box
-                        .select-box
-                            select
-                                option 1111
-                                option 2222
-                                option 3333
+						.right-box
+
+							.select-box
+								select
+									option BTC/USDT
+									option 2222
+									option 3333
+							.type-box   
+								.buy.box 買入
+								.out.box.active 賣出
+							.use-price  
+								.title 可用余额
+								.desc 0.0000000 BTC
+							.count-box
+								span.reduce
+								input(type="text")
+								span.add
+							.count-box.mar-top3
+								span.reduce
+								input(type="text")
+								span.add
+							.use-price  
+								.title 可用余额
+									span.details 0000 BTC
+							.per-box.clearfix.mar-top3
+								.per-list 
+									span 25%
+								.per-list.active
+									span 50%
+								.per-list 
+									span 75%
+								.per-list 
+									span 100%
+							.use-price  
+								.title CHEX抵扣
+									a(href="#" class="link") 手續費
+									.row
+										input(type="checkbox"  class='radio-box' id='radioBox')
+										label(for="radioBox" class='bule')
+							.use-price  
+								.title 可用余额
+									span.details 0000 BTC
+							.btn.btn-blue.mar-top3 買入
+					//- 当前委托
+					.type-table-ranking.mar-top3.type-list
+						.nav-box
+							.title-text 卖出 BTC/USDT
+								.btn.color-blue 撤销
+						.cont-box
+							.item-title
+								ul.clearfix
+									li.type 价格(USDT)
+									li.new 数量(BTC)
+									li.num 实际成交(BTC)
+							.item-list
+								ul.clearfix
+									li.type 
+										span 0.10000
+									li.new 10000.00
+									li.num 500.00
+										//- .btn-blue +1.63%
+
+		.submit-box
+			.btn-blueBig 買入BTC
+			.btn-redBig 賣出BTC
+		+footer(2)
+
+		script.
+		
 
 
+			var i=0;
+			require.config({
+				paths: {
+					"jquery": "https://www.chaoex.info/static/js/jquery",
+					"jquery.mousewheel": "https://www.chaoex.info/static/js/jquery.mousewheel",
+					"sockjs": "https://www.chaoex.info/static/js/sockjs",
+					"stomp": "https://www.chaoex.info/static/js/stomp",
+					"kline": "https://www.chaoex.info/static/js/kline.min",
+				},
+				shim: {
+					"jquery.mousewheel": {
+						deps: ["jquery"]
+					},
+					"kline": {
+						deps: ["jquery.mousewheel", "sockjs", "stomp"]
+					}
+				}
+			})
 
+			require(['kline'], function () {
+				var kline = new Kline({
+					element: "#kline_container",
+					width: 1250,
+					height: 880,
+					theme: 'dark', // light/dark
+					language: 'en-us', // zh-cn/en-us/zh-tw
+					// ranges: ["1w", "1d", "1h", "30m", "15m", "5m", "1m", "line"],
+					ranges: ["1M", "1w", "1d","12h", "6h","4h", "2h","1h", "30m", "15m", "5m", "1m", "line"],
+					symbol: "btcusdt",
+					symbolName: "btcusdt",
+					type: "poll", // poll/socket
+					url: "https://www.chaoex.info/dataop/get_chaoex_kline", //mock.json", --}},
+					limit: 1000,
+					intervalTime: 30 * 1000,
+					debug: false,
+					showTrade: false
+				})
+				kline.draw()
+				console.log(Kline.instance.element)
+				$(Kline.instance.element).css({
+					position: 'absolute',
+					left: '0',
+					right: '0',
+					top: '0',
+					bottom: '0',
+					width: '100%',
+					height: '100%',
+					zIndex: '10000'
+				});
+				kline.resize()
 
-
-
-
+			})

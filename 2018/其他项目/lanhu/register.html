@@ -6,14 +6,10 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <title>CHAOEX</title>
-    <link href="./res/styles/main.css?v=ef865f1.1" type="text/css" rel="stylesheet"/>
-    <link href="./res/styles/select.css?v=ef865f1.1" type="text/css" rel="stylesheet"/>
-    <link href="./res/styles/jquery.mCustomScrollbar.min.css?v=ef865f1.1" type="text/css" rel="stylesheet"/>
+    <link href="./res/styles/main.css?v=434e4b1.1" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="./res/scripts/rem.js"></script>
     <script type="text/javascript" src="./res/scripts/jquery.min.js"></script>
     <script type="text/javascript" src="./res/scripts/swiper.min.js"></script>
-    <script type="text/javascript" src="./res/scripts/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="./res/scripts/jquery.select.js"></script>
     <script type="text/javascript" src="./res/scripts/main.js"></script>
   </head>
   <body>
@@ -21,93 +17,111 @@
       <div class="logo left"></div>
       <div class="btn-box"><a class="login">登录</a><a class="register">注册</a></div>
     </div>
-    <div class="main register">
-      <div class="content-box">
-        <div class="nav-meun line-blue clearfix">
-          <ul>
-            <li> <span>邮箱注册</span></li>
-            <li class="active"> <span>手机注册</span></li>
-          </ul>
+    <div class="main">
+      <div class="register">
+        <div class="nav-meunBox">
+          <div class="content-box">
+            <div class="nav-meun line-blue clearfix">
+              <ul>
+                <li> <span>邮箱注册</span></li>
+                <li class="active"> <span>手机注册</span></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="form">
-        <div class="form-email form-box none">
-          <div class="form-group line-blue">
-            <label>邮箱 *</label>
-            <div class="type-box">
-              <input type="text" placeholder="请输入邮箱"/>
+        <div class="form">
+          <div class="type-box">
+            <div class="form-email form-box none type-list">
+              <div class="form-group line-blue">
+                <label>邮箱 *</label>
+                <div class="type-box">
+                  <input type="text" placeholder="请输入邮箱"/>
+                </div>
+              </div>
+              <div class="form-group line-blue">
+                <label>确认密码 *</label>
+                <div class="type-box">
+                  <input type="password" placeholder="请确认密码"/>
+                </div>
+              </div>
+              <div class="form-group line-blue">
+                <label>确认密码 *</label>
+                <div class="type-box">
+                  <input type="password" placeholder="请输入密码"/>
+                </div>
+              </div>
+              <div class="form-group line-blue">
+                <label>手机验证码 *</label>
+                <div class="type-box">
+                  <input type="text" placeholder="请输入验证码"/>
+                  <div class="code">发送验证码</div>
+                </div>
+              </div>
+              <div class="form-group line-blue">
+                <label>邀请码</label>
+                <div class="type-box">
+                  <input type="text" placeholder="请输入邀请码"/>
+                </div>
+              </div>
+              <div class="form-check"><span> 
+                  <label class="check-box">
+                    <input class="input-protocol" type="checkbox"/><i>                   </i>
+                  </label>我已閱讀並同意《CHAOEX服務條款》</span></div>
+              <div class="btn-submit">注册           </div>
+              <div class="form-loginText">已有帳戶？ <span>登錄    </span></div>
+            </div>
+            <div class="form-ipone form-box type-list">
+              <div class="form-group line-blue">
+                <label>手机号码 *</label>
+                <div class="type-box type-ipone">
+                  <div class="vertical"><span>+86</span>
+                    <div class="select-box none">
+                      <ul> 
+                        <li data-val="+237">喀麦隆（+237）</li>
+                        <li data-val="+1">加拿大（+1）</li>
+                        <li data-val="+1345">开曼群岛（+1345）</li>
+                        <li data-val="+236">中非共和国（+236）</li>
+                        <li data-val="+56">智利（+56）</li>
+                        <li data-val="+86">中国（+86）</li>
+                        <li data-val="+57">哥伦比亚（+57）</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <input type="text" placeholder="请输入手机号"/>
+                </div>
+              </div>
+              <div class="form-group line-blue">
+                <label>密码 *</label>
+                <div class="type-box">
+                  <input type="text" placeholder="请输入密码"/>
+                </div>
+              </div>
+              <div class="form-group line-blue">
+                <label>确认密码 *</label>
+                <div class="type-box">
+                  <input type="text" placeholder="请输入密码"/>
+                </div>
+              </div>
+              <div class="form-group line-blue">
+                <label>手机验证码 *</label>
+                <div class="type-box">
+                  <input type="text" placeholder="请输入验证码"/>
+                  <div class="code">发送验证码</div>
+                </div>
+              </div>
+              <div class="form-group line-blue">
+                <label>邀请码</label>
+                <div class="type-box">
+                  <input type="text" placeholder="请输入邀请码"/>
+                </div>
+              </div>
+              <div class="form-check"><span> 
+                  <label class="check-box">
+                    <input class="input-protocol" type="checkbox"/><i>                   </i>
+                  </label>我已閱讀並同意《CHAOEX服務條款》</span></div>
+              <div class="btn-submit">注册</div>
             </div>
           </div>
-          <div class="form-group line-blue">
-            <label>确认密码 *</label>
-            <div class="type-box">
-              <input type="password" placeholder="请确认密码"/>
-            </div>
-          </div>
-          <div class="form-group line-blue">
-            <label>确认密码 *</label>
-            <div class="type-box">
-              <input type="password" placeholder="请输入密码"/>
-            </div>
-          </div>
-          <div class="form-group line-blue">
-            <label>手机验证码 *</label>
-            <div class="type-box">
-              <input type="text" placeholder="请输入验证码"/>
-              <div class="code">发送验证码</div>
-            </div>
-          </div>
-          <div class="form-group line-blue">
-            <label>邀请码</label>
-            <div class="type-box">
-              <input type="text" placeholder="请输入邀请码"/>
-            </div>
-          </div>
-          <div class="form-check"><span> 
-              <label class="check-box">
-                <input class="input-protocol" type="checkbox"/><i>                   </i>
-              </label>我已閱讀並同意《CHAOEX服務條款》</span></div>
-          <div class="btn-submit">注册           </div>
-          <div class="form-loginText">已有帳戶？ <span>登錄     </span></div>
-        </div>
-        <div class="form-ipone form-box">
-          <div class="form-group line-blue">
-            <label>手机号码 *</label>
-            <div class="type-box type-ipone">
-              <div class="vertical"><span>+86</span></div>
-              <input type="text" placeholder="请输入手机号"/>
-            </div>
-          </div>
-          <div class="form-group line-blue">
-            <label>密码 *</label>
-            <div class="type-box">
-              <input type="text" placeholder="请输入密码"/>
-            </div>
-          </div>
-          <div class="form-group line-blue">
-            <label>确认密码 *</label>
-            <div class="type-box">
-              <input type="text" placeholder="请输入密码"/>
-            </div>
-          </div>
-          <div class="form-group line-blue">
-            <label>手机验证码 *</label>
-            <div class="type-box">
-              <input type="text" placeholder="请输入验证码"/>
-              <div class="code">发送验证码</div>
-            </div>
-          </div>
-          <div class="form-group line-blue">
-            <label>邀请码</label>
-            <div class="type-box">
-              <input type="text" placeholder="请输入邀请码"/>
-            </div>
-          </div>
-          <div class="form-check"><span> 
-              <label class="check-box">
-                <input class="input-protocol" type="checkbox"/><i>                   </i>
-              </label>我已閱讀並同意《CHAOEX服務條款》</span></div>
-          <div class="btn-submit">注册</div>
         </div>
       </div>
     </div>

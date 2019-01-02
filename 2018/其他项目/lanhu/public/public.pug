@@ -1,20 +1,21 @@
-mixin footer()
+mixin footer(index)
     .footer
         ul.clearfix
-            li.active
-                .box
+            - console.log(index,33333)
+            li(class=index==1?"active":"")
+                a.box(href="index.html")
                     i.work
                     span 我的主页
-            li
-                .box
+            li(class=index==2?"active":"")
+                a.box(href="trading-center.html")
                     i.deal
                     span 交易中心
-            li
-                .box 
+            li(class=index==3?"active":"")
+                a.box(href="notice.html") 
                     i.info
                     span 公告资讯
-            li 
-                .box
+            li(class=index==4?"active":"")
+                a.box(href="my.html")
                     i.user
                     span 我的
 mixin header($en)

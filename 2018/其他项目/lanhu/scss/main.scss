@@ -1,8 +1,9 @@
+@import './public.scss';
+
 @import './swiper.min.css';
 @import './reset.scss';
 @import './global.scss';
 //public.scss
-@import './public.scss';
 
 @function a($num){
     @return $num*2rem; 
@@ -13,6 +14,12 @@
 
 *{
     box-sizing: border-box;
+}
+a{
+    color: #fff;
+}
+a:link{
+    color: #fff;
 }
 body{
     background: #070814;
@@ -210,7 +217,93 @@ body{
     width: 100%;
     height: 100%;
     background: rgba($color: #000000, $alpha: .6);
-    z-index: 12;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    .layer{
+        width: 85%;
+        min-height: 6.3rem;
+        border-radius: .1rem;
+        // overflow: hidden;
+        background: #27325c;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 16%;
+        padding: 0 .5rem .3rem .5rem;
+        position: absolute;
+        .center-title{
+            font-size: .36rem;
+            height: 1.3rem;
+            line-height: 1.3rem
+        }
+        .desc{
+            font-size: .24rem;
+            line-height: .4rem;
+            color: #8b9ed5;
+        }
+        .content{
+            .list{
+                width: 100%;
+                padding: .3rem 0 .3 .35rem;
+                line-height: .4rem;
+                position: relative;
+                span.time{
+                    font-size: .22rem;
+                }
+                span.detail{
+                    font-size: .28rem;
+                    // margin-left: .1rem;
+                    .color-red{
+                        display: inline-block;
+                    }
+                }
+
+                &::after{
+                    content: "";
+                    width: .02rem;
+                    top: 0;
+                    left: .14rem;
+                    position: absolute;
+                    height: 100%;
+                    background:#141d3f;
+
+                }
+                &:first-child{
+                    &::after{
+                        height: 50%;
+                        bottom: 0;
+                        top: auto;
+                    }
+                }
+                &:last-child{
+                    &::after{
+                        height: 50%;
+                        top: 0;
+                    }        
+                }
+                &::before{
+                    content: "";
+                    width: .16rem;
+                    height: .16rem;
+                    border-radius: 50%;
+                    top: 50%;
+                    left: .08rem;
+                    position: absolute;
+                    background:#141d3f;
+
+                }
+            }
+        }
+        .close{
+            position: absolute;
+            width: .8rem;
+            height: .8rem;
+            @include bgAuto("close.png");
+            bottom: -1.6rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
 }
 
 // 浮动 广告
@@ -565,7 +658,7 @@ body{
             top: 0;
             position: absolute;
             // text-align: right;
-            span{
+            a,span{
                 color: #2d60c6;
                 position: absolute;
                 top: 50%;
@@ -1161,17 +1254,46 @@ body{
                 padding-left: 1.74rem;
                 position: relative;
                 .vertical{
-                    width: 1.14rem;
-                    height: .46rem;
-                    background: #141D3F;
-                    position: absolute;
-                    font-size: .3rem;
-                    text-align: center;
-                    line-height: .5rem;
-                    left: .3rem;
-                    border-radius: 0.1rem;
-                    top: 50%;
-                    transform: translateY(-50%);
+                    width: 100%;
+
+                    span{
+                        width: 1.14rem;
+                        height: .46rem;
+                        background: #141D3F;
+                        position: absolute;
+                        font-size: .3rem;
+                        text-align: center;
+                        line-height: .5rem;
+                        left: 0rem;
+                        border-radius: 0.1rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    .select-box{
+                        position: absolute;
+                        z-index: 2;
+                        top: .8rem;
+                        -webkit-appearance: none;
+                        border:none;
+                        width: 100%;
+                        height: 100%;
+                        // padding: 0 .1rem;
+                        background: #141D3F;
+                        color: #fff;
+                        border-radius: .1rem;
+                        ul{
+                            background: #141D3F;
+                            border-radius: .1rem;
+                            li{
+                                width: 100%;
+                                height: .6rem;
+                                line-height: .6rem;
+                                font-size: .3rem;
+                                padding-left: .2rem;
+                            }
+                        }
+                    }
                 }
             }
             .icon-box{
