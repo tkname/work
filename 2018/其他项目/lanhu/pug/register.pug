@@ -21,8 +21,8 @@ html
         .header
             .logo.left
             .btn-box
-                a.login 登录
-                a.register 注册
+                a.login(href="login.html") 登录
+                a.register(href="register.html") 注册
         .main
             .register
                 .nav-meunBox
@@ -66,7 +66,7 @@ html
                             .btn-submit 注册           
                             .form-loginText
                                 | 已有帳戶？ 
-                                span 登錄    
+                                a(href="login.html") 登錄    
 
                         .form-ipone.form-box.type-list
                             .form-group.line-blue
@@ -81,7 +81,8 @@ html
                                                 li(data-val="+1345") 开曼群岛（+1345）
                                                 li(data-val="+236") 中非共和国（+236）
                                                 li(data-val="+56") 智利（+56）
-                                                li(data-val="+86") 中国（+86）
+                                                li(data-val="+56") 智利（+56）
+                                                li.active(data-val="+86") 中国（+86）
                                                 li(data-val="+57") 哥伦比亚（+57）
                                     input(type="text" placeholder='请输入手机号')
                             .form-group.line-blue

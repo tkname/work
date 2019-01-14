@@ -21,8 +21,8 @@ html
         .header
             .logo.left
             .btn-box
-                a.login 登录
-                a.register 注册
+                a.login(href="login.html") 登录
+                a.register(href="register.html") 注册
         .main
             .login
                 .form-title.line-blue 账号登陆
@@ -41,6 +41,6 @@ html
                                 i.icon-passShow
                         .btn-submit 登录
                         .form-loginText
-                            | 已有帳戶？ 
-                            span 登錄   
-                            span.forget-pass 忘记密码   
+                            | 未開通帳戶？
+                            a(href="register.html") 註冊   
+                            a().forget-pass 忘记密码   

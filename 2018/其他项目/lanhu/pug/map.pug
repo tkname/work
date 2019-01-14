@@ -1,0 +1,97 @@
+include ../public/public.pug
+
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+		title CHAOEX
+		link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+		link(href='./res/styles/kline.css?v=1.1',type='text/css',rel='stylesheet')
+
+		script(type="text/javascript",src="./res/scripts/rem.js")
+		script(type="text/javascript",src="./res/scripts/jquery.min.js")
+		script(type="text/javascript",src="./res/scripts/swiper.min.js")
+		script(type="text/javascript",src="./res/scripts/kline/require.js")
+		script(type="text/javascript",src="./res/scripts/main.js")
+		//- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+		- let imgUrl="./res/images/";
+		style.
+			.kline{
+				width: 100%;
+				height: 6rem;
+				margin-left: auto;
+				margin-right: auto;
+				position: relative;
+				font-size: .24rem;
+				background-color: transparent;
+			}
+	body
+		#kline_container
+		script.
+			require.config({
+				paths: {
+					"jquery": "./res/scripts/jquery.min",
+					"jquery.mousewheel": "./res/scripts/kline/jquery.mousewheel",
+					"sockjs": "./res/scripts/kline/sockjs",
+					"stomp": "./res/scripts/kline/stomp",
+					"kline": "./res/scripts/kline/kline.min",
+				},
+				shim: {
+					"jquery.mousewheel": {
+						deps: ["jquery"]
+					},
+					"kline": {
+						deps: ["jquery.mousewheel", "sockjs", "stomp"]
+					}
+				}
+			})
+
+			require(['kline'], function () {
+				var kline = new Kline({
+					element: "#kline_container",
+					width: 1250,
+					height: 880,
+					theme: 'dark', // light/dark
+					language: 'en-us', // zh-cn/en-us/zh-tw
+					// ranges: ["1w", "1d", "1h", "30m", "15m", "5m", "1m", "line"],
+					ranges: ["1M", "1w", "1d","12h", "6h","4h", "2h","1h", "30m", "15m", "5m", "1m", "line"],
+					symbol: "btcusdt",
+					symbolName: "btcusdt",
+					type: "poll", // poll/socket
+					url: "https://www.chaoex.info/dataop/get_chaoex_kline", //mock.json", --}},
+					limit: 1000,
+					intervalTime: 30 * 1000,
+					debug: false,
+					showTrade: false
+				})
+				kline.draw()
+				console.log(Kline.instance.element)
+				$(Kline.instance.element).css({
+					position: 'fixed',
+					left: '0',
+					right: '0',
+					top: '0',
+					bottom: '0',
+					width: '100%',
+					height: '100%',
+					zIndex: '10000'
+				});
+				kline.resize()
+
+				$(window).resize(function () {
+
+						$(Kline.instance.element).css({
+							position: 'fixed',
+							left: '0',
+							right: '0',
+							top: '0',
+							bottom: '0',
+							width: '100%',
+							height: '100%',
+							zIndex: '10000'
+						});
+
+						kline.resize();
+
+				});
+			})

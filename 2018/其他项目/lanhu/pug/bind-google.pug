@@ -1,0 +1,40 @@
+include ../public/public.pug
+
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        title CHAOEX
+        link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+        link(href='./res/styles/select.css?v=1.1',type='text/css',rel='stylesheet')
+        link(href='./res/styles/jquery.mCustomScrollbar.min.css?v=1.1',type='text/css',rel='stylesheet')
+
+        script(type="text/javascript",src="./res/scripts/rem.js")
+        script(type="text/javascript",src="./res/scripts/jquery.min.js")
+        script(type="text/javascript",src="./res/scripts/swiper.min.js")
+        script(type="text/javascript",src="./res/scripts/jquery.mCustomScrollbar.concat.min.js")
+        script(type="text/javascript",src="./res/scripts/jquery.select.js")
+        script(type="text/javascript",src="./res/scripts/main.js")
+        //- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+        - let imgUrl="./res/images/";
+    body
+        .main.login
+            .form-title.big 綁定谷歌驗證
+            .form-typesMore
+                ul
+                    li.active  
+                        span 下載安裝APP
+                            label 1
+                    li 
+                        span 掃描二維碼
+                            label 2
+                    li 
+                        span 設置新登錄密碼
+                            label 3                            
+            .form
+                .form-boxs
+                    .app-img
+                        img(src=imgUrl+"app.png")
+                    .app-text
+                        span 下載安裝谷歌驗證器APP
+                a(href="bind-google-qrcode.html").btn-submit 下一步

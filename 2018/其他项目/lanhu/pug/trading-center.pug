@@ -63,7 +63,7 @@ html
 									.desc.color-bule-light 24h最低價
 									.num 3,931.12
 						.map-box
-							#kline_container
+							iframe(src="./map.html")
 
 						.type-table-ranking.mar-top3
 							.nav-box
@@ -214,11 +214,11 @@ html
 								.desc 0.0000000 BTC
 							.count-box
 								span.reduce
-								input(type="text")
+								input(type="text" value='0')
 								span.add
 							.count-box.mar-top3
 								span.reduce
-								input(type="text")
+								input(type="text" value='0')
 								span.add
 							.use-price  
 								.title 可用余额
@@ -266,59 +266,3 @@ html
 			.btn-redBig 賣出BTC
 		+footer(2)
 
-		script.
-		
-
-
-			var i=0;
-			require.config({
-				paths: {
-					"jquery": "https://www.chaoex.info/static/js/jquery",
-					"jquery.mousewheel": "https://www.chaoex.info/static/js/jquery.mousewheel",
-					"sockjs": "https://www.chaoex.info/static/js/sockjs",
-					"stomp": "https://www.chaoex.info/static/js/stomp",
-					"kline": "https://www.chaoex.info/static/js/kline.min",
-				},
-				shim: {
-					"jquery.mousewheel": {
-						deps: ["jquery"]
-					},
-					"kline": {
-						deps: ["jquery.mousewheel", "sockjs", "stomp"]
-					}
-				}
-			})
-
-			require(['kline'], function () {
-				var kline = new Kline({
-					element: "#kline_container",
-					width: 1250,
-					height: 880,
-					theme: 'dark', // light/dark
-					language: 'en-us', // zh-cn/en-us/zh-tw
-					// ranges: ["1w", "1d", "1h", "30m", "15m", "5m", "1m", "line"],
-					ranges: ["1M", "1w", "1d","12h", "6h","4h", "2h","1h", "30m", "15m", "5m", "1m", "line"],
-					symbol: "btcusdt",
-					symbolName: "btcusdt",
-					type: "poll", // poll/socket
-					url: "https://www.chaoex.info/dataop/get_chaoex_kline", //mock.json", --}},
-					limit: 1000,
-					intervalTime: 30 * 1000,
-					debug: false,
-					showTrade: false
-				})
-				kline.draw()
-				console.log(Kline.instance.element)
-				$(Kline.instance.element).css({
-					position: 'absolute',
-					left: '0',
-					right: '0',
-					top: '0',
-					bottom: '0',
-					width: '100%',
-					height: '100%',
-					zIndex: '10000'
-				});
-				kline.resize()
-
-			})
