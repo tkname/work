@@ -18,31 +18,38 @@
   </head>
   <body>
     <div class="main login">
-      <div class="form-title big">修改登陸密碼</div>
+      <div class="form-title big">绑定手機號</div>
       <div class="form-type">
         <ul class="clearfix">
-          <li class="active"> <span>驗證郵箱
+          <li> <span>驗證已綁定的郵箱
               <label>1</label></span></li>
-          <li> <span>設置新登錄密碼
+          <li class="active"> <span>驗證手機號碼
               <label>2</label></span></li>
         </ul>
       </div>
       <div class="form">
-        <div class="form-ipone form-box">
+        <div class="form-ipone form-box type-list">
           <div class="form-group line-blue">
-            <label>郵箱</label>
-            <div class="type-box">
-              <input type="text" placeholder="请输入郵箱"/>
+            <label>手机号码 *</label>
+            <div class="type-box type-ipone">
+              <div class="vertical"><span>+86</span>
+                <div class="select-box none">
+                  <ul> 
+                    <li data-val="+237">喀麦隆（+237）</li>
+                    <li data-val="+1">加拿大（+1）</li>
+                    <li data-val="+1345">开曼群岛（+1345）</li>
+                    <li data-val="+236">中非共和国（+236）</li>
+                    <li data-val="+56">智利（+56）</li>
+                    <li data-val="+56">智利（+56）</li>
+                    <li class="active" data-val="+86">中国（+86）</li>
+                    <li data-val="+57">哥伦比亚（+57）</li>
+                  </ul>
+                </div>
+              </div>
+              <input type="text" placeholder="请输入手机号"/>
             </div>
           </div>
-          <div class="form-group line-blue">
-            <label>驗證碼 </label>
-            <div class="type-box">
-              <input type="text" placeholder="请输入驗證碼"/>
-              <div class="code">獲取驗證碼</div>
-            </div>
-          </div><a class="btn-submit" href="forget-password-pass.html">下一步</a>
-        </div>
+        </div><a class="btn-submit" href="safe-setting.html">确认提交</a>
       </div>
     </div>
   </body>

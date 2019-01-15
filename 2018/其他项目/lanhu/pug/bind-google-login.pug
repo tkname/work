@@ -25,18 +25,29 @@ html
                     li  
                         span 掃描二維碼
                             label 2
-                    li.active  
+                    li  
                         span 備份密鑰
                             label 3
-                    li
+                    li.active
                         span 開啟谷歌驗證
                             label 4                            
             .form
-                .form-boxs
-                    .app-passText
-                        span 請將16位密鑰準確記錄在紙上，並妥善保管，若手機丟失，您可以通過該密鑰恢復谷歌驗證
-                    .app-pass
-                        span YICF35UXQPOFJWDN
-                .form-textTips-blue
-                    | 通过人工客服重置您的谷歌验证需提交工单，可能需要至少7天时间来 处理
-                a(href="bind-google-login.html").btn-submit 下一步
+                .form-ipone.form-box
+                    .form-group.line-blue
+                        label 登錄密碼
+                        .type-box
+                            input(type="password" placeholder='请输入驗證碼')
+                    .form-group.line-blue
+                        label 驗證方式 
+                            span.email-text 11********@hotmail.com
+
+                        .type-box
+                            input(type="text" placeholder='请输入驗證碼')
+                            .code 獲取驗證碼              
+                .form-ipone.form-box
+                    .form-group.line-blue
+                        label 谷歌驗證碼
+                        .type-box
+                            input(type="password" placeholder='请输入驗證碼')
+
+                    a(href="safe-setting.html").btn-submit 綁定谷歌驗證

@@ -18,28 +18,31 @@
   </head>
   <body>
     <div class="main login">
-      <div class="form-title big">綁定谷歌驗證</div>
-      <div class="form-typesMore">
-        <ul>
-          <li> <span>下載安裝APP
+      <div class="form-title big">修改邮箱</div>
+      <div class="form-type">
+        <ul class="clearfix">
+          <li class="active"> <span>驗證原郵箱地址
               <label>1</label></span></li>
-          <li class="active"> <span>掃描二維碼
+          <li> <span>驗證新郵箱地址
               <label>2</label></span></li>
-          <li> <span>備份密鑰
-              <label>3                            </label></span></li>
         </ul>
       </div>
       <div class="form">
-        <div class="form-boxs">
-          <div class="app-img"><img src="./res/images/app.png?v=857616"/></div>
-          <div class="app-text"><span>使用谷歌驗證器APP掃描二維碼</span></div>
-          <div class="app-passboxs clearfix">
-            <div class="pass-title">密鑰</div>
-            <div class="text"> YICF35UXQPOFJWDN</div>
-            <div class="btn-blue btn">複製</div>
+        <div class="form-ipone form-box">
+          <div class="form-group line-blue">
+            <label>原郵箱</label>
+            <div class="type-box">
+              <input type="text" placeholder="请输入郵箱"/>
+            </div>
           </div>
-          <div class="app-desc"><span>如果您無法掃描二維碼，可將密鑰手動輸入到谷歌驗證APP中</span></div>
-        </div><a class="btn-submit" href="bind-google-passSave.html">下一步</a>
+          <div class="form-group line-blue">
+            <label>驗證碼 </label>
+            <div class="type-box">
+              <input type="text" placeholder="请输入驗證碼"/>
+              <div class="code">獲取驗證碼</div>
+            </div>
+          </div><a class="btn-submit" href="bind-email-new.html">下一步</a>
+        </div>
       </div>
     </div>
   </body>
