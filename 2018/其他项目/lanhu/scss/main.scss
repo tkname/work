@@ -570,6 +570,21 @@ body{
             }
         }
     }
+    .type-table-index.types{
+        .nav-box{
+            ul{
+                li{
+                    width: 33%;
+                    &::after{
+                        display: none;
+                    }
+                    span{
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
 
     .type-table-ranking{
         .nav-box{
@@ -1357,6 +1372,230 @@ body{
     
 }
 
+//币种详情
+.money-types-boxs{
+    width: 100%;
+    .title-boxs{
+        height: 1.53rem;
+        line-height: 1.53rem;
+        background: #1c2753;
+        position: relative;
+        padding: 0 .3rem;
+        border-radius: .1rem;
+        .text{
+            font-size: .34rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        i{
+            width: .65rem;
+            height: .65rem;
+            vertical-align: middle;
+        }
+        span{
+            vertical-align: middle;
+            margin-left: .2rem;
+        }
+        .btn{
+            font-size: .34rem;
+            color: #3064cb;
+            position: absolute;
+            right: .3rem;
+            top: 50%;
+            padding-right: .2rem;
+            transform: translateY(-50%);
+            &::after{
+                content: "";
+                width: .1rem;
+                height: .18rem;
+                @include bgAuto('blue-back.png');
+                position: absolute;
+                right: 0;
+                top:50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+    .type-list{
+        width: 100%;
+        height:1rem;
+        line-height: 1rem;
+        background: #111938;
+        border-top:.02rem solid #070814;
+        padding: 0 .3rem;
+        position: relative;
+        .text{
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding-left: .3rem;
+        }
+        .num{
+            padding-left: 1.5rem;
+            text-align: right;
+        }
+    }
+}
+.nav-moneyBox{
+    width: 100%;
+    margin-top: .6rem;
+    margin-bottom: .4rem;
+    .content-box{
+        width: 100%;
+        .nav-meun{
+            width: 6rem;
+            margin: 0 auto;
+            border-radius: .1rem;
+            border:0.02rem solid #3064cb;
+            ul {
+                li{
+                    display: block;
+                   float: left; 
+                   width: 50%;
+                   text-align: center;
+                   font-size: .3rem;
+                   color: #fff;
+                   height: .6rem;
+                   line-height: .6rem;
+                }
+                li.active{
+                    background: #3064cb;
+                }
+            }
+        }
+    }
+} 
+.log-boxs{
+    width: 100%;
+    padding: .5rem .3rem .5rem 2.12rem;
+    position: relative;
+    background: #151834;
+    .btn{
+        position: absolute;
+        top: .2rem;
+        right: .3rem;
+        color: #3064cb;
+        font-size: .24rem;
+    }
+    .qr-code{
+        width: 1.68rem;
+        height: 1.68rem;
+        img{
+            width: 100%;
+        }
+        position: absolute;
+        left: .3rem;
+    }
+    .content{
+        padding-left: .1rem;
+        .title{
+            font-size: .3rem;
+            line-height: .3rem;
+        }
+        .code-box {
+            width: 100%;
+            height: .76rem;
+            position: relative;
+            margin: .16rem 0;
+            .code{
+                background: #070814;
+                height: 80%;
+                height: 100%;
+                color: #fff;
+                font-size: .24rem;
+                line-height: .76rem;
+                padding-left: .2rem;
+                overflow: hidden;
+            }
+            .btn-copy{
+                position: absolute;
+                width: 1.3rem;
+                line-height: .76rem;
+                text-align: center;
+                font-size: .24rem;
+                right: 0;
+                top: 0;
+                height: 100%;
+                background: #3064cb;
+                border-radius: 0 .1rem .1rem 0;
+            }
+        }
+        .text{
+            line-height: .24rem;
+            font-size: .24rem;
+        }
+    }
+}
+.log-listBox{
+    background: #111938;
+    color: #fff;
+    padding: .35rem .5rem .25rem .3rem;
+    margin-top: .02rem;
+    .head,.content{
+        font-size: .3rem;
+        position: relative;
+        padding-left: 2rem;
+        min-height: .5rem;
+        .title{
+            position: absolute;
+            left: 0;
+            text-align: left;
+        }
+        .num{
+            padding-right: .44rem;
+            text-align: right;
+            position: relative;
+            width: 100%;
+        }
+        .num.bottom{
+            &::after{
+                position: absolute;
+                content: "";
+                width: .19rem;
+                height: .1rem; 
+                top:50%;
+                transform: translateY(-50%);
+                right: 0rem;
+                @include bgAuto('bottom.png');  
+            }
+        }
+        .num.top{
+            &::after{
+                position: absolute;
+                content: "";
+                width: .19rem;
+                height: .1rem; 
+                top:50%;
+                transform: translateY(-50%);
+                right: 0rem;
+                @include bgAuto('top.png');  
+            }
+        }
+    }
+    .content{
+        font-size: .28rem;
+        color: #8b9ed5;
+    }
+}
+
+.log-text{
+    line-height: .5rem;
+    font-size: .26rem;
+}
+
+
+.clear-desc{
+    margin-top: .3rem;
+    padding-left: 1.26rem;    
+    font-size: .24rem;
+    position: relative;
+    line-height: .4rem;
+    .title{
+        position: absolute;
+        left: 0;
+    }
+}
+
 //表单
 .form{
     width: 100%;
@@ -1488,6 +1727,20 @@ body{
         }
 
     }
+    .form-group.form-inputT{
+        .type-box{
+            position: relative;
+            span{
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            input{
+                padding-left: 1.68rem;
+            }
+        }
+    }
     .form-group.error{
         .type-box{
             input{
@@ -1542,6 +1795,7 @@ body{
         font-size: .26rem;
         padding: .3rem 0;
         position: relative;
+        line-height: .35rem;
         a{
             color: #2D60C6;
         }
@@ -1566,6 +1820,12 @@ body{
         position: relative;
         color: #8B9ED5;
         line-height: .4rem;
+    }
+    .incl{
+        font-size: .3rem;
+        margin-top: .3rem ;
+        text-align: right;
+        width: 100%; 
     }
 }
 .form-boxs{

@@ -1,0 +1,71 @@
+include ../public/public.pug
+
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        title CHAOEX
+        link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+        link(href='./res/styles/select.css?v=1.1',type='text/css',rel='stylesheet')
+        link(href='./res/styles/jquery.mCustomScrollbar.min.css?v=1.1',type='text/css',rel='stylesheet')
+
+        script(type="text/javascript",src="./res/scripts/rem.js")
+        script(type="text/javascript",src="./res/scripts/jquery.min.js")
+        script(type="text/javascript",src="./res/scripts/swiper.min.js")
+        script(type="text/javascript",src="./res/scripts/jquery.mCustomScrollbar.concat.min.js")
+        script(type="text/javascript",src="./res/scripts/jquery.select.js")
+        script(type="text/javascript",src="./res/scripts/main.js")
+        //- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+        - let imgUrl="./res/images/";
+    body
+        +header(false)
+        .main 
+            .money-types-boxs
+                .title-boxs
+                    .text
+                        i.ltc
+                        span LTC
+                    .btn 去交易
+                .type-list
+                    .text
+                        span 总额
+                    .num
+                        span 0.22234631
+                .type-list
+                    .text
+                        span 可用
+                    .num
+                        span 0.22234631
+                .type-list
+                    .text
+                        span 冻结
+                    .num
+                        span 0.22234631
+            .nav-moneyBox
+                .content-box
+                    .nav-meun.line-blue.clearfix
+                        ul
+                            li 
+                                span 充幣
+                            li.active 
+                                span 提取
+            .form
+                .form-ipone.form-box
+                    .form-group.line-blue.form-inputT
+                        label 提幣地址
+                            span.email-text.color-blue 提取记录
+                        .type-box
+                            span 備註
+                            input(type="text" placeholder='輸入或長按粘貼地址')
+                    .form-group.line-blue
+                        label 可提幣數量 
+                            span.email-text.color-black 可用0BTC
+                        .type-box
+                            input(type="text" placeholder='最小提币数量0.2')
+                            .code 全部
+                    .incl
+                        span 實際到賬：0.001
+                    .btn-submit 确认
+                    .form-loginText
+                        | 提交申請后，30分鐘內審核通過。待網絡確認后，即可到賬。為了您的資金安全，在更改安全設置后24小時內不允許提幣。
+  

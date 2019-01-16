@@ -1,0 +1,70 @@
+include ../public/public.pug
+
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        title CHAOEX
+        link(href='./res/styles/main.css?v=1.1',type='text/css',rel='stylesheet')
+        link(href='./res/styles/select.css?v=1.1',type='text/css',rel='stylesheet')
+        link(href='./res/styles/jquery.mCustomScrollbar.min.css?v=1.1',type='text/css',rel='stylesheet')
+
+        script(type="text/javascript",src="./res/scripts/rem.js")
+        script(type="text/javascript",src="./res/scripts/jquery.min.js")
+        script(type="text/javascript",src="./res/scripts/swiper.min.js")
+        script(type="text/javascript",src="./res/scripts/jquery.mCustomScrollbar.concat.min.js")
+        script(type="text/javascript",src="./res/scripts/jquery.select.js")
+        script(type="text/javascript",src="./res/scripts/main.js")
+        //- script(type="text/javascript",src="./res/scripts/layer/mobile/layer.js")
+        - let imgUrl="./res/images/";
+    body
+        +header(false)
+        .main 
+            .money-types-boxs
+                .title-boxs
+                    .text
+                        i.ltc
+                        span LTC
+                    .btn 去交易
+                .type-list
+                    .text
+                        span 总额
+                    .num
+                        span 0.22234631
+                .type-list
+                    .text
+                        span 可用
+                    .num
+                        span 0.22234631
+                .type-list
+                    .text
+                        span 冻结
+                    .num
+                        span 0.22234631
+            .nav-moneyBox
+                .content-box
+                    .nav-meun.line-blue.clearfix
+                        ul
+                            li.active 
+                                a(href="money-type-dates.html") 充幣
+                            li 
+                                a(href="money-type-out.html") 提取
+            .log-boxs
+                .btn 充幣記錄
+                .qr-code
+                    image(src=imgUrl+'qr-code.png')
+                .content
+                    .title LTC充值地址
+                    .code-box 
+                        .code
+                            span 0X16ECC9EABC733BA230
+                        .btn-copy 复制地址
+                            
+                    .text 網絡手續費：0.00000000
+            .clear-desc
+                .title 注意事項：
+                | 1.禁止向 非 SNGLS 地址充值，<br>
+                | 除 SNGLS 之外的資產，任何充入 SNGLS<br> 
+                | 地址的非 SNGLS 資產將不可找回。<br>
+                |2.用 SNGLS 地址充值需要 3 個以上網絡確認才能到賬<br>
+                |3.充值完成後，妳可以進入歷史記錄頁面跟蹤進度。

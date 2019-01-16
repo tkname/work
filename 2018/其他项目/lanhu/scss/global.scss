@@ -210,6 +210,9 @@ i.icon-meun{
 .color-red{
     color: #FE3B5F !important;
 }
+.color-black{
+    color: #898990 !important;
+}
 .color-yellow{
     color: #E7BF3A !important;
 }
@@ -221,6 +224,35 @@ i.icon-meun{
 }
 .color-bule-light2,.color-bule-light2 span{
     color: #2c62da !important;
+}
+
+.icon-bottom{
+    &::before{
+        position: absolute;
+        content: "";
+        width: .19rem;
+        height: .1rem; 
+        top:50%;
+        transform: translateY(-50%);
+        right: -.26rem;
+        @include bgAuto('bottom.png');  
+    }
+}
+.icon-top{
+    &::before{
+        position: absolute;
+        content: "";
+        width: .19rem;
+        height: .1rem; 
+        top:50%;
+        transform: translateY(-50%);
+        right: -.26rem;
+        @include bgAuto('top.png');  
+    }
+}
+
+.border-ra{
+    border-radius: 0.1rem 0.1rem 0 0rem;
 }
 
 .btn-red{
