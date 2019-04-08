@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "iconv-lite": "^0.4.24",
+    "mysql": "^2.16.0"
+  }
+}
