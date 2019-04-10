@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>wx ajax userinfo</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+      		
+<script src="jquery.min.js"></script>
+        
+<script >
+$(function(){     
+window.gg=window.gg || {};
+
+ window.gg.config={
+        width:640,
+        height:1040,
+        showType:0,
+        clientWidth:document.documentElement.clientWidth,
+        clientHeight:document.documentElement.clientHeight,
+        appid:'wxf602a7df1d0a325a',//北京火码的appid
+        projectUrl:'http://minisite.hocodo.com/test/taisen/api_test/', 
+        user_info:{}
+    };
+	
+ 
+	gg.util = {
+		setCache: function(key, value, type) {
+			if (typeof value === "object") {
+				value = JSON.stringify(value)
+			}
+			switch (type) {
+			case "sessionStorage":
+				sessionStorage.setItem(key, value);
+				break;
+			case "localStorage":
+				localStorage.setItem(key, value);
+				break;
+			default:
+				sessionStorage.setItem(key, value)
+			}
+		},
+		getCache: function(key) {
+			var value = sessionStorage.getItem(key) || localStorage.getItem(key);
+			try {
+				return JSON.parse(value)
+			} catch (e) {
+				return value
+			}
+		},
+		clearCache: function() {
+			sessionStorage.clear();
+			localStorage.clear()
+		},
+		getUrlParam: function() {
+			var obj = {};
+			var paramStr = location.search.split("#")[0].split("?")[1];
+			if (paramStr) {
+				var params = paramStr.split("&");
+				for (var i = 0, j = params.length; i < j; i++) {
+					var arr = params[i].split("=");
+					obj[arr[0]] = arr[1]
+				}
+			}
+			return obj
+		},
+		formatDate: function(date, sp) {
+			var month = date.getMonth() + 1;
+			month = month < 10 ? "0" + month : month;
+			if (sp) {
+				return date.getFullYear() + sp + month + sp + date.getDate()
+			} else {
+				return "" + date.getFullYear() + month + date.getDate()
+			}
+		},
+		browserVersion: function() {
+			var u = navigator.userAgent || navigator.appVersion;
+			return {
+				trident: navigator.userAgent.indexOf("Trident") > -1,
+				presto: navigator.userAgent.indexOf("Presto") > -1,
+				webKit: navigator.userAgent.indexOf("AppleWebKit") > -1,
+				gecko: navigator.userAgent.indexOf("Gecko") > -1 && navigator.userAgent.indexOf("KHTML") == -1,
+				mobile: !! navigator.userAgent.match(/AppleWebKit.*Mobile.*/),
+				ios: !! navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+				android: navigator.userAgent.indexOf("Android") > -1 || navigator.userAgent.indexOf("Linux") > -1,
+				iPhone: navigator.userAgent.indexOf("iPhone") > -1 || navigator.userAgent.indexOf("Mac") > -1,
+				iPad: navigator.userAgent.indexOf("iPad") > -1,
+				webApp: navigator.userAgent.indexOf("Safari") == -1,
+				wx: navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == "micromessenger"
+			}
+		}()
+	}
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	window.gg.wxUser = {
+		appid: window.gg.config.appid,
+		getWxCode: function(uri, scope) {
+			var ua = navigator.userAgent.toLowerCase();
+			if (ua.match(/MicroMessenger/i) == "micromessenger") {		 
+				var str = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.appid;
+				str += "&redirect_uri=" + encodeURIComponent(uri);
+				str += "&response_type=code&scope=" + (scope || "snsapi_userinfo") + "&state=STATE&component_appid=wx993336204bad5f58#wechat_redirect";
+				//alert(str)
+				window.location.href = str
+			} else {
+				window.location.href = uri
+			}
+		},
+		register: function(callback) {
+		 
+				var param = gg.util.getUrlParam();
+				$.get(window.gg.config.projectUrl + "auth.php", {
+					code: param.code,
+					appid: window.gg.config.appid
+				}, function(res) {
+					sessionStorage.setItem("huomaProject", JSON.stringify(res)); 
+					window.gg.config.user_info = res;
+					gg.util.setCache("huomaOpenid",res.openid)
+					callback(res)
+				}, "json") 
+		},
+		getUserInfo: function(callback) {
+			var param = gg.util.getUrlParam();
+			var userInfo = sessionStorage.getItem("huomaProject");
+			var openid=sessionStorage.getItem("huomaOpenid");
+			if (userInfo&&openid) {
+				window.gg.config.user_info = JSON.parse(userInfo);
+				callback()
+			} else {
+				this.register(callback)
+			}
+		}
+	}
+
+	var param = gg.util.getUrlParam();
+	var ua = navigator.userAgent.toLowerCase();
+	 if (ua.match(/MicroMessenger/i) == "micromessenger") {		
+		if(!param.code){
+	 
+		window.gg.wxUser.getWxCode("http://minisite.hocodo.com/test/taisen/api_test/wxuser.html")
+		
+		}else{
+		
+			window.gg.wxUser.getUserInfo(
+			  function(){
+				$("#icon").append('<img width=120 height=120 src="'+(window.gg.config.user_info.headimgurl)+'">')
+				$("#nickname").html(window.gg.config.user_info.nickname)
+				
+				$("#btn").click(function(){$("#openid").html(gg.util.getCache("huomaOpenid"))})
+				
+			  
+			  }
+			
+			)
+		
+		
+		}
+	} 
+	
+	});
+	</script>
+     
+
+    </head>
+
+    <body>
+
+<div id=nickname>name</div>	 
+<div id=icon>头像</div>
+
+<input type=button id=btn  value="获取sessionStorage里的内容" />
+
+<div id=openid>openid:</div>
+     
+    </body>
+</html>

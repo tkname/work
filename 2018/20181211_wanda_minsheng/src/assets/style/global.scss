@@ -1,0 +1,37 @@
+@import 'reset';
+
+@mixin center(){
+  display:flex;
+  align-items: center;//垂直居中
+  justify-content: center;//水平居中
+}
+@mixin bgCover($url){
+  background: url('../assets/images/'+$url);
+  background-size:cover;
+}
+
+@mixin bgAuto($url){
+  background: url('../assets/images/'+$url);
+  background-size:100%;
+}
+
+@mixin positionCenter($setting){
+  left: 50%;
+  transform: translateX(-50%);
+  @if $setting == 'center' {
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+body{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif
+}
+*{
+  box-sizing: border-box;
+}

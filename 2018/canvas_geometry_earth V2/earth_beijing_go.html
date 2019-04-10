@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js canvas - geometry - earth</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				color: #808080;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+
+				background-color: #ffffff;
+				margin: 0px;
+				overflow: hidden;
+			}
+
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+			}
+
+			a {
+
+				color: #0080ff;
+			}
+			
+			#bj{position: absolute;
+				top: 10px; left:20px; width: 200px; height:20px; background-color:red; color:white;
+				padding: 5px;}
+				
+			#tokyo{position: absolute;
+				top: 80px; left:20px; width: 200px; height:20px; background-color:red; color:white;
+				padding: 5px;}
+
+		</style>
+	</head>
+	<body>
+
+		<div id="container"></div>
+		<div id="info"><a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - earth demo</div>
+		<div id=bj>go to beijing</div>
+		<div id=tokyo>go to Washington</div>
+
+		<script src="js/three.js"></script>
+
+		<script src="js/renderers/Projector.js"></script>
+		<script src="js/renderers/CanvasRenderer.js"></script>
+		<script src="js/OrbitControls.js"></script>
+		<script src="js/TweenMax.min1.16.1.js"></script>
+		<script src="js/libs/stats.min.js"></script>
+
+   <script>
+	var bj=false;
+	var tokyo=false;
+	
+	document.getElementById('bj').onclick=function(){bj=true;tokyo=false}
+	document.getElementById('tokyo').onclick=function(){bj=false;tokyo=true}
+	var webglEl = document.getElementById('container');
+
+
+	var width  = window.innerWidth,height = window.innerHeight;
+	var radius   = 0.5,segments = 32,rotation = 6;  
+	var scene = new THREE.Scene();
+	var camera = new THREE.PerspectiveCamera(45, width / height, 0.01, 1000);
+	camera.position.z = 1.5;
+
+	var renderer = new THREE.WebGLRenderer();
+	renderer.setSize(width, height);
+
+
+	scene.add(new THREE.AmbientLight(0x333333));
+
+	var light = new THREE.DirectionalLight(0xffffff, 1);
+	light.position.set(5,3,5);
+	scene.add(light);
+	
+	var light2 = new THREE.DirectionalLight(0xffffff, 1);
+	light2.position.set(-5,6,-15);
+	scene.add(light2);
+
+    var sphere = createSphere(radius, segments);
+	sphere.rotation.y = rotation; 
+	scene.add(sphere)
+
+    var clouds = createClouds(radius, segments);
+	clouds.rotation.y = rotation;
+	scene.add(clouds)
+
+	var stars = createStars(90, 64);
+	scene.add(stars);
+	
+	var beijing_ball = createSphere(0.01, segments);//代表北京的小球
+	var p=getPosition(116.46, 39.92, 0.01);
+		beijing_ball.position.x=p.x
+		beijing_ball.position.y=p.y
+		beijing_ball.position.z=p.z
+		sphere.add( beijing_ball );
+		
+	var tokyo_ball = createSphere(0.01, segments);//代表东京的小球  //东京的地理坐标是: 经度:139.46 纬度:35.42
+        var p2=getPosition(139.46,35.42,0.01)
+		tokyo_ball.position.set(p2.x, p2.y, p2.z)
+		sphere.add( tokyo_ball );
+
+	//var controls = new THREE.TrackballControls(camera);
+	
+	var controls = new THREE.OrbitControls( camera, renderer.domElement );
+ 
+
+	webglEl.appendChild(renderer.domElement);
+
+	render();
+	var rotate_angle=0;
+	var rotate_angle2=0;
+	function render() {
+		controls.update();
+		
+	   if(bj==true){
+		   var worldP1=sphere.localToWorld(beijing_ball.position.clone())//Vector3, 得到东京在世界坐标系里的位置
+ 
+			
+			var rotateStart1=camera.position;
+			var rotateEnd1=worldP1.clone()
+			var angle1 = Math.acos(rotateStart1.dot(rotateEnd1) / rotateStart1.length() / rotateEnd1.length());
+			 var axis1= new THREE.Vector3()
+			 axis1.crossVectors(rotateStart1, rotateEnd1).normalize(); ////rotateStart,rotateEnd向量乘积 标准化 得到旋转轴, 所谓旋转轴就是垂直于rotateStart, rotateEnd这两条线所构成的平面的直线 
+			rotateAroundWorldAxis(sphere, axis1,(2*Math.PI-angle1))
+			bj=false;
+
+		   function rotateAroundWorldAxis(object, axis, radians) {
+
+			   if(t){
+				   console.log(axis.normalize());
+				   t=false;
+			   }
+			   
+				camera.position.x=0;
+				camera.position.y=9.184850993605148e-17;
+				camera.position.z=1.5;
+
+			   var rotWorldMatrix = new THREE.Matrix4();
+				rotWorldMatrix.makeRotationAxis(axis.normalize(), radians);
+				rotWorldMatrix.multiply(object.matrix);                // pre-multiply
+				object.matrix = rotWorldMatrix;
+				object.rotation.setFromRotationMatrix(object.matrix);
+
+				console.log(camera.position);
+
+
+			}
+
+
+		}else if(tokyo==true){  //华盛顿位于38.89,-77.03
+		   var worldP2=sphere.localToWorld(tokyo_ball.position.clone())//Vector3, 得到东京在世界坐标系里的位置
+ 
+	 
+			var rotateStart2=new THREE.Vector3(0,0,1.5);
+			var rotateEnd2=worldP2.clone()
+			var angle2 = Math.acos(rotateStart2.dot(rotateEnd2) / rotateStart2.length() / rotateEnd2.length());
+			 var axis2 = new THREE.Vector3()
+			 axis2.crossVectors(rotateStart2, rotateEnd2).normalize(); ////rotateStart,rotateEnd向量乘积 标准化 得到旋转轴, 所谓旋转轴就是垂直于rotateStart, rotateEnd这两条线所构成的平面的直线
+			 
+ 				
+			     rotateAroundWorldAxis(sphere, axis2,(2*Math.PI-angle2))
+			 
+			  tokyo=false; bj=false
+			 
+		 
+		     
+			 
+		
+		}
+		requestAnimationFrame(render);
+		renderer.render(scene, camera);
+	}
+
+	function createSphere(radius, segments) {
+		return new THREE.Mesh(
+			new THREE.SphereGeometry(radius, segments, segments),
+			new THREE.MeshPhongMaterial({
+				map:         THREE.ImageUtils.loadTexture('images/2_no_clouds_4k.jpg'),
+				bumpMap:     THREE.ImageUtils.loadTexture('images/elev_bump_4k.jpg'),
+				bumpScale:   0.005,
+				specularMap: THREE.ImageUtils.loadTexture('images/water_4k.png'),
+				specular:    new THREE.Color('grey')								
+			})
+		);
+	}
+
+	function createClouds(radius, segments) {
+		return new THREE.Mesh(
+			new THREE.SphereGeometry(radius + 0.003, segments, segments),			
+			new THREE.MeshPhongMaterial({
+				map:         THREE.ImageUtils.loadTexture('images/fair_clouds_4k.png'),
+				transparent: true
+			})
+		);		
+	}
+
+	function createStars(radius, segments) {
+		return new THREE.Mesh(
+			new THREE.SphereGeometry(radius, segments, segments), 
+			new THREE.MeshBasicMaterial({
+				map:  THREE.ImageUtils.loadTexture('images/galaxy_starfield.png'), 
+				side: THREE.BackSide
+			})
+		);
+	}
+	
+	// 获取position ---把经度纬度转化为三维空间的xyz
+    function getPosition(lng, lat, alt) {//alt是地球几何体半径基础上多出的径向距离
+        var phi = (90-lat)*(Math.PI/180),
+            theta = (lng+180)*(Math.PI/180),
+            radius = alt+0.5, //earth radius is 0.5
+            x = -(radius * Math.sin(phi) * Math.cos(theta)),
+            z = (radius * Math.sin(phi) * Math.sin(theta)),
+            y = (radius * Math.cos(phi));
+        return {x: x, y: y, z: z};
+    }
+	
+	 //得到小球和camera之间的夹角   
+	var p=getPosition(116.46, 39.92, 0.01);	 
+	var rotateStart=new THREE.Vector3(0,0,1.5);
+	var rotateEnd=new THREE.Vector3(p.x, p.y,p.z);
+    var angle = Math.acos(rotateStart.dot(rotateEnd) / rotateStart.length() / rotateEnd.length());
+
+	//console.log(angle)//2.327599521278806
+	//console.log(THREE.Math.radToDeg(angle));//133.36162896594644
+ 
+ 
+    var axis = new THREE.Vector3()
+    axis.crossVectors(rotateStart, rotateEnd).normalize(); ////rotateStart,rotateEnd向量乘积 标准化 得到旋转轴, 所谓旋转轴就是垂直于rotateStart, rotateEnd这两条线所构成的平面的直线
+  
+    //console.log(axis)//object 
+	// rotateAroundWorldAxis(sphere, axis1,(2*Math.PI-angle1))
+  
+  var t=true;
+   function rotateAroundWorldAxis(object, axis, radians) {
+
+	   if(t){
+		   console.log(axis.normalize());
+		   t=false;
+	   }
+	   
+	   var rotWorldMatrix = new THREE.Matrix4();
+		rotWorldMatrix.makeRotationAxis(axis.normalize(), radians);
+		rotWorldMatrix.multiply(object.matrix);                // pre-multiply
+		object.matrix = rotWorldMatrix;
+		object.rotation.setFromRotationMatrix(object.matrix);
+		}
+
+
+
+
+		</script>
+
+	</body>
+</html>

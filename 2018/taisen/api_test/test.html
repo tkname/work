@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script src="jquery.min.js"></script>
+        <script src="extends.js"></script>
+        <script>
+            $(function(){
+                var obj = location.href.str2json();
+                console.log(obj.code);
+                var oUrl = location.href;
+                if (!obj.code) {
+                    var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf602a7df1d0a325a&redirect_uri=" + encodeURI(oUrl) + "&response_type=code&scope=snsapi_userinfo&state=STATE&component_appid=wx993336204bad5f58#wechat_redirect";
+                    window.location.href = url;
+                } else {
+                    var code = obj.code;
+                    var appid = 'wxf602a7df1d0a325a';
+                    $.ajax({
+                        url: "auth.php",
+                        type: "GET",
+                        data: {
+                            appid: appid,
+                            code: code,
+                        },
+                        dataType: "json",
+                        success: function(res) {
+                            alert(res.nickname);
+                        }
+                    })
+
+                }
+            });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

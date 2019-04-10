@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js canvas - geometry - earth</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				color: #808080;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+
+				background-color: #ffffff;
+				margin: 0px;
+				overflow: hidden;
+			}
+
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+			}
+
+			a {
+
+				color: #0080ff;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<div id="container"></div>
+		<div id="info"><a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - earth demo</div>
+
+		<script src="js/three.js"></script>
+
+		<script src="js/renderers/Projector.js"></script>
+		<script src="js/renderers/CanvasRenderer.js"></script>
+		<script src="js/TrackballControls.js"></script>
+
+		<script src="js/libs/stats.min.js"></script>
+
+		<script>
+var webglEl = document.getElementById('container');
+
+ 
+	var width  = window.innerWidth,
+		height = window.innerHeight;
+ 
+				// Earth params
+				var radius   = 0.5,
+					segments = 32,
+					rotation = 6;  
+	var scene = new THREE.Scene();
+	var camera = new THREE.PerspectiveCamera(45, width / height, 0.01, 1000);
+	camera.position.z = 1.5;
+
+	var renderer = new THREE.WebGLRenderer();
+	renderer.setSize(width, height);
+
+
+	scene.add(new THREE.AmbientLight(0x333333));
+
+	var light = new THREE.DirectionalLight(0xffffff, 1);
+	light.position.set(5,3,5);
+	scene.add(light);
+
+    var sphere = createSphere(radius, segments);
+	sphere.rotation.y = rotation; 
+	scene.add(sphere)
+
+    var clouds = createClouds(radius, segments);
+	clouds.rotation.y = rotation;
+	scene.add(clouds)
+
+	var stars = createStars(90, 64);
+	scene.add(stars);
+
+	var controls = new THREE.TrackballControls(camera);
+
+	webglEl.appendChild(renderer.domElement);
+
+	render();
+
+	function render() {
+		controls.update();
+		sphere.rotation.y += 0.0005;
+		clouds.rotation.y += 0.0005;		
+		requestAnimationFrame(render);
+		renderer.render(scene, camera);
+	}
+
+	function createSphere(radius, segments) {
+		return new THREE.Mesh(
+			new THREE.SphereGeometry(radius, segments, segments),
+			new THREE.MeshPhongMaterial({
+				map:         THREE.ImageUtils.loadTexture('images/2_no_clouds_4k.jpg'),
+				bumpMap:     THREE.ImageUtils.loadTexture('images/elev_bump_4k.jpg'),
+				bumpScale:   0.005,
+				specularMap: THREE.ImageUtils.loadTexture('images/water_4k.png'),
+				specular:    new THREE.Color('grey')								
+			})
+		);
+	}
+
+	function createClouds(radius, segments) {
+		return new THREE.Mesh(
+			new THREE.SphereGeometry(radius + 0.003, segments, segments),			
+			new THREE.MeshPhongMaterial({
+				map:         THREE.ImageUtils.loadTexture('images/fair_clouds_4k.png'),
+				transparent: true
+			})
+		);		
+	}
+
+	function createStars(radius, segments) {
+		return new THREE.Mesh(
+			new THREE.SphereGeometry(radius, segments, segments), 
+			new THREE.MeshBasicMaterial({
+				map:  THREE.ImageUtils.loadTexture('images/galaxy_starfield.png'), 
+				side: THREE.BackSide
+			})
+		);
+	}
+
+
+		</script>
+
+	</body>
+</html>

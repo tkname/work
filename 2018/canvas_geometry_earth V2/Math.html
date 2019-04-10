@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>222</title>
+	<script type="text/javascript" src="js/three.js"></script>
+</head>
+<body>
+	
+   <script>
+	
+
+			var rotateStart1=new THREE.Vector3(0,0,1); //三维向量
+			var rotateEnd1=new THREE.Vector3(1,0,0);
+
+			var rotateStart2=new THREE.Vector3(0,3,4); //三维向量
+	
+			var word={"beijing":{x:116.402198,y:39.873649},"riben":{x:135.976866,y:35.266135},"default":{x:-110.212969,y:-10.374006}}
+		    function getPosition(lng, lat, alt) {//alt是地球几何体半径基础上多出的径向距离
+		        var phi = (90-lat)*(Math.PI/180),
+		            theta = (lng+180)*(Math.PI/180),
+		            radius = alt+0.5, //earth radius is 0.5
+		            x = -(radius * Math.sin(phi) * Math.cos(theta)),
+		            z = (radius * Math.sin(phi) * Math.sin(theta)),
+		            rx =(lat/360)*(Math.PI*2*radius*2),
+					ry =(lng/360)*(Math.PI*2*radius*2),
+		            y = (radius * Math.cos(phi));
+
+		        return {x: x, y: y, z: z,ry:ry,rx:rx};
+		    }
+			
+			var beijing=getPosition(word.default.x, word.default.y, 0.01);
+			console.log(beijing);
+
+			var rotateStart=new THREE.Vector3(0,0,0.5); //三维向量
+
+			var rotateEnd=new THREE.Vector3(beijing.x,0,beijing.z); //三维向量
+			
+			var rotateEnd2=new THREE.Vector3(0,beijing.y,beijing.z); //三维向量
+
+			var angle1 = Math.acos(rotateStart.dot(rotateEnd) / rotateStart.length() / rotateEnd.length());
+
+			var angle2 = Math.acos(rotateEnd.dot(rotateEnd2) / rotateEnd.length() / rotateEnd2.length());
+
+			console.log((180/Math.PI*angle1),(180/Math.PI*angle2));
+
+			console.log("angle1:","y:",(180/Math.PI*angle1)*Math.PI*0.5/180*2,"x",(180/Math.PI*angle2)*Math.PI*0.5/180*2);
+
+
+
+
+			// console.log(s.position.x)
+
+			//夹角度数
+			var angle1 = Math.acos(rotateStart1.dot(rotateStart2) / rotateStart1.length() / rotateStart2.length());
+
+			console.log(rotateStart1.length(),rotateEnd1.length(),rotateStart2.length(),angle1);
+   			console.log(180/Math.PI*angle1);
+
+
+			// var axis = new THREE.Vector3()
+            // 3.14  180
+            // 1     ?
+   //  		var rota=axis.crossVectors(rotateStart1, rotateEnd1).normalize();
+
+   			console.log("*******************************************************************************************************");
+			console.log(angle1,rotateStart2.length());
+
+			//取模
+			var unit=rotateStart2.normalize();
+			console.log(unit,unit.length());
+
+			//长度扩展
+			var b=unit.multiplyScalar(10)
+            console.log(b,b.length())
+
+	</script>
+</body>
+</html>
