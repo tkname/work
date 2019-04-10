@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+	
+	<link rel="stylesheet" type="text/css" href="css/h2.css">
+	<title>Document</title>
+	<style type="text/css">
+		body{margin: 0;overflow: hidden;}
+		.spite{background-repeat: no-repeat;background-color: red;border: 1px solid red;display: inline-block;}
+		/*img{width: 100%;}*/
+	</style>
+</head>
+<body>
+	
+	<div class="video">
+		<img src="images/page2/H5-02/H5-021.jpg">
+	</div>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		$(function(){
+
+
+			createVideo($(".video"),114);
+
+			var TimeName;
+
+			function createVideo(el,num){
+				var i=1;
+            	var state=true;
+
+				ctTime();
+				function ctTime(){
+					console.log(i);
+					if(i>=num){
+						i=num;
+						state=false;
+					}else if(i==0){
+						i=1;
+						state=true;
+
+					}
+					el.find("img").attr("src","images/page2/H5-02/H5-02"+i+".jpg");
+
+					if(state){
+						i++;
+					}else{
+						i--;
+					}
+					TimeName=setTimeout(function(){
+						ctTime();
+					},18)
+				}
+			}
+
+			!function(){
+			    // 图片的比例
+			   	var winWidth=window.innerWidth;
+			   	var winHeight=window.innerHeight;
+
+			    var scale = 750/1206;
+			    // 根据图片比例，位置
+			    function fullimg(){
+			      var $fullimg = $(".video img");
+			      $fullimg.each(function(i){
+			        if(winWidth/winHeight>=scale){
+			          goalWidth = winWidth;
+			          goalHeight = Math.ceil(winWidth/scale);
+			        }else{
+			          goalHeight = winHeight;
+			          goalWidth = Math.ceil(winHeight*scale);
+			        }
+			        $(this).css({
+			            width: goalWidth,
+			            height: goalHeight,
+			            // margin:  Math.ceil(-goalHeight/2) +"px 0 0 "+ Math.ceil(-goalWidth/2) +"px"
+			        }).show();
+			      });
+			    }
+			    $(window).resize(function(){
+			      fullimg();
+			    }).trigger('resize');
+			}();
+
+
+		})
+
+
+
+	</script>
+
+</body>
+</html>

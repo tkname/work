@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<style type="text/css">
+		#waterfall{position: relative;}
+		.waterfall-box{
+			width: 200px;
+			float: left;
+			padding: 5px;
+		}
+	</style>	
+	<div id="waterfall">
+
+	</div>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var html="";
+			for(var i=1;i<=40;i++){
+				var h2='<img class="waterfall-box" src='+i+'.jpg />';
+				html=html+h2;
+				load($(h2).attr("src"));
+
+			}
+			$("#waterfall").append(html);
+
+
+			var i=0;
+			//加载
+			function load(src){
+				var img=new Image();
+				img.src=src;
+				img.onload=function(e){
+					i++;
+					if(i==40){
+						waterFall();
+					}
+				}
+			}
+
+			function waterFall(){
+				var _water=$(".waterfall");  //父容器
+				var _waterbox=$(".waterfall-box"); //图片列表
+				var winWidth=$(window).width(); 	//窗口容器宽度
+				var boxWidth=_waterbox.eq(0).outerWidth(); //图片单个宽度
+				var num=Math.floor(winWidth/boxWidth);		//可容数量
+				
+				var heightArray=[];
+
+				_waterbox.each(function(i,item){
+					if(i<num){
+						$(item).css({
+							"position":"absolute",
+							"left":i*boxWidth+"px",
+							"top":"0px"
+						});
+						heightArray[i]=$(item).eq(0).outerHeight();
+					}else{
+						var ind=Math.min.apply(null,heightArray);
+						var boxIndex=heightArray.indexOf(ind);
+						$(item).css({
+							"position":"absolute",
+							"left":boxIndex*boxWidth+"px",
+							"top":heightArray[boxIndex]+"px"
+						});
+						heightArray[boxIndex]+=$(item).eq(0).outerHeight();
+					}
+				})
+			}
+
+			window.onresize=function(){
+				waterFall();
+			}
+		})
+
+	</script>
+</body>
+</html>

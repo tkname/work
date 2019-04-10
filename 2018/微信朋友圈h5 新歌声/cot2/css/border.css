@@ -1,0 +1,163 @@
+/*box-border*/
+.at-bordertwo,.at-border,.at-bordert,.at-borders,.top-border,.bom-border,.left-border,.right-border
+,.tb-border,.tl-border,.tr-border,.bl-border,.br-border{
+    position:relative;
+}
+.at-bordertwo::after,.at-border::after,.at-bordert::after,.at-borders::after,.top-border::after,.bom-border::after,.left-border::after,.right-border::after
+,.tb-border::after,.tl-border::after,.tr-border::after,.bl-border::after,.br-border::after,.at-bordertb::before{
+    content:'';
+    display:block;
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    pointer-events: none;
+}
+/*atter 上*/
+.top-border::after{
+    border-top: 1px solid #ddd;
+}
+/*atter 下*/
+.bom-border::after{
+    border-bottom: 1px solid #ddd;
+}
+/*atter 左*/
+.left-border::after{
+    border-left: 1px solid #ddd;
+}
+/*atter 右*/
+.right-border::after{
+    border-right: 1px solid #ddd;
+}
+/*atter 上下*/
+.ver-border::after{
+    border-top: 1px solid #ddd;
+    border-bottom:1px solid #ddd;
+}
+/*atter 左右*/
+.tb-border::after{
+    border-left: 1px solid #ddd;
+    border-right:1px solid #ddd;
+}
+/*atter 上左*/
+.tl-border::after{
+    border-top: 1px solid #ddd;
+    border-left:1px solid #ddd;
+}
+/*atter 上右*/
+.tr-border::after{
+    border-top: 1px solid #ddd;
+    border-right:1px solid #ddd;
+}
+/*atter 下左*/
+.bl-border::after{
+    border-top: 1px solid #ddd;
+    border-left:1px solid #ddd;
+}
+/*atter 下右*/
+.br-border::after{
+    border-bottom: 1px solid #ddd;
+    border-right:1px solid #ddd;
+}
+/*atter 下右*/
+.br-borderb::before{
+    border-bottom: 1px solid #ddd;
+    border-right:1px solid #ddd;
+}
+/*atter 上下左右*/
+.all-border::after,.all-bordert::after,.all-borders::after{
+    border:1px solid #ddd;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2.0)
+
+,only screen and (min--moz-device-pixel-ratio: 2.0),
+
+only screen and (-o-min-device-pixel-ratio: 200/100),
+
+only screen and (min-device-pixel-ratio: 2.0) {
+
+.at-border::after{
+    -webkit-transform: scaleY(0.5);
+    -webkit-transform-origin: 0% 100%;
+    }
+/*上下*/
+.at-bordertwo::after{
+    -webkit-transform: scaleY(0.5);
+    -webkit-transform-origin: 0% 100%;
+    top:  -100%;
+    }
+
+.at-bordert::after{
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0% 0%;
+    bottom: -100%;
+    right: -100%;
+}
+.at-bordertb::before{
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0% 0%;
+    bottom: -100%;
+    right: -100%;
+}
+.at-borders::after{
+    -webkit-transform: scaleX(0.5);
+    -webkit-transform-origin: 100% 0%;
+}
+
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3.0),
+
+only screen and (min--moz-device-pixel-ratio: 3.0),
+
+only screen and (-o-min-device-pixel-ratio: 300/100),
+
+only screen and (min-device-pixel-ratio: 3.0) {
+
+    /*y one*/
+    .at-border::after{
+        -webkit-transform: scaleY(0.333);
+        -webkit-transform-origin: 0% 100%;
+        }
+    /*上下 two*/
+    .at-bordertwo::after{
+        -webkit-transform: scaleY(0.333);
+        -webkit-transform-origin: 0% 100%;
+        top: -200%;
+        }
+
+    /*xy*/
+    .at-bordert::after{
+        -webkit-transform: scale(0.333);
+        -webkit-transform-origin: 0% 0%;
+        bottom: -200%;
+        right: -200%;
+    }
+
+    /*下右*/
+    .at-bordertb::before{
+        -webkit-transform: scale(0.333);
+        -webkit-transform-origin: 0% 0%;
+        bottom: -200%;
+        right: -200%;
+    }
+
+    /*x one*/
+    .at-borders::after{
+        -webkit-transform: scaleX(0.333);
+        -webkit-transform-origin: 100% 0%;
+    }
+
+}
+
+
+
+.font-box:after{
+    border-top: 1px solid #c3bfbe;
+    border-bottom: 1px solid #c3bfbe;
+}
+
+
+
+.uesr-boxl .tips{width: 8px;height: 8px;border-radius: 100%;background:#eb4d4b;position: absolute;right: -14%; top: 0;border-radius:100%;}
+/*.img-box:after{border:1px solid #5d2c00;}*/

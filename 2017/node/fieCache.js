@@ -34,11 +34,13 @@ file.forEach(function(fileName){
 		loopFile.forEach(function(index){
 			file=data.replace(new RegExp("\\."+index+"","g"),"."+index+"?v="+getTime);
 			data=file;
+
+
 		})
 
 		//文件写入			
 		fs.writeFile(fileName,data,"utf-8",function(res){
-			console.log("写入文件成功");
+			console.log("写入文件成功",fileName,data);
 		});
 
 	})	

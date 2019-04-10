@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>EaselJS Example: Text</title>
+	
+
+	<style type="text/css">
+		body{margin: 0;}
+	</style>
+	<script src="_assets/js/examples.js"></script>
+
+	<script src="lib/easeljs-NEXT.combined.js"></script>
+	<script type="text/javascript" src="js/createjs-2015.11.26.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.public.js"></script>
+
+<script id="editable">
+
+	$(function(){
+
+	var canvas;
+	var stage;
+	var count = 0;
+
+	var winWidth=window.innerWidth;
+   	var winHeight=window.innerHeight;
+    var scale = 750/1206;
+
+
+	function init() {
+		//find canvas and load images, wait for last image to load
+		canvas = document.getElementById("testCanvas");
+
+		canvas.setAttribute("width",winWidth*2+"px")
+		canvas.setAttribute("height",winHeight*2+"px")
+
+
+		$("#testCanvas").css({
+			"width":winWidth+"px",
+			"height":winHeight+"px",
+		})
+
+
+		if(winWidth/winHeight>=scale){
+			imgScale=winWidth/375;
+		}else{
+			imgScale=winHeight/603;
+		}
+
+
+		stage = new createjs.Stage(canvas);
+
+		bitmap = new createjs.Bitmap(imgs.bg);
+		bitmap.x=0;
+		bitmap.y=0;
+		bitmap.scaleX=imgScale;
+		bitmap.scaleY=imgScale;
+		stage.addChild(bitmap);
+
+
+		// we want to do some work before we update the canvas,
+		// otherwise we could use Ticker.addEventListener("tick", stage);
+		createjs.Ticker.framerate = 100;
+		createjs.Ticker.addEventListener("tick", function(e){
+				tick(e,1);		
+		},false);
+	}
+
+	function tick(event,index) {
+		count++;
+
+			bitmap.image=imgs["H5-02"+count+""];
+
+			if(count>114){
+				count=0;
+			}
+
+		// update the stage:
+		stage.update(event);
+	}
+
+	$("button").click(function(){
+		createjs.Ticker.removeAllEventListeners("tick");
+
+	})
+
+		var array;
+		function load(){
+			$(".load").loading(array,function(){
+				console.log(imgs);
+				init();
+			})
+		}
+		lb.req("js/data.json","get",{},function(res){
+			array=res;
+			load();
+		})
+	})
+
+
+</script>
+</head>
+
+<body >
+	
+	<button>精加工</button>
+
+	<canvas id="testCanvas" width="375px" height="667px"></canvas>
+<div class="load">1111</div>
+
+</body>
+</html>

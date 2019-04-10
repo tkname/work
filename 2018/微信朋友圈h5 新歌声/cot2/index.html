@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="UTF-8">
+	<title>微信</title>
+	<script type="text/javascript" src="js/fiex.js"></script>	
+	<link rel="stylesheet" type="text/css" href="css/border.css">
+	<link rel="stylesheet" type="text/css" href="css/main.min.css?v=7.0">
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?a6ae4ad21908b2c4d2f303e18729ca50";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+</head>
+<body class="none">
+	<!-- 1234567890 日一二三四五六 上午 下午 昨天 -->
+	<audio class="none" id="weixin"></audio>
+	<audio class="none" id="cheer" src="sound/cheer.mp3" loop="loop"></audio>
+	<audio class="none" id="jmh" src="sound/jmh.mp3" ></audio>
+	<audio class="none" id="ym" src="sound/ym.mp3" ></audio>
+	<audio class="none" id="bj" src="sound/bj.mp3" loop="loop"></audio>
+	<div class="page1 none">
+		<div class="time-box">
+			<div class="time-s">2:51</div>
+			<div class="time-text">10月17日 星期二</div>
+		</div>
+		<img src="images/page1/bg.png" class="bg-img">
+		<!-- <img src="images/page1/news.png" class="news"> -->
+		<div class="font-box at-bordertwo ver-border none">
+			<img src="images/page1/wx.png" class="wx-img">
+			<div class="wx-right">
+				<p><span class="wx-big">微信</span> <span class="cr1">现在</span></p>
+				<p class="jmh">蒋敦豪：[语音]</p>
+				<p class="hd cr1">滑动来查看</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 接受语言消息 -->
+	<div class="page2 none ">
+			<div class=" lr uesr-boxl left1 ">
+				<img src="images/page4/user-jmh.png" class="user-imgl">
+				<!-- <div class="title">姚明</div> -->
+				<div class="text ba1 wid1 arrow arrow-left">
+					<div class="voice">
+						<div class="vo-so"></div>
+					</div>					
+					<div class="time">8''</div>
+					<div class="tips"></div>
+					<!-- <img src="images/page3/tips.png" class="tips"> -->
+
+				</div>
+
+			</div>	
+
+		<div class="right1 right uesr-boxr none">
+			<!-- <img src="images/page2/right1.png" > -->
+			<img src="" class="user-img">
+			<div class="font-box">
+				<div class="text ba2 arrow arrow-right">哇，男神我来啦~</div>
+				<div class="clear"></div>
+			</div>
+			<!-- <img src="images/page2/sjx2.png" class="sjx2"> -->
+
+		</div>
+
+		
+		<div class="right2 uesr-boxr right none">
+			<img src="" class="user-img">
+			<img src="images/page4/hx.gif" class="img-gif">
+		</div>	
+		
+
+	</div>
+	
+	<!-- 微信消息别表 -->
+	<div class="page3 none">
+<!-- 		<div class="p3-content"><img src="images/page3/content.png"></div>
+		<div class="p3-footer"><img src="images/page3/footer.png"></div>
+		<div class="p3-tips animation2"><img src="images/page3/tips.png"></div>
+		<div class="p3-cconet"></div> -->
+		<div class="header"><img src="images/page3/herder.png"></div>
+		<div class="p3-list at-border bom-border p3-click">
+			<img src="images/page3/0.png" class="p3-img1">
+			<div class="p3-nr">
+				<div class="p3-nrtitle">有颜偏要靠才华群</div>
+				<div class="p3-nrtext">姚明: 大家好,  给大家介绍一下，这是中国人寿中…</div>
+			</div>
+				<img src="" class="user-img p3-uimg" >
+				<span class="p3-num">1</span>
+		</div>
+		<div class="p3-list at-border bom-border">
+			<img src="images/page3/1.png" class="p3-img1">
+			<div class="p3-nr">
+				<div class="p3-nrtitle"><span class="tx">蒋敦豪</span></div>
+				<div class="p3-nrtext">[语音]</div>
+			</div>
+		</div>	
+		<div class="p3-list at-border bom-border">
+			<img src="images/page3/3.png" class="p3-img1">
+			<div class="p3-nr">
+				<div class="p3-nrtitle">王者农药开黑群</div>
+				<div class="p3-nrtext">排位五黑4缺1，来个辅助有木有？</div>
+			</div>
+		</div>	
+		<div class="p3-list at-border bom-border">
+			<img src="images/page3/4.png" class="p3-img1">
+			<div class="p3-nr">
+				<div class="p3-nrtitle">戏精集中营</div>
+				<div class="p3-nrtext">魏峰：哈哈哈哈</div>
+			</div>
+		</div>	
+		<div class="p3-list at-border bom-border">
+			<img src="images/page3/5.png" class="p3-img1">
+			<div class="p3-nr">
+				<div class="p3-nrtitle">扎心了老铁 666</div>
+				<div class="p3-nrtext">[动画表情]</div>
+			</div>
+		</div>					
+			
+
+				
+		<div class="p3-list at-border bom-border">
+			<img src="images/page3/6.png" class="p3-img1">
+			<div class="p3-nr">
+				<div class="p3-nrtitle">觅食小分队</div>
+				<div class="p3-nrtext">那请客吃饭吗[奸笑][奸笑]</div>
+			</div>
+		</div>					
+		<div class="p3-list at-border bom-border">
+			<img src="images/page3/7.png" class="p3-img1">
+			<div class="p3-nr">
+				<div class="p3-nrtitle">瘦身每日打卡</div>
+				<div class="p3-nrtext"><img src="images/page3/ok.png" class="okk"></div>
+			</div>
+		</div>					
+
+		<div class="p3-list at-border bom-border">
+			<img src="images/page3/8.png" class="p3-img1">
+			<div class="p3-nr">
+				<div class="p3-nrtitle">为人民服务</div>
+				<div class="p3-nrtext">国清：[强][强][强]</div>
+			</div>
+		</div>		
+
+		<div class="p3-list at-border bom-border">
+			<img src="images/page3/10.png" class="p3-img1">
+			<div class="p3-nr">
+				<div class="p3-nrtitle">微信支付</div>
+				<div class="p3-nrtext"></div>
+			</div>
+		</div>							
+
+        <span class="t1 tt">下午 13:01</span>
+        <span class="t2 tt">下午 12:51</span>
+        <span class="t3 tt">下午 12:41</span>
+        <span class="t4 tt">下午 12:31</span>
+        <span class="t5 tt">下午 12:21</span>
+        <span class="t6 tt">下午 12:11</span>
+        <span class="t7 tt">下午 12:01</span>
+        <span class="t8 tt">下午 11:01</span>	
+        <span class="t9 tt">下午 11:01</span>		
+	</div>
+
+	<!-- 对话框 -->
+	<div class="page4 none">
+			<div class="conter1 none ">"<span class="col3">蒋敦豪</span> 邀请你和<span class="col3">扎西平措</span>、<span class="col3">郭沁</span>、<span class="col3">于梓贝</span>、<span class="col3">周深</span>、<span class="col3">希林娜依·高</span>、<span class="col3">姚明</span>、<span class="col3">李雅</span>"  加入群聊</div>
+			
+			<div class=" lr uesr-boxl left1 none">
+				<img src="images/page4/user-ym.png" class="user-imgl">
+				<div class="title">姚明</div>
+				<div class="text ba1 arrow arrow-left">
+					大家好，给大家介绍一下，这是中国人寿中国新歌声之夜演唱会的学员@扎西平措@李雅@郭沁@于梓贝@希林娜依·高@周深@蒋敦豪
+				</div>
+			</div>
+
+			<div class=" lr uesr-boxl left2 none">
+				<img src="images/page4/user-ym.png" class="user-imgl">
+				<div class="title">姚明</div>
+				<div class="text tra pnone">
+					<img src="images/page4/ym.gif" class="img-gif">
+				</div>
+			</div>			
+
+			<div class=" lr uesr-boxl left3 none">
+				<img src="images/page4/user-jmh.png" class="user-imgl">
+				<div class="title">蒋敦豪</div>
+				<div class="text ba1 arrow arrow-left">
+					让我们相约11.18杭州黄龙体育馆，11.25广州体育馆，12.9北京工人体育馆！
+				</div>
+			</div>
+
+			<div class=" lr uesr-boxl left4 none">
+				<img src="images/page4/user-jmh.png" class="user-imgl">
+				<div class="title">蒋敦豪</div>
+				<div class="text  pnone">
+					<img src="images/page4/ok.gif" class="img-gif">
+				</div>
+			</div>		
+
+			<div class="right right1 uesr-boxr none">
+				<img src="" class="user-img">
+				<div class="font-box ">
+					<div class="text  pnone">
+						<img src="images/page4/hx.gif" class="img-gif">
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>		
+
+			<div class=" lr uesr-boxl left5 none">
+				<img src="images/page4/user-ly.png" class="user-imgl">
+				<div class="title">李雅</div>
+				<div class="text ba1 arrow arrow-left">
+					好期待大家的同台呢！
+				</div>
+			</div>	
+
+			<div class=" lr uesr-boxl left6 none">
+				<img src="images/page4/user-gq.png" class="user-imgl">
+				<div class="title">郭沁</div>
+				<div class="text ba1 arrow arrow-left">
+					哈哈哈，不见不散，@<span class="user-name"></span>，等你来哦！
+
+				</div>
+			</div>						
+
+			<div class="right2 right uesr-boxr none">
+				<img src="" class="user-img">
+				<div class="font-box ">
+					<div class="text  ba2  arrow arrow-right">
+						女神，为你们疯狂打call！
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>	
+
+			<div class=" lr uesr-boxl left8 none">
+				<img src="images/page4/user-ym.png" class="user-imgl">
+				<div class="title">姚明</div>
+				<div class="text ba1 wid1 arrow arrow-left">
+					<div class="voice">
+						<div class="vo-so"></div>
+					</div>
+					<div class="time">5''</div>
+					<div class="tips animation1"></div>
+					<img src="images/page5/hand.png" class="tips-hand hand animation3">
+				</div>
+			</div>	
+
+			<div class=" lr uesr-boxl left9 none">
+				<img src="images/page4/user-ym.png" class="user-imgl">
+				<div class="title">姚明</div>
+				<div class="text  pnone">
+					<img src="images/page4/kn.gif" class="img-gif">
+				</div>
+			</div>					
+
+			<div class=" lr uesr-boxl left10 none">
+				<img src="images/page5/user-yzb.png" class="user-imgl">
+				<div class="title">于梓贝</div>
+				<div class="text ba1 arrow arrow-left">
+					激动的不要不要的！
+				</div>
+			</div>	
+
+			<div class=" lr uesr-boxl left11 none">
+				<img src="images/page5/user-xl-g.png" class="user-imgl">
+				<div class="title">希林娜依·高</div>
+				<div class="text ba1 arrow arrow-left">
+					小伙伴们，我已经等不及想尬首歌了。
+				</div>
+			</div>
+
+			<div class=" lr uesr-boxl left12 none">
+				<img src="images/page5/user-xl-g.png" class="user-imgl">
+				<div class="title">希林娜依·高</div>
+				<div class="text">
+					<img src="images/page4/happy.gif" class="img-gif">
+				</div>
+			</div>							
+
+			<div class=" lr uesr-boxl left13 none">
+				<img src="images/page5/user-zs.png" class="user-imgl">
+				<div class="title">周深</div>
+				<div class="text ba1 arrow arrow-left">
+					@<span class="user-name"></span> 听说<span class="pyq">朋友圈<img src="images/page5/hand.png" class="tips-hand hand animation3 "></span>还有更多演唱会惊喜呢，不信？快去发现吧！
+				</div>
+			</div>
+	</div>
+	
+	<!-- 朋友圈 -->
+	<div class="page5  none ">
+		<div class="f1 ff">
+			<img src="images/page5/f1.png" class="f-img">
+			<span class="user-name"></span>
+			<img src="" class="user-img">
+		</div>
+		<div class="vd-listbox at-border bom-border">
+			<div class="vd-nr">
+				<div class="vd-name">扎西平措</div>
+				<div class="vd-title">想听什么告诉我，统统唱给你听~ <img src="images/page5/ed.png"></div>
+				<div class="vd-img">
+					<img src="images/page5/zxpc.png" class="play-img">
+					<video class="page-video" src="sound/zxpc.mp4" poster="images/page5/zxpc.png"></video>
+					
+					<img src="images/page5/hand.png" class="tips-hand hand animation3">
+				</div>
+				<div class="vd-time">12小时前 <img src="images/page5/pl.png" class="vd-imgpl"></div>
+				<div class="vd-text arrow arrow-top">
+					<div class="vd-tt at-border bom-border">中国人寿，姚明，<span class="user-name"></span>，蒋敦豪，李雅 <img src="images/page5/xx.png" class="xx"></div>
+					<div class="vd-ttlbox">
+						<p><span class="user-name col2"></span>:男神，唱什么都好听~</p>
+						<p><span class=" col2">蒋敦豪</span>:哈哈，期待ing!</p>
+						<p><span class=" col2">姚明</span>:要投就投中国人寿</p>
+					</div>
+				</div>
+			</div>
+			<img src="images/page5/user-zxpz.png" class="vd-uesrimg">
+		</div>
+		<div class="vd-listbox at-border bom-border">
+			<div class="vd-nr">
+				<div class="vd-name">李雅</div>
+				<div class="vd-title">11.18杭州，11.25广州，12.9北京，我们
+					来啦，你准备好了吗？</div>
+				<div class="vd-img">
+					<img src="images/page5/ly.png" class="play-img">
+					<video class="page-video" src="sound/ly.mp4" poster="images/page5/ly.png"></video>
+					<img src="images/page5/hand.png" class="tips-hand hand animation3 ">
+				</div>
+				<div class="vd-time">12小时前 <img src="images/page5/pl.png" class="vd-imgpl"></div>
+				<div class="vd-text  arrow arrow-top">
+					<div class="vd-tt at-border bom-border">姚明，<span class="user-name"></span>，蒋敦豪，周深，郭沁 <img src="images/page5/xx.png" class="xx"></div>
+					<div class="vd-ttlbox">
+						<p><span class="dis"><span class=" col2">蒋敦豪</span>:挺你到底！ </span><img src="images/page5/zan.png" class="zan"></p>
+						<p><span class="dis"><span class=" col2">姚明</span>:让我们携手中国新歌声 唱响国寿好声音 </span><img src="images/page5/hx.png" class="hx"></p>
+					</div>
+				</div>
+			</div>
+			<img src="images/page4/user-ly.png" class="vd-uesrimg">
+		</div>
+		<div class="vd-listbox at-border bom-border">
+			<div class="vd-nr">
+				<div class="vd-name">郭沁</div>
+				<div class="vd-title">从南唱到北，从夏唱到冬，哈哈哈，给大家
+				先卖个关子！</div>
+				<div class="vd-img">
+					<img src="images/page5/gq.png" class="play-img">
+					<video class="page-video" src="sound/gq.mp4" poster="images/page5/gq.png"></video>
+					<img src="images/page5/hand.png" class="tips-hand hand animation3">
+				</div>
+				<div class="vd-time">12小时前 <img src="images/page5/pl.png" class="vd-imgpl"></div>
+				<div class="vd-text  arrow arrow-top">
+					<div class="vd-tt at-border bom-border">姚明，<span class="user-name"></span>，蒋敦豪，周深，郭沁 <img src="images/page5/xx.png" class="xx"></div>
+					<div class="vd-ttlbox">
+						<p><span class=" col2 user-name"></span>:为你手动点赞！！</p>
+						<p>郭沁回复<span class=" col2 user-name"></span>:等你来听歌</p>
+					</div>
+				</div>
+			</div>
+			<img src="images/page4/user-gq.png" class="vd-uesrimg">
+		</div>
+		<div class="vd-listbox at-border bom-border user-box">
+			<div class="vd-nr">
+				<div class="vd-name"><span class="user-name"></span></div>
+				<div class="vd-title">中国人寿中国新歌声之夜演唱会马上要开车啦，小伙伴有一起的吗？请系好安全带！</div>
+				<div class="vd-img tu-img">
+					<img src="images/page5/b-img.png" class="b-img none">
+					<div class="img-box ">
+						<div id="img1" class="img-list" data-in="img2"><img src="images/page5/img-2.png" ></div>
+						<div id="img2" class="img-list" data-in="img3"><img src="images/page5/img-3.png" ></div>
+						<div id="img3" class="img-list" data-in="img6"><img src="images/page5/img-4.png" ></div>
+
+						<div id="img4" class="img-list" data-in="img1"><img src="images/page5/img-1.png" ></div>
+						<div id="img5" class="img-list" data-in="img5"><img src="images/page5/img-5.png" ></div>
+						<div id="img6" class="img-list" data-in="img9"><img src="images/page5/img-6.png" ></div>
+
+						<div id="img7" class="img-list" data-in="img4"><img src="images/page5/img-9.png" ></div>
+						<div id="img8" class="img-list" data-in="img7"><img src="images/page5/img-8.png" ></div>
+						<div id="img9" class="img-list" data-in="img8"><img src="images/page5/img-7.png" ></div>
+						<div class="line"></div>
+					</div>	
+				</div>
+				<div class="vd-time">12小时前 <img src="images/page5/pl.png" class="vd-imgpl"></div>
+				<div class="vd-text  arrow arrow-top">
+					<div class="vd-tt at-border bom-border">中国人寿，于梓贝，扎西平措，肖敏晔 <img src="images/page5/xx.png" class="xx"></div>
+					<div class="vd-ttlbox">
+						<p><span class=" col2 ">肖敏晔</span>:一起来嗨！</p>
+					</div>
+				</div>
+			</div>
+			<img src="images/page5/user-zxpz.png" class="vd-uesrimg user-img">
+		</div>
+		<div class="vd-listbox at-border bom-border">
+			<div class="vd-nr">
+				<div class="vd-name">于梓贝</div>
+				<div class="vd-title">演唱会已经进入倒计时，小心脏砰砰砰~ <img src="images/page5/x2.png" class="x2">
+				</div>
+				<div class="vd-img">
+					<img src="images/page5/yzb.png" class="play-img">
+					<video class="page-video" src="sound/yzb.mp4" poster="images/page5/yzb.png"></video>
+					<img src="images/page5/hand.png" class="tips-hand hand animation3">
+				</div>
+				<div class="vd-time">12小时前 <img src="images/page5/pl.png" class="vd-imgpl"></div>
+				<div class="vd-text  arrow arrow-top">
+					<div class="vd-tt at-border bom-border">蒋敦豪，<span class="user-name"></span>，郭沁，姚明，扎西平措
+ 						<img src="images/page5/xx.png" class="xx"></div>
+					<div class="vd-ttlbox">
+						<p><span class=" col2">扎西平措</span>:哎呀嘛，咔咔的
+						<p><span class=" col2 user-name"></span>:笔芯 <img src="images/page5/x3.png" class="x3"></p>
+					</div>
+				</div>
+			</div>
+			<img src="images/page5/user-yzb.png" class="vd-uesrimg">
+		</div>
+		<div class="vd-listbox at-border bom-border">
+			<div class="vd-nr">
+				<div class="vd-name">周深</div>
+				<div class="vd-title">杭州，广州，北京，是你在的城市吗？
+				</div>
+				<div class="vd-img">
+					<img src="images/page5/zs.png" class="play-img">
+					<video class="page-video" src="sound/zs.mp4" poster="images/page5/zs.png"></video>
+					<img src="images/page5/hand.png" class="tips-hand hand animation3">
+				</div>
+				<div class="vd-time">12小时前 <img src="images/page5/pl.png" class="vd-imgpl"></div>
+				<div class="vd-text  arrow arrow-top">
+					<div class="vd-tt at-border bom-border">郭沁，扎西平措，<span class="user-name"></span>，李雅，李维
+ 						<img src="images/page5/xx.png" class="xx"></div>
+					<div class="vd-ttlbox">
+						<p><span class=" col2 user-name">扎西平措</span>:哈哈哈，三个城市一路相随
+						<p><span class=" col2">扎西平措</span>:现场会有freestyle吗？</p>
+					</div>
+				</div>
+			</div>
+			<img src="images/page5/user-zs.png" class="vd-uesrimg">
+		</div>
+		<div class="vd-listbox at-border bom-border">
+			<div class="vd-nr">
+				<div class="vd-name">中国人寿</div>
+				<div class="vd-title">中国人寿新歌声三地演唱会即将来袭！选择
+						您想去的演唱会地点，就有机会赢取演唱会
+						门票及iPad mini、智能手环等多重好礼哦～
+				</div>
+				<div class="vd-img vd-imgrs">
+					<img src="images/page5/zg.png " class="rs dd dd-box">
+					<img src="images/page5/hand.png" class="tips-hand tips-hands hand animation3">
+				</div>
+				<div class="vd-time">12小时前 <img src="images/page5/pl.png" class="vd-imgpl"></div>
+				<div class="vd-text  arrow arrow-top">
+					<div class="vd-tt at-border bom-border">姚明，郭沁，周深，扎西平措，李雅，蒋敦豪,于梓贝，希林娜依·高，<span class="user-name"></span>
+
+ 						<img src="images/page5/xx.png" class="xx"></div>
+					<div class="vd-ttlbox">
+						<p><span class=" col2 ">姚明</span>:预祝圆满成功！
+						<p><span class=" col2">扎西平措</span>:厉害了，中国人寿</p>
+						<p><span class=" col2">于梓贝</span>:厉害了，中国人寿</p>
+						<p><span class=" col2">李雅</span>:厉害了，中国人寿</p>
+						<p><span class=" col2 user-name"></span>:笔芯</p>
+
+					</div>
+				</div>
+			</div>
+			<img src="images/page5/user-rs.png" class="vd-uesrimg">
+		</div>				
+
+	</div>
+
+	<img src="images/page5/ps.png" class="none" class="img-ps" id="img-ps"/>
+	<div class="container none" id="container">
+		<div id="aniCanvas"></div>
+	</div>
+	
+	<!-- 海报页面 -->
+	<div class="page6 none">
+		<img src="images/pape6/hz.png" class="poster none">
+		<img src="images/pape6/gz.png" class="poster none">
+		<img src="images/pape6/bj.png" class="poster none">
+		<div id="poster"></div>
+		<div class="error"></div>
+
+	</div>
+
+	<div class="jp none">
+		<div class="st-winning winningbox ba3  none">
+			<img src="images/pape6/close.png" class="close">
+			<div class="st-title">确认选择<span class="city">广州站</span>抽奖赢好礼！</div>
+			<div class="luck-draw">开始抽奖</div>
+		</div>
+		<div class="no-winning winningbox ba3 none">
+			<div class="st-title">很遗憾<br>您未中奖~</div>
+			<div class="st-back">返回首页</div>
+		</div>		
+
+		<form onsubmit="return false">
+			<!-- ip -->
+			<div class="bt prize ba3 none">
+				<div class="fire"><img src="images/pape6/fire.png"></div>
+				<div class="prize-bj">
+					<img src="images/pape6/ip-bj.png">
+					<div class="pr-title">恭喜您！获得iPad mini4</div>
+				</div>
+				<div class="pr-inplsit"><input type="text" name="name" placeholder="请输入您的姓名"><i class="icon-user"></i></div>
+				<div class="pr-inplsit mar1"><input type="number" name="phone" placeholder="请输入您的手机号"><i class="icon-ipone"></i></div>
+				<div class="pr-inplsit pr-inplsitb  mar1">
+					<textarea name="add" placeholder="请输入您的地址"></textarea>
+					<i class="icon-ip"></i>
+				</div>
+				<div class="prompt">注意：实体奖品需要留下真实姓名、联系方式、邮寄地址
+					工作人员将在活动结束后30个工作日内邮寄奖品</div>
+
+				<div class="st-bt">提交信息并返回</div>
+			</div>
+			<!-- 手环 -->
+			<div class="bt prize ba3 none">
+				<div class="fire"><img src="images/pape6/fire.png"></div>
+				<div class="prize-bj">
+					<img src="images/pape6/lb-bj.png">
+					<div class="pr-title">恭喜您！获得华为智能运动手环</div>
+				</div>
+				<div class="pr-inplsit"><input type="text" name="name" placeholder="请输入您的姓名"><i class="icon-user"></i></div>
+				<div class="pr-inplsit mar1"><input type="number" name="phone" placeholder="请输入您的手机号"><i class="icon-ipone"></i></div>
+				<div class="pr-inplsit pr-inplsitb  mar1">
+					<textarea name="add" placeholder="请输入您的地址"></textarea>
+					<i class="icon-ip"></i>
+				</div>
+				<div class="prompt">注意：实体奖品需要留下真实姓名、联系方式、邮寄地址
+					工作人员将在活动结束后30个工作日内邮寄奖品</div>
+				<div class="st-bt">提交信息并返回</div>
+			</div>	
+
+			<!-- 充值 -->
+			<div class="cg prize ba3 none">
+				<div class="fire"><img src="images/pape6/fire.png"></div>
+				<div class="prize-bj">
+					<img src="images/pape6/red-bj.png">
+					<div class="pr-title">恭喜您！获得10元手机流量包</div>
+				</div>
+				<div class="prize-ts">请输入有效手机号，30个工作日内为您充值</div>
+				<div class="pr-inplsit"><input type="text" name="name" placeholder="请输入您的姓名"><i class="icon-user"></i></div>
+				<div class="pr-inplsit mar1"><input type="number" name="phone" placeholder="请输入您的手机号"><i class="icon-ipone"></i></div>
+				<div class="st-bt">提交信息并返回</div>
+			</div>
+
+			<!-- 门票 -->
+			<div class="at prize ba3 none">
+				<div class="fire"><img src="images/pape6/fire.png"></div>
+				<div class="prize-bj">
+					<img src="images/pape6/at-bj.png">
+					<div class="pr-title">恭喜您！<br>获得中国人寿新歌声演唱会门票1张</div>
+				</div>
+				<div class="prize-ts">请输入有效手机号，30个工作日内为您充值</div>
+				<div class="pr-inplsit"><input type="text" name="name" placeholder="请输入您的姓名"><i class="icon-user"></i></div>
+				<div class="pr-inplsit mar1"><input type="number" name="phone" placeholder="请输入您的手机号"><i class="icon-ipone"></i></div>
+				<div class="pr-inplsit pr-inplsitb  mar1">
+					<textarea name="add" placeholder="请输入您的地址"></textarea>
+					<i class="icon-ip"></i>
+				</div>
+				<div class="prompt">注意：实体奖品需要留下真实姓名、联系方式、邮寄地址
+					工作人员将在活动结束后30个工作日内邮寄奖品</div>
+
+				<div class="st-bt">提交信息并返回</div>
+			</div>
+			
+	
+
+
+		</form>		
+	</div>
+
+	<div class="footer none">
+		<img src="images/input.png">
+	</div>
+
+	<!-- 轮播图动画 -->
+	<div class="c_fe none ">
+		<img src="images/pape6/music.png" class="music">
+		<div class="c_bg">
+			<div class="stage"><img src="images/zt/stage.png"></div>
+		</div>
+		
+		<div class="c_s c_s1">
+			<img src="images/zt/light1.png" class="lg">
+			<img src="images/zt/p1.png" class="pe">
+		</div>
+
+		<div class="c_s c_s2 none">
+			<img src="images/zt/light2.png" class="lg">
+			<img src="images/zt/p2.png" class="pe">
+		</div>
+
+		<div class="c_s c_s3 none">
+			<img src="images/zt/light3.png" class="lg">
+			<img src="images/zt/p3.png" class="pe">
+		</div>
+
+		<div>
+			<div class="bt-hz click-bt"></div>
+			<div class="bt-gz click-bt"></div>
+			<div class="bt-bj click-bt"></div>
+		</div>
+
+		<img src="images/page5/hand.png" class="hand animation3 none">
+				
+	</div>
+
+	<div class="mask none"></div>
+	<img src="" class="none sele-img">
+
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script type="text/javascript" src="js/extends.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/layer/mobile/layer.js"></script>
+	<script type="text/javascript" src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+
+	<script type="text/javascript" src="js/main.js?v=4.0"></script>
+	<script type="text/javascript" src="js/TweenMax.min.js"></script>
+	<script type="text/javascript" src="js/delaunay.js"></script>
+	<script type="text/javascript" src="js/fct.js?=6.0"></script>
+	<script type="text/javascript" src="js/share.js?=6.0"></script>
+	<script type="text/javascript" src="js/jquery.jrumble.1.3.min.js"></script>
+
+	<script>
+		var inited = false;		
+		var ua = window.navigator.userAgent.toLowerCase(); 
+		 createjs.Sound.alternateExtensions = ["mp3"];
+	     createjs.Sound.on("fileload", this.loadHandler, this);
+	     createjs.Sound.registerSound("sound/weixin.mp3", "sound");
+
+	     function loadHandler(event) {
+	        if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
+        		inited = true;
+        		wx.ready(function(){
+        			createjs.Sound.play("sound");
+        			$(".font-box").show();
+        		})
+                shareFn();
+	        }else{
+            	createjs.Sound.play("sound");
+        		$(".font-box").show();
+	        }
+	    }
+	</script>
+<!-- 	<script src="//cdn.bootcss.com/eruda/1.2.6/eruda.min.js"></script>
+	<script>eruda.init();</script>	
+ -->
+
+</body>
+</html>

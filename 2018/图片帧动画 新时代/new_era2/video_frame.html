@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>EaselJS Example: Text</title>
+	
+
+	<style type="text/css">
+		body{margin: 0;}
+		video {
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    -o-object-fit: cover;
+		    object-fit: cover;
+		}		
+		button{
+			position: absolute;
+			left: 0;top: 100px;
+			z-index: 999;
+		}
+		.replay{
+			top: 200px;
+		}
+    /*#videoCanvas{display: none;position: absolute;left: -200%;top: -200%;}*/
+		/*#video{display: none;position: absolute;left: -200%;top: -200%;}*/
+	</style>
+	<script src="_assets/js/examples.js"></script>
+
+	<script src="lib/easeljs-NEXT.combined.js"></script>
+	<script type="text/javascript" src="js/createjs-2015.11.26.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.public.js"></script>
+
+
+</head>
+
+<body >
+	
+	<button class="play">播放</button>
+	<button class="replay">到放</button>
+
+	
+<!-- 	<canvas id="testCanvas" width="375px" height="667px"></canvas>
+ -->	<!-- <video id="video" style="position: absolute; opacity: 0;" autoplay loop  controls="" x5-playsinline="" playsinline="" webkit-playsinline="" poster="" preload="auto"></video> -->
+
+<!--  <video x-webkit-airplay="" webkit-playsinline="" playsinline="" class="fade IIV in" id="video" preload="auto" src="http://videooc.tc.qq.com/vcloud1022.tc.qq.com/1022_3452c367ea4c44fcab114d7a60524de5.f0.mp4?vkey=86511FBA88C44CF693B69910741B5B631D147D15E8D48F60989A73148BED8CED418ADFAD136AA497F7DE6EEDDBBC86CCA8422DEA5F8B38A5FB8FA1BFE49E90185D3A6096997AA18916F0C2C0681F28B09B6EC86CEE78233C&amp;sha=0">
+  </video>
+ -->
+ <video id="video" src="video/video1.mp4"  webkit-playsinline="true" playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="landscape" style="object-fit: fill;"></video>
+
+<div class="load">1111</div>
+
+
+	<script type="text/javascript">
+			console.log(1111);
+		$(function(){
+			// $("botton").click(function(){
+			// 	console.log(222);
+			// })
+			var video=$("#video")[0];
+			var endTime=0;
+			var videoFrameArray=[];
+			$(".play").click(function(){
+				$("#video")[0].play();
+				var s=setInterval(function(){
+					// ();
+					if(endTime==video.currentTime){
+						clearInterval(s);
+					}
+					videoFrameArray.push(video.currentTime);
+					console.log(endTime,video.currentTime);
+					endTime=video.currentTime;
+				},1000/18)
+			})
+
+			$(".replay").click(function(){
+				var length=videoFrameArray.length-1;
+				var s=setInterval(function(){
+					length--
+					video.currentTime=videoFrameArray[length];
+					video.play();
+					console.log(videoFrameArray[length]);
+					if(length==0){
+						clearInterval(s);
+					}
+				},1000/18)
+
+			})
+
+		})
+
+	</script>
+</body>
+</html>

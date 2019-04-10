@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+			
+			.play-video{position: absolute;left: 100px;top: 100px;z-index: 99999;}
+			.play-audio{position: absolute;left: 100px;top: 200px;z-index: 99999;}
+
+	</style>
+</head>
+<body>
+	
+	<video src="video/H5-1-2.mp4" id="video" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" webkit-playsinline playsinline x5-playsinline x-webkit-airplay="allow"></video>
+
+	<!-- <audio src="images/music.mp3" id="audio"></audio> -->
+
+	<video src="images/music.mp3" id="audio"></video>
+	
+	<button class="play-video">视频播放</button>
+
+	<button class="play-audio">视音频播放</button>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var video=$("#video")[0];
+			var audio=$("#audio")[0];
+
+
+			$(".play-video").click(function(){
+				console.log(11111);
+				video.play();
+			})
+
+
+			$(".play-audio").click(function(){
+				console.log(2222);
+				audio.play();
+			})
+
+		})
+	</script>
+</body>
+</html>
