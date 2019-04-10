@@ -1,0 +1,34 @@
+@mixin bgImg($src, $position:center center, $size:cover){
+  background:url(../images/#{$src}) #{$position} no-repeat;
+  background-size:#{$size};
+}
+
+// icon 图标
+@mixin icon($w,$h,$url){
+	width: #{$w};
+	height: #{$h};
+	@include bgImg(#{$url});
+	display: inline-block;
+}
+
+
+@mixin abImg($wid,$hei,$ind,$src,$position:center center, $size:cover){
+	width: #{$wid};
+	height:#{$hei};
+	position: absolute;
+	z-index: #{$ind};
+	@include bgImg(#{$src},#{$position},#{$size});
+}
+
+
+@mixin center($wid,$hei,$state:true){
+	width: #{$wid};
+	height: #{$hei};
+	left: 50%;
+	position: absolute;
+	margin-left:-$wid/2;
+	@if $state==true{
+		top: 50%;
+		margin-top:-$hei/2;
+	}
+}
