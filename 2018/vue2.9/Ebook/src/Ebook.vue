@@ -161,9 +161,11 @@
           // this.onProgressChange(100);
         })
       },
+      // 上一页
       prevPage(){
         this.rendition.prev();
       },
+      // 下一页
       nextPage(){
         this.rendition.next();
       },
@@ -213,13 +215,13 @@
         opacity: 0.2;
 
         .left{
-          flex: 0 0 1.5rem;
+          flex: 0 0 35%;
         }
         .center{
           flex: 1;
         }
         .right{
-          flex: 0 0 1.5rem;
+          flex: 0 0 35%;
         }
       }
     }

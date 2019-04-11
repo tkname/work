@@ -10,13 +10,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/Ebook',
       name: 'Ebook',
       component: Ebook
-    }
+    },
+    // {
+    //   path: '/Ebook',
+    //   name: 'Ebook',
+    //   component: Ebook
+    // }
   ]
 })
