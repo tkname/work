@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="./layer/layer.js"></script>
+	<script type="text/javascript" src="./script/extends.js"></script>
+
+	<style type="text/css">
+		.form{
+			width:40%;
+			margin:0 auto;
+			margin-top: 2%;
+			min-width: 200px;
+		}
+		.age input{
+			width:15%;
+		}
+		.btn-submit{
+			margin-top: 20px;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	
+	<form class="form" role="form">
+	  <div class="form-group">
+	    <label for="name">名称</label>
+	    <input type="text" class="form-control" name="name" id="name" placeholder="请输入名称">
+	  </div>
+	  <div class="form-group age">
+	    <label for="name">年龄</label>
+	    <input type="text" class="form-control" name="age" id="age" placeholder="请输入年龄">
+	  </div>
+
+		<div class="form-group">
+				<label for="name">性别</label>
+			<label class="radio-inline">
+					<input type="radio" name="sex" id="optionsRadios3" value="1" checked> 男
+			</label>
+			<label class="radio-inline">
+					<input type="radio" name="sex" id="optionsRadios4"  value="0"> 女
+			</label>
+		</div>
+	  <button type="submit" class="btn btn-default btn-submit">提交</button>
+	</form>
+
+	<script type="text/javascript">
+		$(function(){
+
+			var option = {
+			    rules: {
+			        name: { required: true, maxlength: 16 },
+			        age: { required: true, maxlength: 11 },
+			        sex: { required: true },
+			    },
+			    messages: {
+			        name: { required: '请输入您的真实姓名', maxlength: "姓名长度不能超过16个字符" },
+			        age: { required: '请输入您的年龄'},
+			        sex: { required: '请选择你的性别' },
+			    },
+			    onclick: false,
+			    submitHandler: function (res) {
+						var formData=$(res).form2json();
+						var param={
+							userName :formData.name,
+							age:formData.age,
+							sex:formData.sex
+						};
+						$.ajax({
+							url:"../api/api.php?&action=user-add",
+							type:"get",
+							data:param,
+							dataType:"json",
+							success:function(msg){
+								if(msg.code==200){
+									layer.msg(msg.message);
+								}else{
+									layer.msg("添加失败");
+								}
+							},
+							error:function(msg){
+
+							},
+							complete:function(){
+								isadd=true;
+							}
+						})
+					}
+			};
+
+			//添加验证
+			$('form').validate(option);
+
+			var isadd=true;
+			$('form .btn-submit').click(function (e) {
+					if(!isadd){
+						return false;
+					}
+					e.preventDefault(); //阻止默认事件
+					$(this).parents('form').submit();
+					isadd=false;
+				})
+		})
+	</script>
+
+</body>
+</html>
