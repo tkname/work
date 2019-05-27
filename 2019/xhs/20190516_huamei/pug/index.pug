@@ -1,0 +1,89 @@
+include ../../.public/pug/mixin
+
++head(title="华美", mobile=false, import=false)
+    meta(name="viewport" content="width=1200,initial-scale=0,user-scalable=0")
+    link(rel="stylesheet" href="./image/main.css")
+    link(rel="stylesheet" href="./image/swiper.min.css")
+    script(src="http://www.cq.xinhuanet.com/js/jqthumb.min.js")
+    script(src="./image/swiper.min.js")
+    script(src="./image/main.js")
+
+    -var d = <%=data%>;
+    -var type1 = d.data;  //陆游数据
+    //- -console.log(JSON.parse(data));
+    
+body
+
+  .header-bg
+  .main
+    .main-max
+      .content-type1
+        .header-img
+        .type-img1
+        .content
+          .content-box.clearfix
+            .ct-left
+              .swiper-container.content-swiper1
+                .swiper-wrapper
+                  -for(var i=0;i<5;i++)
+                    .swiper-slide 
+                      .img
+                        a(href="#" target="_blank")
+                          img(src="./image/type1-swiper1.jpg")
+                      .text.pointer
+                        span 文艺复兴时期——大师巨匠横空出世
+                .swiper-pagination
+            .ct-right
+              .top
+                ul
+                  -for(var i=0;i<2;i++)
+                    li
+                      a(href="#" target="_blank")
+                        .title.pointer 2019华美艺术面雕学术研讨会正式启幕
+                      .desc 整形的治疗范围主要是皮肤、肌肉及骨骼等创伤、疾病、先天性或后天性组织或器官的缺陷与畸形。治疗包括修复与再造两个内容。以手术方法进行自体的各种组织移植，也可采用异体、异种组织或组织代用品来修复各种原因所造成的组织缺损或畸形，以改善或恢复生理功能和外貌。整形的治疗范围主要是皮肤、肌肉及骨骼等创伤、疾病、先天性或后天性组织或器官的缺陷与畸形。治疗包括修复与再造两个内容。以手术方法进行自体的各种组织移植，也可采用异体、异种组织或组织代用品来修复各种原因所造成的组织缺损或畸形，以改善或恢复生理功能和外貌。    
+              .bottom
+                ul
+                  -for(var i=0;i<3;i++)
+                    li
+                      .item-list 
+                        a(href="#" target="_blank") “闪耀20年 就要你华美” 郎朗助阵华美20周年视听盛宴
+
+      .content-type2
+        .header-img
+        .type-img2
+        .content
+          ul.clearfix
+            -for(var i=0;i<4;i++)
+              li
+                .img
+                  img(src="./image/type2-people"+(i+1)+".jpg")
+                .ct
+                  .name 姜邯邢
+                  .icon-honor
+                    span.icon-zw
+                    span.text 职务
+                  .desc-zw
+                    | 台湾尼斯诊所抗衰年轻化院长，美博仕（重庆）国际医疗美容创史人，美博仕（重庆）国际医疗美容院长
+                  .icon-honor
+                    span.icon-gd
+                    span.text 观点
+                  .desc-jy
+                    | “我一般不轻易建议或怂恿别人整形。我认为，一个人如果真要整形，至少要具备两个条件：第一是要有基本的分辨能力；知道自己适合什么，而不是盲目”
+                  a(href="#" target="_blank").btn 查看详细
+      .content-type3
+        .header-img
+        .type-img3
+        .content
+          .swiper-container.content-swiper2
+            .swiper-wrapper
+              -for(var i=0;i<5;i++)
+                .swiper-slide.pointer 
+                  .img
+                    a(href="#" target="_blank")
+                      img(src="./image/type3-swiper1.jpg")
+                  .text
+                    span 2019华美艺术面雕学术研讨会正式启幕
+            .swiper-pagination
+          .swiper-button-prev
+          .swiper-button-next
+  script.

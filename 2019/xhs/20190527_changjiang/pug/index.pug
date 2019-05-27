@@ -1,0 +1,169 @@
+include ../../.public/pug/mixin
+
++head(title="涪陵", mobile=false, import=false)
+    meta(name="viewport" content="width=1200,initial-scale=0,user-scalable=0")
+    link(rel="stylesheet" href="./image/main.css")
+    link(rel="stylesheet" href="./image/swiper.min.css")
+
+    script(src="http://www.cq.xinhuanet.com/js/jqthumb.min.js")
+    script(src="./image/swiper.min.js")
+    script(src="./image/main.js")
+    script(src="./image/jquery.superslide.2.1.1.js")
+
+//- -var d = <%=data%>;
+//- -var type2 = d.data.type2;
+//- -var type5 = d.data.type5;
+//- -var type6 = d.data.type6;
+
+
+//- -console.log(type5,111);
+
+body
+
+  .header-bg
+  .nbox
+    a(href="#top") 首页
+    a(href="#type1") 会议聚焦
+    a(href="#type2") 会议议程
+    a(href="#type3") 高清图集
+    a(href="#type4") 会议资料
+    a(href="#type5") 影音集
+  .dy
+  .main
+    .content-type1#type1
+      .type-img1
+      .content
+        .content-box.clearfix
+          .ct-left
+            .swiper-container.content-swiper1
+              .swiper-wrapper
+                -for(var i=0;i<5;i++)
+                  .swiper-slide 
+                    .img
+                      img(src="./image/swiper1-img1.jpg")
+                    .text
+                      a(href="#") 
+                        span 涪陵建设三大国家级平台
+              .swiper-pagination
+              //- .swiper-button-next
+              //- .swiper-button-prev
+          .ct-right
+            .top
+              .title 涪陵建设三大国家级平台
+              .desc 2018年10月国务院正式批复涪陵综保区，综保区规划面积2.7平方公里，共分两期建设，其中一期规划建设面积1.82平方公里，预计总投资32亿元。当前涪陵正加速推进硬件建设、招商引资等相关工作，预计今年9月正式封关运行。2018年10月国务院正式批复涪陵综保区，综保区规划面积2.7平方公里，共分两期建设，其中一期规划建设面积1.82平方公里，预计总投资32亿元。当前涪陵正加速推进硬件建设、招商引资等相关工作，预计今年9月正式封关运行。
+            .bottom
+              ul
+                li 
+                  a(href="#") 办法市政协“委员履职尽责实践活动”
+                li 
+                  a(href="#") 专家库管理实施办法方案市政协开展委员
+                li 
+                  a(href="#") 明查暗访监督性调研视察实施方案综述
+                li 
+                  a(href="#") 综述之江新语 
+                li 
+                  a(href="#") 习近平综述市政协“委员履职尽责实践活动”
+    .content-type2#type2
+      .type-img2
+      .content
+        .m-slide.clearfix
+          .tab
+            ul
+              li
+                a(href="#") 6月10日（星期一）
+              li
+                a(href="#") 6月10日（星期一）
+              li
+                a(href="#") 6月10日（星期一）
+              li
+                a(href="#") 6月10日（星期一）
+              li
+                a(href="#") 6月10日（星期一）
+          ul.img
+            li 
+              img(src="./image/swiper2-img1.jpg")
+            li 
+              img(src="./image/swiper2-img1.jpg")
+            li 
+              img(src="./image/swiper2-img1.jpg")
+            li 
+              img(src="./image/swiper2-img1.jpg")
+            li 
+              img(src="./image/swiper2-img1.jpg")
+    script.
+      jQuery(".m-slide").slide({ titCell:".tab li", mainCell:".img",effect:"fold", autoPlay:false});
+    .content-type3#type3
+      .type-img3
+      .content
+        .swiper-container.content-swiper2
+          .swiper-wrapper
+            -for(var i=0;i<5;i++)
+              .swiper-slide 
+                .img
+                  img(src="./image/swiper3-img1.jpg")
+                .text
+                  a(href="#") 
+                    span 涪陵建设三大国家级平台      
+          .swiper-pagination
+        .swiper-button-next
+        .swiper-button-prev
+    .content-type4#type4
+      .type-img4
+      .content.clearfix
+        .item-left
+          ul
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国   
+           
+        .item-right
+          ul
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+
+    .content-type5#type5
+      .type-img5
+      .box
+        .content
+          .cont-top
+            #prev.btn.prev
+            #next.btn.next
+            #prevTop.btn.prev
+            #nextTop.btn.next
+            .picBox#picBox
+              ul.cf
+                -for(var i=0;i<8;i++)
+                  li
+                    i.arr2
+                    img(src="./image/swiper4-img1.jpg")
+                    h1 
+                      a(href="#") 监督性调研视察实施方案综述
+                    .play
+            .listBox#listBox
+              ul.cf
+                -for(var i=0;i<8;i++)
+                  li
+                    img(src="./image/swiper4-small-img1.jpg")
+        script(src="./image/scroll.js")
+  
+  .footer
+    p 版权所有: 中国人民政治协商会议重庆市委员会
+    p 地址:重庆市渝北区红锦大道68号     邮编:401147
+    p 技术支持：新华网重庆频道　渝ICP备05006522号
+
+  script.

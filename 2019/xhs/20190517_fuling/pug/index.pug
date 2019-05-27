@@ -1,0 +1,165 @@
+include ../../.public/pug/mixin
+
++head(title="涪陵", mobile=false, import=false)
+    meta(name="viewport" content="width=1200,initial-scale=0,user-scalable=0")
+    link(rel="stylesheet" href="./image/main.css")
+    link(rel="stylesheet" href="./image/swiper.min.css")
+
+    script(src="http://www.cq.xinhuanet.com/js/jqthumb.min.js")
+    script(src="./image/swiper.min.js")
+    script(src="./image/main.js")
+    script(src="./image/jquery.superslide.2.1.1.js")
+
+-var d = <%=data%>;
+-var type2 = d.data.type2;
+-var type5 = d.data.type5;
+-var type6 = d.data.type6;
+
+
+//- -console.log(type5,111);
+
+body
+  //- -var d = <%=data%>;
+  //- -var data = "d";  //陆游数据
+  //- -console.log(JSON.parse(data));
+
+  .header-bg
+  .main
+    .main-ct
+      .content-type1
+        .content
+          .content-box.clearfix
+            .ct-left
+              .swiper-container.content-swiper1
+                .swiper-wrapper
+                  -for(var i=0;i<5;i++)
+                    .swiper-slide 
+                      .img
+                        img(src="./image/type1-swiper1.jpg")
+                      .text
+                        span 涪陵建设三大国家级平台
+                .swiper-pagination
+                //- .swiper-button-next
+                //- .swiper-button-prev
+            .ct-right
+              ul
+                li
+                    .title 涪陵建设三大国家级平台
+                    .desc 2018年10月国务院正式批复涪陵综保区，综保区规划面积2.7平方公里，共分两期建设，其中一期规划建设面积1.82平方公里，预计总投资32亿元。当前涪陵正加速推进硬件建设、招商引资等相关工作，预计今年9月正式封关运行。2018年10月国务院正式批复涪陵综保区，综保区规划面积2.7平方公里，共分两期建设，其中一期规划建设面积1.82平方公里，预计总投资32亿元。当前涪陵正加速推进硬件建设、招商引资等相关工作，预计今年9月正式封关运行。
+                li
+                    .title 涪陵建设三大国家级平台
+                    .desc 2018年10月国务院正式批复涪陵综保区，综保区规划面积2.7平方公里，共分两期建设，其中一期规划建设面积1.82平方公里，预计总投资32亿元。当前涪陵正加速推进硬件建设、招商引资等相关工作，预计今年9月正式封关运行。2018年10月国务院正式批复涪陵综保区，综保区规划面积2.7平方公里，共分两期建设，其中一期规划建设面积1.82平方公里，预计总投资32亿元。当前涪陵正加速推进硬件建设、招商引资等相关工作，预计今年9月正式封关运行。,等。
+      .content-type2
+        .type-img2
+        - var data=[{src:"./image/type2-img1.jpg",title:""}]
+        .content 
+          ul.clearfix
+            -console.log()
+            -for(var i=0;i<type2.length;i++)
+              li
+                .img
+                  img(src=""+type2[i].src+"")
+                .title
+                  | #{type2[i].title}
+                .desc
+                  | #{type2[i].desc}
+      .content-type3
+        .type-img3
+        .type-card
+          img(src="./image/report-card.png")
+      .content-type4
+        .type-img4
+        .content
+          ul.clearfix
+            li
+              .img  
+                img(src="./image/type4-2019.png")
+              .desc
+                | 2019年，涪陵力争全年新引进投资亿元以上项目35个，其中战略性新兴产业项目15个、大数据智能化项目16个；投资10亿元以上项目10个、产值50亿元以上项目4个。
+            li
+              .img  
+                img(src="./image/type4-2020.png")
+              .desc
+                | 2020年，涪陵将实现进出口总额100亿元，实际利用外资达到10亿美元。涪陵高新区工业总产值突破1500亿元，年均增长15%以上，高新技术企业达到130家。
+      .content-type5
+        .type-img5
+        .content
+          .content-box.clearfix
+            .ct-left
+              img(src="./image/type5-img.jpg")
+            .ct-right
+              ul
+                li
+                    .desc 2018年10月4日，国务院正式批复设立重庆涪陵综合保税区。重庆涪陵综合保税区是重庆第四个综合保税区，也是主城之外第二个综合保税区。
+                li
+                    .title 定位：“一口岸、两基地”
+                    .desc 长江上游重要的开放口岸、重庆重要的食品医药进出口加工基地、西部地区独具特色的服务贸易示范基地
+                li
+                    .title 产业规划：“3+2+3”
+                    .desc 三大保税加工产业：食品加工、医疗健康、智能制造
+                        br
+                        |  两大保税物流产业：木材、家具环保材料
+                        br
+                        |  三大保税服务贸易产业：跨境电商、进口商品展示交易、总部结算
+          .content-group
+            .nav-box
+              ul.clearfix
+                -for(var i=0;i<type5.length;i++)
+                  -if(i==0)
+                    li.active
+                      .img.pointer
+                        img(src=""+type5[i].src+"")
+                        .title #{type5[i].title}
+                      .desc
+                        | #{type5[i].desc}
+                  -else
+                    li
+                      .img.pointer
+                        img(src=""+type5[i].src+"")
+                        .title #{type5[i].title}
+                      .desc
+                        | #{type5[i].desc}
+            .plane
+              | 截至2019年4月底，涪陵综合保税区已落户项目2个（其中投资协议1个，战略合作协议1个），
+              | 协议总投资37.5亿元，协议产值124亿元，年进出口金额14亿美元。
+            //- .desc-box
+            //-   ul.clearfix
+            //-     -for(var i=0;i<type5.length;i++)
+            //-       li
+            //-         .img
+            //-           img(src=""+type5[i].src+"")
+      .content-type6
+        .type-img6
+        .box
+          .content
+            .cont-top
+              #prev.btn.prev
+              #next.btn.next
+              #prevTop.btn.prev
+              #nextTop.btn.next
+              .picBox#picBox
+                ul.cf
+                  -for(var i=0;i<type6.length;i++)
+                    li.on
+                      i.arr2
+                      img(src=""+type6[i].src+"")
+                      h1 #{type6[i].title}
+            .listBox#listBox
+              ul.cf
+                -for(var i=0;i<type6.length;i++)
+                  -if(i==0)
+                    li.on
+                      i.arr2
+                      img(src=""+type6[i].src+"")
+                  -else
+                    li
+                      i.arr2
+                      img(src=""+type6[i].src+"")
+      script(src="./image/scroll.js")
+      .footer
+        | 新华社主办 版权所有：新华网股份有限公司 Copyright © 2000-2019 XINHUANET.com All Rights Reserved.
+        br
+        |本站所刊登的新华社及新华网各种新闻﹑信息和各种专题专栏资料，均为新华网版权所有，未经协议授权禁止下载使用。
+
+    
+  script.

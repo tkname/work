@@ -1,0 +1,16 @@
+mixin head
+    head
+        meta(charset="utf-8")
+        - if(attributes.mobile)
+            meta(name="viewport",content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+        - if(attributes.title)
+            title=attributes.title
+        - if(attributes.import)
+            link(rel="stylesheet" href="image/main.css?v=")
+        - if(attributes.mobile)
+            script(src="image/rem.js")
+        script(src="image/jquery.min.js")
+        if block
+            block
+        - if(attributes.import)
+            script(src="image/main.js?v=")
