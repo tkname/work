@@ -1,9 +1,18 @@
 $(function(){
 
+    jQuery(".m-slide").slide({ titCell:".tab li", mainCell:".img",effect:"fold", autoPlay:false});
+
     console.log(1111)
+    var bannerswiper = new Swiper('.banner-swiper', {
+      effect : 'fade',
+      autoplay:{
+        delay: 2000,//1秒切换一次
+      }
+    });
+
     var swiper = new Swiper('.content-swiper1', {
         pagination: {
-            el: '.swiper-pagination',
+            el: '.content-swiper1 .swiper-pagination',
             clickable :true,
         },
         effect : 'fade',
@@ -14,7 +23,7 @@ $(function(){
 
     var swiper2 = new Swiper('.content-swiper2', {
       pagination: {
-          el: '.swiper-pagination',
+          el: '.content-swiper2 .swiper-pagination',
           clickable :true,
       },
       navigation: {

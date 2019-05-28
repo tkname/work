@@ -84,7 +84,20 @@ body{
 }
 
 .banner{
-    @include bgImg(100%,5.2rem,"banner1.png")
+    width: 100%;
+    height: 5rem;
+    overflow: hidden;
+    // @include bgImg(100%,5.2rem,"banner1.png");
+    .banner-swiper{
+        .swiper-slide{
+            .img{
+                width: 100%;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
 
 .nav{
@@ -118,6 +131,28 @@ body{
     position:relative;
 }
 
+.more-box{
+    padding: 0 .3rem;
+
+    .item-box{
+        ul li{
+            padding: .3rem 0;
+            height: .3rem;
+            font-size: .3rem;
+            overflow: hidden;
+            border-bottom: 1px solid #dddddd;
+        }
+    }
+}
+
+.type-header{
+    @include bgImg(100%,1.7rem ,"header-line.png",4.85rem .15rem,"center right");
+    // margin:.7rem auto 0 auto;   
+    font-size: .4rem;
+    line-height: 1.7rem;
+    color: #294ba0;
+    border-bottom: 1px solid #dddddd;
+}
 .type-img1{
     @include bgImg(6.9rem,.63rem ,"type1-header.png",100%);
     margin:.7rem auto 0 auto;
@@ -204,31 +239,79 @@ body{
     .content{
         position: relative;
         padding: .2rem;
-        height: 12.3rem;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
-        ul {
-            position: relative;
-            width: 100%;
-            li{
-                background: #fff;
-                width: 3.45rem;
-                position: absolute;
+        .swiper1{
+            width: 6.89rem;
+            height: 4.56rem;
+            overflow: hidden;
+            .swiper-slide{
+                width: 100%;
+                height: 100%;
+                position: relative;
                 .img{
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
                     img{
                         width: 100%;
                     }
+                    .text{
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        font-size: .32rem;
+                        color: #fff;
+                        width: 100%;
+                        height: .6rem;
+                        padding: 0 1.8rem 0 .3rem;
+                        line-height: .6rem;
+                        overflow: hidden;
+                        background: rgba(0, 0, 0, .5);
+                        box-sizing: border-box;
+                    }
                 }
-                .title{
-                    padding: .3rem .3rem 0 .3rem;
-                    font-size: .28rem;
-                    line-height: .35rem;
+            }
+            .swiper-pagination-bullet{
+                background: #fff;
+            }
+            .swiper-pagination-bullet-active{
+                background: #fff;
+            }
+            .swiper-pagination{
+                width: auto;
+                right: .3rem;
+                left: auto;
+            }
+        }
+        .ct-box{
+            ul{
+                li{
+                    border-bottom: 1px solid #dddddd;
+                    padding: .3rem .3rem .3rem .3rem;
+                    .title{
+                        font-size: .3rem;
+                        display: block;
+                        height: .3rem;
+                        line-height: .3rem;
+                        width: 100%;
+                    }
+                    .desc{
+                        margin-top: .3rem;
+                        font-size: .26rem;
+                        line-height: .45rem;
+                        color: #666;
+                        height: 1.22rem;
+                        overflow: hidden;
+                    }
+
                 }
-                .desc{
-                    font-size: .22rem;
-                    padding: .2rem .3rem .3rem .3rem;
-                    line-height: .3rem;
-                    color: #94795d;
+                .more{
+                    color: #999999;
+                    font-size: .3rem;
+                    padding: .3rem 0;
+                    display: block;
                 }
             }
         }
@@ -280,7 +363,7 @@ body{
 
 .content-type3{
     .content{
-        padding-left: .3rem;
+        // padding-left: .3rem;
         .lr-swiper{
             margin-top: .3rem;
             height: 3.91rem;
@@ -288,12 +371,14 @@ body{
             overflow: hidden;
             .swiper-slide{
                 position: relative;
+                width: 80%;
                 a{
                     display: block;
                 }
                 .img{
                     width: 100%;
                     position: relative;
+                    height: 100%;
                     img{
                         width: 100%;
                     }
@@ -310,7 +395,21 @@ body{
                         color: #fff;
                     }
                 }
-
+                
+                &.more{
+                    width: 1rem;
+                    height: 100%;
+                    background: #dddddd;
+                    position: relative;
+                    a{
+                        width: .3rem;
+                        font-size: .3rem;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                    }
+                }
             }
         }
     }

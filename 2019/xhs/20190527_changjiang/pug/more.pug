@@ -1,0 +1,74 @@
+include ../../.public/pug/mixin
+
++head(title="涪陵", mobile=false, import=false)
+    meta(name="viewport" content="width=1200,initial-scale=0,user-scalable=0")
+    link(rel="stylesheet" href="./image/main.css")
+    link(rel="stylesheet" href="./image/swiper.min.css")
+
+    script(src="http://www.cq.xinhuanet.com/js/jqthumb.min.js")
+    script(src="./image/swiper.min.js")
+    script(src="./image/main.js")
+    script(src="./image/jquery.superslide.2.1.1.js")
+
+//- -var d = <%=data%>;
+//- -var type2 = d.data.type2;
+//- -var type5 = d.data.type5;
+//- -var type6 = d.data.type6;
+
+
+//- -console.log(type5,111);
+
+body
+
+  .header-bg
+    .swiper-container.banner-swiper
+      .swiper-wrapper
+        -for(var i=1;i<5;i++)
+          .swiper-slide 
+            .img
+              img(src="./image/banner-img"+i+".png")
+  .nbox
+    a(href="#top") 首页
+    a(href="#type1") 会议聚焦
+    a(href="#type2") 会议议程
+    a(href="#type3") 高清图集
+    a(href="#type4") 会议资料
+    a(href="#type5") 影音集
+  .main
+    .content-type
+      .type-img  会议聚焦
+      .content.clearfix
+        .item-left
+          ul
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国   
+           
+        .item-right
+          ul
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+            li 
+              a(href="#") 为全面贯彻落实习近平新时代中国
+
+    //- .more-box
+    //-     .type-header  会议聚焦
+    //-     .item-box
+    //-         ul
+    //-             -for(var i=0;i<9;i++)
+    //-                 li 
+    //-                     a(href="#") 为全面贯彻落实习近平新时代中国
+  script.

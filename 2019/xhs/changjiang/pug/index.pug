@@ -18,6 +18,13 @@ html
     //- audio(src="images/bg.mp3",id="bg",preload="load")
     .wrapper
       .banner
+        .swiper-container.banner-swiper
+          .swiper-wrapper
+            -for(var i=1;i<5;i++)
+              .swiper-slide
+                a(href="#").img
+                  img(src="./image/banner-img"+i+".png")
+
       .nav
         ul
           //- 会议聚焦        会议议程        高清图集        会议资料                         影音集
@@ -36,35 +43,26 @@ html
           .swiper-slide
             a(href="#type5") 影音集
       .dy
-      .content-type1.gs#type1
+      .content-type1
         .type-img1
         .content
-          ul
-            li
-              .img
-                img(src="./image/type1-img1.png")
-              .title 监督性调研视察实施方案综述
-              .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全国生态环境保护大会精神，
-            li
-              .img
-                img(src="./image/type1-img2.png")
-              .title 监督性调研视察实施方案综述
-              .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全国生态环境保护大会精神，
-            li
-              .img
-                img(src="./image/type1-img3.png")
-              .title 监督性调研视察实施方案综述
-              .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全国生态环境保护大会精神，
-            li
-              .img
-                img(src="./image/type1-img4.png")
-              .title 监督性调研视察实施方案综述
-              .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全国生态环境保护大会精神，
-            li
-              .img
-                img(src="./image/type1-img4.png")
-              .title 监督性调研视察实施方案综述
-              .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全国生态环境保护大会精神，
+          .swiper-container.swiper1
+            .swiper-wrapper
+              -for(var i=1;i<5;i++)
+                .swiper-slide
+                  a(href="#").img
+                    img(src="./image/type1-img.png")
+                    .text 贯彻落实习近平新时代中国特…
+            .swiper-pagination
+          .ct-box
+            ul
+              li 
+                a(href="#").title 贯彻落实习近平新时代中国特色社会主
+                .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全
+              -for(var i=0;i<5;i++)
+                li
+                  a(href="#").title 贯彻落实习近平新时代中国特色社会主
+              a(href="#").more 更多>>
       .content-type2#type2
         .type-img2
         .content
@@ -115,6 +113,8 @@ html
                 a(href="#").img
                   img(src="./image/type3-img1.png")
                   .text 监督性调研视察实施方案综述
+              .swiper-slide.more
+                a(href="#") 查看更多
 
       .content-type4#type4
         .type-img4

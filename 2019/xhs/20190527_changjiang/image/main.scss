@@ -80,7 +80,14 @@ a{
 }
 
 .header-bg{
-    @include bgImg(100%,500px,"banner.jpg")
+    @include bgImg(100%,495px,"banner.jpg");
+    .banner-swiper{
+        width: 100%;
+        height: 495x;
+        img{
+            width: 100%;
+        }
+    }
 }
 
 .mar{
@@ -96,6 +103,45 @@ a{
     border-color:transparent transparent #344d99;/*透明 透明  灰*/
     margin:40px auto;
     position:relative;
+}
+
+.content-type{
+    margin-top: 60px;
+    margin-top: 70px;
+    .content{
+        width: 868px;
+        margin: 48px auto 0 auto;
+        min-height: 264px;
+        .item-left{
+            width: 50%;
+            float: left;
+            ul li{
+                line-height: 40px;
+                width: 100%;
+                overflow: hidden;
+                height: 40px;
+            }
+        }
+        .item-right{
+            width: 50%;
+            float: right;
+            ul li{
+                line-height: 40px;
+                width: 100%;
+                overflow: hidden;
+                height: 40px;
+                padding-left: 113px;
+            }
+        }
+    }
+}
+
+.type-img{
+    @include bgImg(1106px,30px ,"type-header.png",1106px 15px);
+    margin: 0 auto;
+    color: #294ba0;
+    font-size: 30px;
+    text-align: center;
 }
 
 .type-img1{
@@ -309,11 +355,22 @@ a{
                     }
                 }
                 ul.img{
+                    li{
+                        width: 674px;
+                        height: 334px;
+                        // margin: 18px 23px 0 0;
+                        padding: 18px 23px 0 0;
+
+                    }
+    
                     width: 674px;
                     height: 334px;
                     float: right;
-                    margin: 18px 23px 0 0;
-                }                
+                    
+                    img{
+                        width: 100%;
+                    }
+                }             
             }
 
         }
