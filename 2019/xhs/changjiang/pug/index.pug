@@ -2,57 +2,140 @@ html
   head
     meta(charset="utf-8")
     meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
-    title 上新了，五一口号颁布71周年
+    title 长江
     link(href='./image/main.css?v=2',type='text/css',rel='stylesheet')
-    link(href='./image/animate.css?v=2',type='text/css',rel='stylesheet')
-    link(href='./image/icon_wen.css?v=2',type='text/css',rel='stylesheet')
+    link(href='./image/swiper.min.css?v=2',type='text/css',rel='stylesheet')
+
+    //- link(href='./image/animate.css?v=2',type='text/css',rel='stylesheet')
+    //- link(href='./image/icon_wen.css?v=2',type='text/css',rel='stylesheet')
 
     script(type="text/javascript",src="./image/rem.js")
-
+    script(type="text/javascript",src="./image/jquery.min.js?v=2")
+    script(type="text/javascript",src="./image/swiper.min.js?v=2")
+    script(type="text/javascript",src="./image/extends.js?v=2")
+    script(type="text/javascript",src="./image/main.js?v=2")
   body
     //- audio(src="images/bg.mp3",id="bg",preload="load")
     .wrapper
-        .banner
-        .nav
+      .banner
+      .nav
+        ul
+          //- 会议聚焦        会议议程        高清图集        会议资料                         影音集
+      .swiper-container.nav-swiper
+        .swiper-wrapper
+          .swiper-slide
+            a(href="#top") 首页
+          .swiper-slide
+            a(href="#type1") 会议聚焦
+          .swiper-slide
+            a(href="#type2") 会议议程
+          .swiper-slide
+            a(href="#type3") 高清图集
+          .swiper-slide
+            a(href="#type4") 会议资料
+          .swiper-slide
+            a(href="#type5") 影音集
+      .dy
+      .content-type1.gs#type1
+        .type-img1
+        .content
           ul
-            //- 会议聚焦        会议议程        高清图集        会议资料                         影音集
-            li 
-             a(href="#") 首页
-            li 
-             a(href="#") 会议聚焦
-            li 
-             a(href="#") 会议议程
-            li 
-             a(href="#") 高清图集
-            li 
-             a(href="#") 会议资料
-            li 
-             a(href="#") 影音集
+            li
+              .img
+                img(src="./image/type1-img1.png")
+              .title 监督性调研视察实施方案综述
+              .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全国生态环境保护大会精神，
+            li
+              .img
+                img(src="./image/type1-img2.png")
+              .title 监督性调研视察实施方案综述
+              .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全国生态环境保护大会精神，
+            li
+              .img
+                img(src="./image/type1-img3.png")
+              .title 监督性调研视察实施方案综述
+              .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全国生态环境保护大会精神，
+            li
+              .img
+                img(src="./image/type1-img4.png")
+              .title 监督性调研视察实施方案综述
+              .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全国生态环境保护大会精神，
+            li
+              .img
+                img(src="./image/type1-img4.png")
+              .title 监督性调研视察实施方案综述
+              .desc 为全面贯彻落实习近平新时代中国特色社会主义思想和党的十九大精神，贯彻落实中央深入推动长江经济带发展座谈会精神和全国生态环境保护大会精神，
+      .content-type2#type2
+        .type-img2
+        .content
+          .tab-item
+            ul
+              li.on
+                p 6月10日
+                p （星期一）
+              -for(var i=0;i<3;i++)
+                li
+                  p 6月10日
+                  p （星期一）
+          .swiper-container.tab-swiper
+            .swiper-wrapper
+              .swiper-slide
+                .img
+                  img(src="./image/type2-swiper1.png")
+              .swiper-slide
+                .img
+                  img(src="./image/type2-swiper1.png")
+              .swiper-slide
+                .img
+                  img(src="./image/type2-swiper1.png")
+              .swiper-slide
+                .img
+                  img(src="./image/type2-swiper1.png")
+      .content-type3#type3
+        .type-img3
+        .content
+          .swiper-container.lr-swiper
+            .swiper-wrapper
+              .swiper-slide
+                
+                a(href="#").img
+                  img(src="./image/type3-img1.png")
+                  .text 监督性调研视察实施方案综述
+              .swiper-slide
+                a(href="#").img
+                  img(src="./image/type3-img1.png")
+                  .text 监督性调研视察实施方案综述
 
-        .swiper-container
-          .swiper-wrapper
-            .swiper-slide
-              a(href="#") 首页
-            .swiper-slide
-              a(href="#") 会议聚焦
-            .swiper-slide
-              a(href="#") 会议议程
-            .swiper-slide
-              a(href="#") 高清图集
-            .swiper-slide
-              a(href="#") 会议资料
-            .swiper-slide
-              a(href="#") 影音集
+              .swiper-slide
+                a(href="#").img
+                  img(src="./image/type3-img1.png")
+                  .text 监督性调研视察实施方案综述
 
-    script(type="text/javascript",src="./image/jquery.min.js?v=2")
-    script(type="text/javascript",src="./image/TweenMax.min1.16.1.js?v=2")
-    script(type="text/javascript",src="./image/SplitText.min.js?v=2")
-    script(type="text/javascript",src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v=2")
-    script(type="text/javascript",src="./image/createjs-2015.11.26.min.js?v=2")
+              .swiper-slide
+                a(href="#").img
+                  img(src="./image/type3-img1.png")
+                  .text 监督性调研视察实施方案综述
 
-    script(type="text/javascript",src="./image/share.js?v=2")
-    script(type="text/javascript",src="./image/loading.js?v=2")
-    script(type="text/javascript",src="./image/layer/layer.js?v=2")
-    script(type="text/javascript",src="./image/extends.js?v=2")
-
-    script(type="text/javascript",src="./image/main.js?v=2")
+      .content-type4#type4
+        .type-img4
+        .content
+          ul
+            -for(var i=0;i<9;i++)
+              li 
+                a(href="#") 为全面贯彻落实习近平新时代中国
+      .content-type5#type5
+        .type-img5
+        .content
+          ul.clearfix
+            -for(var i=0;i<6;i++)
+              li
+                .img
+                  a(href="#")
+                    img(src="./image/type5-img1.png")
+                a(href="#").play
+                .desc
+                  | 监督性调研视察实施方案综述监督性调研
+      .footer
+        p 版权所有: 中国人民政治协商会议重庆市委员会 
+        p 地址:重庆市渝北区红锦大道68号     邮编:401147
+        p 技术支持：新华网重庆频道　渝ICP备05006522号

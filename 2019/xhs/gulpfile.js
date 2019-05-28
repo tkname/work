@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-const dir = "20190527_changjiang"
+const dir = "changjiang"
     , remUnit     = 0 //PSD宽度/10
     , fs          = require('fs')
     , gulp        = require('gulp')

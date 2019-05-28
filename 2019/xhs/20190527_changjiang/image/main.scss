@@ -435,8 +435,12 @@ a{
     }
 }
 .content-type5  #prevTop, #nextTop{top:240px;width:48px;height:48px;}
-.content-type5  #prevTop{background:url(../image/arrow-left.png) 0 0 no-repeat;}
-.content-type5  #nextTop{background:url(../image/arrow-right.png) 0 0 no-repeat;}
+.content-type5  #prevTop{
+    // background:url(./image/arrow-left.png) 0 0 no-repeat;
+}
+.content-type5  #nextTop{
+    // background:url(./image/arrow-right.png) 0 0 no-repeat;
+}
 .content-type5  .next{
     right: -173px;
     width: 40px;
