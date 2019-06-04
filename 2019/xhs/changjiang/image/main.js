@@ -1,5 +1,9 @@
 $(function(){
 
+    var bannerSwiper = new Swiper('.banner-swiper', {
+    });
+    
+
   var swiper = new Swiper('.nav-swiper', {
     slidesPerView: 4.5,
     spaceBetween: 30,
