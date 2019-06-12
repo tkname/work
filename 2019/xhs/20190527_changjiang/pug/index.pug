@@ -21,6 +21,12 @@ include ../../.public/pug/mixin
 body
 
   .header-bg
+    .swiper-container.banner-swiper
+      .swiper-wrapper
+        -for(var i=1;i<5;i++)
+          .swiper-slide 
+            .img
+              img(src="./image/banner-img"+i+".png")
   .nbox
     a(href="#top") 首页
     a(href="#type1") 会议聚焦
@@ -91,7 +97,7 @@ body
             li 
               img(src="./image/swiper2-img1.jpg")
     script.
-      jQuery(".m-slide").slide({ titCell:".tab li", mainCell:".img",effect:"fold", autoPlay:false});
+      
     .content-type3#type3
       .type-img3
       .content
